@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Derivation · Quadratic Formula | Local Images Ready</title>
+    <!-- KaTeX lightweight rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}] });"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f7fc 0%, #e9eef4 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .card {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .header {
+            background: #0b2b3b;
+            padding: 1.4rem 2rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .header h1:before {
+            content: "∫";
+            font-weight: 400;
+            font-size: 2rem;
+            opacity: 0.85;
+            font-family: monospace;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            margin-top: 0.4rem;
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 2rem 2rem 2.2rem;
+        }
+
+        .step {
+            background: #ffffffdd;
+            border-left: 5px solid #0f6b7c;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.8rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .step-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #0f4c5c;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            background: #eef2f9;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+        }
+
+        .latex-block {
+            margin: 1rem 0 0.6rem 0;
+            font-size: 1.1rem;
+            overflow-x: auto;
+            padding: 0.3rem 0;
+        }
+
+        /* Image styling for local graphs */
+        .figure {
+            margin: 1.5rem 0;
+            text-align: center;
+            background: #fafcfd;
+            border-radius: 1rem;
+            padding: 1rem;
+            border: 1px solid #dce5ec;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .fig-caption {
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: #4a627a;
+            font-style: italic;
+        }
+
+        .two-columns {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        .two-columns > div {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .note {
+            background: #fef6e0;
+            border-radius: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            margin-top: 1.4rem;
+            font-size: 0.85rem;
+            color: #7a5c1a;
+            border-left: 3px solid #f4b942;
+        }
+
+        .info-box {
+            background: #eef2fa;
+            border-radius: 0.8rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-left: 4px solid #0f6b7c;
+        }
+
+        .info-box ul, .info-box ol {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-box li {
+            margin: 0.3rem 0;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #ccc, transparent);
+        }
+
+        .final-box {
+            background: #eaf7f0;
+            border-radius: 1rem;
+            padding: 1.2rem;
+            text-align: center;
+            margin-top: 1.2rem;
+            border: 1px solid #bdd9cf;
+        }
+
+        .folder-structure {
+            background: #1e2a32;
+            color: #e0e0e0;
+            padding: 1rem;
+            border-radius: 0.8rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .folder-structure code {
+            color: #ffd966;
+            background: none;
+        }
+
+        .katex { font-size: 1.05em; }
+        code { background: #eee; padding: 0.1rem 0.3rem; border-radius: 6px; font-family: monospace; }
+
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .content { padding: 1.3rem; }
+            .step { padding: 0.8rem 1rem; }
+            .two-columns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="header">
+        <h1>Quadratic formula · step-by-step</h1>
+        <p>complete the square → general solution | with local images</p>
+    </div>
+    <div class="content">
+        
+        <!-- ============================================== -->
+        <!-- FOLDER STRUCTURE REFERENCE                      -->
+        <!-- ============================================== -->
+        <div class="folder-structure">
+            📁 <strong>Your folder structure (ready for local images):</strong><br>
+            <code>Mathematics/</code><br>
+            <code>├── html/</code><br>
+            <code>│    └── note-template.html</code>  ← this file<br>
+            <code>├── images/</code><br>
+            <code>│    └── graph.png</code>  ← your graph here<br>
+            <code>│    └── parabola-roots.png</code>  ← optional extra graphs<br>
+            <code>└── README.txt</code>
+        </div>
+
+        <div class="step">
+            <div class="step-title">📐 General quadratic equation</div>
+            <div class="latex-block">
+                $$ ax^2 + bx + c = 0 \quad (a \neq 0) $$
+            </div>
+            
+            <!-- ========================================== -->
+            <!-- LOCAL IMAGE EXAMPLE 1: graph.png            -->
+            <!-- Path: ../images/graph.png                  -->
+            <!-- ========================================== -->
+            <div class="figure">
+                <img src="../images/graph.png" 
+                     alt="Quadratic function graph"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect width=%27400%27 height=%27200%27 fill=%27%23f0f0f0%27/%3E%3Ctext x=%2750%27 y=%27100%27 fill=%27%23999%27%3EPlace graph.png in /images/folder%3C/text%3E%3C/svg%3E';">
+                <div class="fig-caption">
+                    <strong>Figure 1:</strong> Graph of $y = ax^2 + bx + c$ (parabola). 
+                    The roots correspond to x‑intercepts.
+                    <br>📁 <code>src="../images/graph.png"</code>
+                </div>
+            </div>
+            
+            <div class="note">
+                💡 Goal: isolate $x$ by <strong>completing the square</strong>.
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">✏️ Step 1 – move constant term</div>
+            <div class="latex-block">
+                $$ ax^2 + bx = -c $$
+            </div>
+            <div class="latex-block">
+                Divide both sides by $a$:
+                $$ x^2 + \frac{b}{a}x = -\frac{c}{a} $$
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">🔲 Step 2 – complete the square</div>
+            <div class="latex-block">
+                Take half of $\frac{b}{a}$, square it: $\left( \frac{b}{2a} \right)^2 = \frac{b^2}{4a^2}$
+            </div>
+            <div class="latex-block">
+                $$ \left( x + \frac{b}{2a} \right)^2 = \frac{b^2 - 4ac}{4a^2} $$
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">⚡ Step 3 – take square root</div>
+            <div class="latex-block">
+                $$ x + \frac{b}{2a} = \pm \frac{ \sqrt{b^2 - 4ac} }{2a} $$
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-title">🎯 Step 4 – isolate $x$</div>
+            <div class="latex-block">
+                $$ x = -\frac{b}{2a} \pm \frac{ \sqrt{b^2 - 4ac} }{2a} $$
+            </div>
+            <div class="final-box">
+                $$ \boxed{ x = \frac{ -b \pm \sqrt{b^2 - 4ac} }{2a} } $$
+                <div style="font-size:0.75rem; margin-top:8px;">✨ quadratic formula — derived by completing the square ✨</div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- MULTIPLE LOCAL IMAGES EXAMPLE                   -->
+        <!-- ============================================== -->
+        <div class="step">
+            <div class="step-title">📊 Visualizing the discriminant $\Delta = b^2 - 4ac$</div>
+            <div class="two-columns">
+                <div class="figure" style="margin:0">
+                    <!-- Example with another local image -->
+                    <img src="../images/parabola-roots.png" 
+                         alt="Parabola with two real roots"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="fig-caption" style="display:none;">⚠️ Add parabola-roots.png to /images/ folder</div>
+                    <div class="fig-caption">
+                        $\Delta > 0$ → two real roots<br>
+                        📁 <code>../images/parabola-roots.png</code>
+                    </div>
+                </div>
+                <div class="figure" style="margin:0">
+                    <!-- You can also reference the same graph.png -->
+                    <img src="../images/graph.png" 
+                         alt="Quadratic graph"
+                         onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27280%27 height=%27180%27%3E%3Crect width=%27280%27 height=%27180%27 fill=%27%23f9f9f9%27/%3E%3Ctext x=%2730%27 y=%2790%27 fill=%27%23666%27 font-size=%2712%27%3EPlace your graph in /images/%3C/text%3E%3C/svg%3E';">
+                    <div class="fig-caption">
+                        $\Delta$ determines nature of roots<br>
+                        📁 <code>../images/graph.png</code>
+                    </div>
+                </div>
+            </div>
+            <div class="note" style="margin-top:0.5rem">
+                📌 <strong>Discriminant rule:</strong> 
+                $\Delta > 0$ → two real solutions &nbsp;|&nbsp; 
+                $\Delta = 0$ → one double root &nbsp;|&nbsp; 
+                $\Delta < 0$ → complex conjugate roots.
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- COMPLETE PATH REFERENCE GUIDE                   -->
+        <!-- ============================================== -->
+        <div class="info-box" style="background:#e8f0fe;">
+            <strong>📁 LOCAL IMAGE PATHS — How they work with your structure:</strong>
+            
+            <div style="margin-top: 12px;">
+                <strong>Your current file:</strong> <code>Mathematics/html/note-template.html</code><br>
+                <strong>Your image folder:</strong> <code>Mathematics/images/</code>
+            </div>
+
+            <ul style="margin-top: 12px;">
+                <li><strong>✅ Correct relative path (go up one level, then into images):</strong><br>
+                    <code>&lt;img src="../images/graph.png"&gt;</code>
+                </li>
+                <li><strong>Alternative if HTML is in same folder as images:</strong><br>
+                    <code>&lt;img src="images/graph.png"&gt;</code> (only if HTML is inside Mathematics/ directly)
+                </li>
+                <li><strong>Absolute path (less portable, but works):</strong><br>
+                    <code>&lt;img src="C:/Users/You/Documents/Mathematics/images/graph.png"&gt;</code>
+                </li>
+            </ul>
+
+            <div style="margin-top: 12px; padding: 8px; background: white; border-radius: 8px;">
+                💡 <strong>Quick setup:</strong>
+                <ol style="margin-left: 1.2rem; margin-top: 5px;">
+                    <li>Save this HTML file as <code>Mathematics/html/note-template.html</code></li>
+                    <li>Put your graph image as <code>Mathematics/images/graph.png</code></li>
+                    <li>Open the HTML in a browser — your graph will appear!</li>
+                    <li>Convert with Sejda: upload both the HTML and the images folder, or ZIP the entire Mathematics folder</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- ADD MORE GRAPHS - TEMPLATE                      -->
+        <!-- ============================================== -->
+        <div class="step" style="background:#faf5eb;">
+            <div class="step-title">📈 Add your custom graphs here</div>
+            <div class="figure">
+                <!-- 
+                    🔽 REPLACE THIS with your actual graph file path
+                    For multiple images, just copy this block
+                -->
+                <img src="../images/your-graph-name.png" 
+                     alt="Your custom mathematical graph"
+                     onerror="this.style.opacity='0.5'; this.title='Place your PNG in /images/ folder';">
+                <div class="fig-caption">
+                    <strong>Your graph:</strong> Replace <code>your-graph-name.png</code> with your actual filename.<br>
+                    Example naming: <code>parabola-example.png</code>, <code>roots-visual.png</code>, <code>discriminant-graph.png</code>
+                </div>
+            </div>
+            
+            <!-- Template for adding another graph -->
+            <div class="figure">
+                <img src="../images/second-graph.png" 
+                     alt="Second graph example"
+                     onerror="this.style.display='none';">
+                <div class="fig-caption">
+                    📁 Add as many graphs as you need — just copy the <code>&lt;div class="figure"&gt;</code> block.
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- SEJDA CONVERSION NOTES                          -->
+        <!-- ============================================== -->
+        <div class="info-box" style="background:#e0f0e8; border-left-color:#2e7d64;">
+            <strong>🖨️ Converting to PDF with Sejda (local images):</strong>
+            <ul style="margin-top: 8px;">
+                <li><strong>Method 1 (recommended):</strong> ZIP the entire <code>Mathematics/</code> folder → upload ZIP to Sejda → all images will be embedded correctly.</li>
+                <li><strong>Method 2:</strong> Upload HTML + images separately using Sejda's "HTML to PDF" tool with multiple file selection.</li>
+                <li><strong>Method 3 (simplest for testing):</strong> Open HTML in Chrome → Print → "Save as PDF" → images will be included.</li>
+            </ul>
+            <div style="margin-top: 8px; font-size: 0.8rem;">
+                ✅ <strong>Path check:</strong> If images don't appear in the browser, verify that <code>../images/</code> correctly points to your image folder.
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1rem; margin-bottom: 0.5rem; font-size: 0.8rem; color: #6c86a3; border-top: 1px solid #e0e6ed; padding-top: 1rem;">
+            📐 Ready for local images — place your .png files in <code>Mathematics/images/</code> and they will appear above.
+        </div>
+    </div>
+</div>
+</body>
+</html>
