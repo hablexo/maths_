@@ -1,0 +1,3118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Geography Chapter 1 | Qeleme Exams</title>
+    <!-- KaTeX CSS + JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false},{left: '\\(', right: '\\)', display: false},{left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a1f1a;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Each slide is a complete, self-contained card */
+        .slide {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+            padding: 32px 38px 50px 38px;
+            margin-bottom: 40px;
+            border: 1px solid #2a5a4a;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .slide:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide {
+            isolation: isolate;
+        }
+        
+        .slide::before {
+            content: "QELEME EXAMS";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-family: 'Segoe UI', 'Georgia', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: rgba(91, 192, 168, 0.12);
+            pointer-events: none;
+            z-index: 10000;
+            white-space: nowrap;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: none;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slide * {
+            z-index: auto !important;
+        }
+        
+        .slide :not(.slide::before) {
+            z-index: auto;
+        }
+        
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slide .col, .slide .math-block, .slide .callout, .slide .image-figure, .slide .two-columns {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slide-footer {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(155, 199, 187, 0.55);
+            font-family: monospace;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f5d742;
+            margin-bottom: 10px;
+            border-left: 5px solid #5bc0a8;
+            padding-left: 20px;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #f5d742;
+            margin-bottom: 22px;
+            padding-left: 26px;
+            border-bottom: 1px solid #2a5a4a;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: #f5d742;
+            margin: 18px 0 12px 0;
+            border-left: 3px solid #5bc0a8;
+            padding-left: 14px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f5e29e;
+            margin: 10px 0 6px 0;
+        }
+
+        p, li, .bullet-list li, .compact-list li, .callout, .math-block, .image-caption, .col p, .col li, td, th {
+            color: #ffffff;
+        }
+        
+        .math-block .katex, .math-block .katex * {
+            color: #ffffff;
+        }
+        
+        .highlight {
+            background: #1a4036;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            display: inline-block;
+            color: #ffffff;
+        }
+
+        .blue-highlight {
+            color: #6bc8ff !important;
+            font-weight: 600;
+        }
+        
+        .red-highlight {
+            color: #ff8a7a !important;
+            font-weight: 600;
+        }
+        
+        .orange-highlight {
+            color: #ffb347 !important;
+            font-weight: 600;
+        }
+        
+        strong.blue-highlight, b.blue-highlight {
+            color: #6bc8ff !important;
+        }
+        strong.red-highlight, b.red-highlight {
+            color: #ff8a7a !important;
+        }
+        
+        .bullet-list {
+            list-style: none;
+            margin: 8px 0 14px 0;
+            padding-left: 0;
+        }
+        .bullet-list li {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5bc0a8;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .compact-list {
+            list-style: none;
+            margin: 6px 0 10px 0;
+            padding-left: 0;
+        }
+        .compact-list li {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .compact-list li::before {
+            content: "◦";
+            position: absolute;
+            left: 0;
+            color: #7acfb8;
+            font-size: 0.9rem;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin: 14px 0;
+        }
+        .col {
+            background: #0f2c23;
+            border-radius: 20px;
+            padding: 16px 18px;
+            border: 1px solid #2a5a4a;
+        }
+        .col .bullet-list li::before {
+            color: #5bc0a8;
+        }
+
+        .math-block {
+            background: #0a241d;
+            padding: 14px 18px;
+            border-radius: 18px;
+            margin: 14px 0;
+            border-left: 5px solid #5bc0a8;
+            overflow-x: auto;
+            font-size: 1rem;
+        }
+        .math-block .katex {
+            font-size: 1em;
+        }
+
+        .callout {
+            background: #0e2a22;
+            border-left: 5px solid #5bc0a8;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 14px 0;
+            font-size: 0.95rem;
+        }
+
+        .image-figure {
+            margin: 16px 0;
+            text-align: center;
+        }
+        .image-figure img {
+            max-width: 65%;
+            height: auto;
+            max-height: 170px;
+            border-radius: 12px;
+            border: 1px solid #3a7a64;
+            background: #0a241d;
+            object-fit: contain;
+        }
+        .image-caption {
+            font-size: 0.75rem;
+            color: #9bc7bb;
+            margin-top: 5px;
+        }
+        .image-placeholder-note {
+            background: #0a241d;
+            border-radius: 12px;
+            padding: 10px 16px;
+            text-align: center;
+            margin: 12px 0;
+            border: 1px dashed #5bc0a8;
+            color: #9bc7bb;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f2c23;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #2a5a4a;
+            padding: 6px 8px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 0.85rem;
+        }
+        th {
+            background: #1a4036;
+            color: #f5d742;
+        }
+
+        .inline-arrow {
+            font-weight: 500;
+            color: #8bcbae;
+            margin: 0 2px;
+        }
+        
+        @media (max-width: 750px) {
+            .slide { padding: 24px 22px 50px 22px; }
+            .two-columns { grid-template-columns: 1fr; gap: 16px; }
+            .slide-title { font-size: 1.7rem; }
+            h2 { font-size: 1.3rem; }
+            h3 { font-size: 1.1rem; }
+            .image-figure img { max-width: 80%; max-height: 140px; }
+            .slide::before { font-size: 2rem; letter-spacing: 4px; opacity: 0.6; }
+            .slide-footer { font-size: 0.55rem; bottom: 8px; }
+            .bullet-list li { font-size: 0.9rem; }
+            .compact-list li { font-size: 0.85rem; }
+            .callout { font-size: 0.85rem; }
+        }
+
+        @media print {
+            html, body {
+                background: #0a1f1a;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body {
+                background: #0a1f1a;
+                padding: 0;
+            }
+            
+            .slide {
+                position: relative;
+                background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+                border: 1px solid #2a5a4a;
+                box-shadow: none;
+                margin: 0;
+                margin-bottom: 0;
+                padding: 0.35in 0.4in 0.55in 0.4in;
+                border-radius: 0;
+                page-break-after: always;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                isolation: isolate;
+                max-width: 100%;
+            }
+            
+            .slide:last-child {
+                page-break-after: auto;
+            }
+            
+            .slide::before {
+                content: "QELEME EXAMS";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-25deg);
+                font-size: 3rem;
+                font-weight: 800;
+                color: rgba(91, 192, 168, 0.25);
+                white-space: nowrap;
+                letter-spacing: 6px;
+                z-index: 10000;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .slide-footer {
+                position: absolute;
+                bottom: 12px;
+                left: 0;
+                right: 0;
+                font-size: 0.55rem;
+                color: rgba(155, 199, 187, 0.6);
+                text-align: center;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                z-index: 1;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            @page {
+                size: portrait;
+                margin: 0.25in;
+                background: #0a1f1a;
+            }
+            
+            .image-figure img {
+                max-height: 140px;
+                max-width: 55%;
+            }
+            
+            .slide > * {
+                z-index: 1;
+                position: relative;
+            }
+        }
+
+        .katex { color: #ffffff; }
+        .katex .mord, .katex .mbin, .katex .mrel { color: #f0f9f5; }
+    </style>
+</head>
+<body>
+
+
+
+  <!-- Cover Page -->
+
+<div class="slide" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0a2a1f 0%, #071a12 100%); padding: 60px 40px;">
+    <div class="slide-footer" style="position: absolute; bottom: 20px; left: 0; right: 0;">© 2019 All Rights Reserved | Qeleme Exams App</div>
+    
+    <!-- Logo Image -->
+    <div style="width: 120px; height: 120px; margin-bottom: 30px;">
+        <img src="Qeleme_Exams.png" alt="Qeleme Exams Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; box-shadow: 0 20px 35px -8px rgba(0,0,0,0.4), 0 0 0 4px rgba(91,192,168,0.2);">
+    </div>
+    
+    <!-- App Name -->
+    <div style="margin-bottom: 20px;">
+        <span style="font-size: 1.2rem; font-weight: 500; color: #5bc0a8; letter-spacing: 4px; text-transform: uppercase;">Qeleme Exams</span>
+    </div>
+    
+    <!-- Main Title -->
+    <h1 style="font-size: 3.2rem; font-weight: 800; color: #f5d742; margin: 15px 0 10px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); letter-spacing: -0.5px;">
+        Mathematics <br>for <br>Natural 
+Sciences
+    </h1>
+    
+    <div style="width: 80px; height: 3px; background: #5bc0a8; margin: 20px auto;"></div>
+    
+    <h2 style="font-size: 2rem; font-weight: 600; color: #ffffff; margin: 10px 0 25px 0; border-left: none; padding-left: 0;">
+        Chapter 1
+    </h2>
+    
+    <div style="background: rgba(91,192,168,0.15); padding: 12px 28px; border-radius: 50px; margin-bottom: 40px; border: 1px solid rgba(91,192,168,0.3);">
+        <span style="font-size: 1rem; color: #9bc7bb; letter-spacing: 1px;">Propositional Logic and Set Theory </span>
+    </div>
+    
+    <!-- Prepared by line -->
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(91,192,168,0.3); width: 80%;">
+        <p style="font-size: 0.85rem; color: #9bc7bb; margin: 5px 0;">
+            <strong style="color: #f5d742;">Prepared by Qeleme Exams - Learn. Practice. Win</strong>
+        </p>
+        <p style="font-size: 0.75rem; color: #6a9e8e; margin-top: 10px;">
+             Interactive Learning Resource 
+        </p>
+    </div>
+    
+    <!-- Decorative dots -->
+    <div style="position: absolute; bottom: 80px; left: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+    <div style="position: absolute; top: 80px; right: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Contents</div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 20px;">
+        <!-- Left Column -->
+        <div style="background: rgba(15,44,35,0.6); border-radius: 24px; padding: 22px 26px; border: 1px solid rgba(91,192,168,0.25);">
+            <h3 style="color: #f5d742; margin-bottom: 20px; font-size: 1.2rem;">Propositional Logic</h3>
+            <ul style="list-style: none; padding-left: 0; margin: 0;">
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Definition of Propositions</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Logical Connectives (∧, ∨, →, ↔, ¬)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Compound Propositions</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Logical Equivalence</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Tautology and Contradiction</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Open Propositions and Quantifiers</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Universal and Existential Quantifiers</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Quantifiers in Combinations</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Argument and Validity</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Rules of Inference</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Formal Proof of Validity</li>
+            </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div style="background: rgba(15,44,35,0.6); border-radius: 24px; padding: 22px 26px; border: 1px solid rgba(91,192,168,0.25);">
+            <h3 style="color: #f5d742; margin-bottom: 20px; font-size: 1.2rem;">Set Theory</h3>
+            <ul style="list-style: none; padding-left: 0; margin: 0;">
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> The Concept of a Set</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Description of Sets (4 methods)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Empty Set (∅)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Subset (⊆) and Proper Subset (⊂)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Equality of Sets</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Power Set P(A)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Universal Set (U)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Set Operations (∪, ∩, - , Δ)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Complement (A′)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Laws of Complements (De Morgan)</li>
+                <li style="margin-bottom: 12px; font-size: 0.9rem; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: #5bc0a8;">▹</span> Venn Diagrams</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© 2019 All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Propositional Logic</div>
+    <div class="subhead">Definition and Examples of Propositions</div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Propositional Logic</span> (also called symbolic logic) → a formal way of reasoning that focuses on the <span class="red-highlight">form of statements</span> rather than their meaning</li>
+        <li>Helps us judge if a chain of reasoning (like a proof) is <span class="blue-highlight">correct</span></li>
+        <li>Ignores "meaning" and only checks the <span class="orange-highlight">truth structure</span> of statements</li>
+        <li>Mathematics often uses logic to check whether an argument is <span class="blue-highlight">valid or not</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.1</span><br>
+        A <span class="red-highlight">proposition</span> (or statement) is a sentence that has a <span class="blue-highlight">truth value</span>:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>either <span class="blue-highlight">True (T)</span></li>
+            <li>or <span class="blue-highlight">False (F)</span></li>
+            <li>(but not both at the same time)</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Look at some sentences:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>"2 is an even number" → <span class="blue-highlight">True</span></li>
+                <li>"A triangle has four sides" → <span class="red-highlight">False</span></li>
+                <li>"The 1000th digit of π is 7" → truth unknown, but must be either <span class="blue-highlight">true or false</span></li>
+                <li>"May God bless you!" → <span class="red-highlight">exclamation</span> → no truth value</li>
+                <li>"Give me that book" → <span class="red-highlight">command</span> → no truth value</li>
+                <li>"What is your name?" → <span class="red-highlight">question</span> → no truth value</li>
+            </ul>
+        </li>
+        <li>The first three are <span class="blue-highlight">declarative sentences</span> (they claim something)</li>
+        <li>The last three are <span class="red-highlight">not propositions</span> because they don't have truth values</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Important Notes</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Not all propositions have truth values we can easily determine</li>
+            <li>Example: "The 1000th digit of π is 7" → this is a proposition, but we may need to check it to know whether it's true or false</li>
+            <li>What matters: A proposition must always be <span class="red-highlight">capable of being true or false</span>, even if we don't know which one</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Remark</span><br>
+        Every proposition has <span class="red-highlight">one and only one</span> truth value:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="blue-highlight">True (T)</span> or</li>
+            <li><span class="blue-highlight">False (F)</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="slide">
+    <div class="slide-footer">© 2019 All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Logical Connectives</div>
+    <div class="subhead">Building Compound Statements</div>
+
+    <ul class="bullet-list">
+        <li>In mathematics (and in everyday language), we often build new statements by combining <span class="blue-highlight">simple propositions</span></li>
+        <li>We do this using <span class="red-highlight">logical connectives</span> such as:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="blue-highlight">NOT (¬)</span> → <span class="orange-highlight">negation</span></li>
+                <li><span class="blue-highlight">AND (∧)</span> → <span class="orange-highlight">conjunction</span></li>
+                <li><span class="blue-highlight">OR (∨)</span> → <span class="orange-highlight">disjunction</span></li>
+                <li><span class="blue-highlight">IF … THEN (→)</span> → <span class="orange-highlight">implication</span></li>
+                <li><span class="blue-highlight">IF AND ONLY IF (↔)</span> → <span class="orange-highlight">biconditional</span></li>
+            </ul>
+        </li>
+        <li>These five are the <span class="blue-highlight">fundamental connectives</span> of propositional logic</li>
+        <li>We usually use letters like <span class="red-highlight">p, q, r, s</span> to represent propositions</li>
+    </ul>
+
+    <h2>Conjunction (AND: ∧)</h2>
+    <ul class="bullet-list">
+        <li>When two propositions are joined with <span class="blue-highlight">"and"</span>, the result is a <span class="red-highlight">conjunction</span></li>
+        <li>Symbol: <span class="orange-highlight">p ∧ q</span></li>
+        <li>Read as: "<span class="blue-highlight">p and q</span>" or "conjunction of p and q"</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Truth Rule</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">p ∧ q</span> is <span class="blue-highlight">TRUE</span> only if <span class="red-highlight">both p and q are TRUE</span></li>
+            <li>If either (or both) are false → the whole conjunction is <span class="red-highlight">FALSE</span></li>
+        </ul>
+    </div>
+
+    <h3>Truth Table for Conjunction</h3>
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>p ∧ q</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td></tr>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="red-highlight">F</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let <span class="red-highlight">p</span>: "2 is an even number" (<span class="blue-highlight">True</span>)<br>
+        Let <span class="red-highlight">q</span>: "3 is a prime number" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">p ∧ q</span> = "2 is an even number AND 3 is a prime number"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>, since both statements are true
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Let <span class="red-highlight">p</span>: "A triangle has 4 sides" (<span class="red-highlight">False</span>)<br>
+        Let <span class="red-highlight">q</span>: "5 > 2" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">p ∧ q</span> = "A triangle has 4 sides AND 5 > 2"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>, because the first statement is false (even though the second is true)
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 3</span><br>
+        Let <span class="red-highlight">p</span>: "4 is an odd number" (<span class="red-highlight">False</span>)<br>
+        Let <span class="red-highlight">q</span>: "6 < 3" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">p ∧ q</span> = "4 is an odd number AND 6 < 3"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>, because both statements are false
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Idea</span><br>
+        Conjunction (∧) requires <span class="red-highlight">both parts to be true</span>. If one part fails, the whole statement fails.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Disjunction (OR: ∨)</h2>
+    
+    <ul class="bullet-list">
+        <li>When two propositions are joined with <span class="blue-highlight">"or"</span>, the result is a <span class="red-highlight">disjunction</span></li>
+        <li>Symbol: <span class="orange-highlight">p ∨ q</span></li>
+        <li>Read as:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>"<span class="blue-highlight">p or q</span>"</li>
+                <li>or "<span class="blue-highlight">disjunction of p and q</span>"</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Truth Rule</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">p ∨ q</span> is <span class="red-highlight">FALSE</span> only when <span class="red-highlight">both p and q are FALSE</span></li>
+            <li>Otherwise, it is <span class="blue-highlight">TRUE</span> (if at least one of them is true)</li>
+        </ul>
+    </div>
+
+    <h3>Truth Table for Disjunction</h3>
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>p ∨ q</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="red-highlight">F</td>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let <span class="red-highlight">p</span>: "3 is an odd number" (<span class="blue-highlight">True</span>)<br>
+        Let <span class="red-highlight">q</span>: "27 is a prime number" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">p ∨ q</span> = "3 is an odd number OR 27 is a prime number"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>, since p is true (even though q is false)
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Let <span class="red-highlight">q</span>: "27 is a prime number" (<span class="red-highlight">False</span>)<br>
+        Let <span class="red-highlight">s</span>: "Nairobi is the capital city of Ethiopia" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">q ∨ s</span> = "27 is a prime number OR Nairobi is the capital city of Ethiopia"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>, since both q and s are false
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Important Note on "OR"</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>In everyday English, "or" can mean <span class="red-highlight">exclusive or</span> (one or the other, but not both)</li>
+            <li>Example: "I will go to the football match OR I will go to the cinema this afternoon" → probably means one but not both</li>
+            <li>In <span class="blue-highlight">propositional logic</span>, however, "or" is <span class="red-highlight">inclusive</span>:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>It allows <span class="blue-highlight">one or the other, or both</span> to be true</li>
+                    <li>The only time it is false is when <span class="red-highlight">both are false</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Idea</span><br>
+        Disjunction (∨) is flexible – it is true as long as <span class="red-highlight">at least one part is true</span>.
+    </div>
+</div>
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Implication (→)</h2>
+    
+    <ul class="bullet-list">
+        <li>When two propositions are joined with <span class="blue-highlight">"implies"</span>, the result is called a <span class="red-highlight">logical implication</span> (or conditional statement)</li>
+        <li>Symbol: <span class="orange-highlight">p → q</span></li>
+        <li>Read as:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>"<span class="blue-highlight">p implies q</span>"</li>
+                <li>or "<span class="blue-highlight">If p, then q</span>"</li>
+            </ul>
+        </li>
+        <li>Here:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="red-highlight">p</span> = hypothesis / antecedent</li>
+                <li><span class="blue-highlight">q</span> = conclusion / consequent</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Truth Rule</span><br>
+        The statement <span class="orange-highlight">p → q</span> is false only when:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">p is True</span> and</li>
+            <li><span class="red-highlight">q is False</span></li>
+        </ul>
+        In all other cases, the implication is considered <span class="blue-highlight">True</span>.
+    </div>
+
+    <h3>Truth Table for Implication</h3>
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>p → q</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let <span class="red-highlight">p</span>: "3 is an odd number" (<span class="blue-highlight">True</span>)<br>
+        Let <span class="red-highlight">q</span>: "27 is a prime number" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">p → q</span> = "If 3 is an odd number, then 27 is prime"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>, because p is true but q is false
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Let <span class="red-highlight">p</span>: "3 is an odd number" (<span class="blue-highlight">True</span>)<br>
+        Let <span class="red-highlight">r</span>: "Addis Ababa is the capital city of Ethiopia" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">p → r</span> = "If 3 is an odd number, then Addis Ababa is the capital city of Ethiopia"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>, since p is true and r is true
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 3</span><br>
+        Let <span class="red-highlight">q</span>: "27 is a prime number" (<span class="red-highlight">False</span>)<br>
+        Let <span class="red-highlight">r</span>: "Addis Ababa is the capital city of Ethiopia" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">q → r</span> = "If 27 is prime, then Addis Ababa is the capital city of Ethiopia"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>, because the antecedent q is false (which makes the whole implication true by definition)
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Different Ways to Express p → q</span><br>
+        The conditional statement <span class="orange-highlight">p → q</span> can be phrased in many ways:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>If p, then q</li>
+            <li>p implies q</li>
+            <li>q if p</li>
+            <li>p only if q</li>
+            <li>p is <span class="blue-highlight">sufficient</span> for q</li>
+            <li>q is <span class="blue-highlight">necessary</span> for p</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Idea</span><br>
+        An implication only fails when the <span class="red-highlight">hypothesis is true but the conclusion is false</span>. In every other case, it holds true.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Bi-implication (↔)</h2>
+    
+    <ul class="bullet-list">
+        <li>When two propositions are joined with the connective <span class="blue-highlight">"if and only if"</span>, the result is called a <span class="red-highlight">bi-implication</span> (or logical equivalence)</li>
+        <li>Symbol: <span class="orange-highlight">p ↔ q</span></li>
+        <li>Read as:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>"<span class="blue-highlight">p if and only if q</span>" (often written as p iff q)</li>
+                <li>or "<span class="blue-highlight">p is equivalent to q</span>"</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Truth Rule</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">p ↔ q</span> is <span class="blue-highlight">TRUE</span> if <span class="red-highlight">p and q have the same truth value</span> (both true or both false)</li>
+            <li><span class="red-highlight">p ↔ q</span> is <span class="red-highlight">FALSE</span> if <span class="red-highlight">p and q have different truth values</span></li>
+        </ul>
+    </div>
+
+    <h3>Truth Table for Bi-implication</h3>
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>p ↔ q</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let <span class="red-highlight">p</span>: "2 is greater than 3" (<span class="red-highlight">False</span>)<br>
+        Let <span class="red-highlight">q</span>: "5 is greater than 4" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">p ↔ q</span> = "2 is greater than 3 if and only if 5 is greater than 4"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>, since they have different truth values
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Let <span class="red-highlight">p</span>: "3 is an odd number" (<span class="blue-highlight">True</span>)<br>
+        Let <span class="red-highlight">q</span>: "2 is a prime number" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">p ↔ q</span> = "3 is an odd number if and only if 2 is a prime number"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>, since both are true
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 3</span><br>
+        Let <span class="red-highlight">p</span>: "4 is an even number" (<span class="blue-highlight">True</span>)<br>
+        Let <span class="red-highlight">q</span>: "7 is an even number" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">p ↔ q</span> = "4 is an even number if and only if 7 is an even number"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>, since one is true and the other is false
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Different Ways to Say p ↔ q</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>p if and only if q (p iff q)</li>
+            <li>p implies q and q implies p</li>
+            <li>p is <span class="blue-highlight">necessary and sufficient</span> for q</li>
+            <li>q is <span class="blue-highlight">necessary and sufficient</span> for p</li>
+            <li>p is equivalent to q</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Idea</span><br>
+        Bi-implication requires <span class="red-highlight">both sides to match</span>. If they agree (both true or both false), the whole statement is true.
+    </div>
+</div>
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Negation (¬)</h2>
+    
+    <ul class="bullet-list">
+        <li>Given any proposition <span class="red-highlight">p</span>, we can form its <span class="blue-highlight">negation</span>, written <span class="orange-highlight">¬p</span> (or sometimes ~p)</li>
+        <li>The negation simply means <span class="red-highlight">"not p"</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Truth Rule</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>If <span class="red-highlight">p</span> is <span class="blue-highlight">True (T)</span> → <span class="red-highlight">¬p</span> is <span class="red-highlight">False (F)</span></li>
+            <li>If <span class="red-highlight">p</span> is <span class="red-highlight">False (F)</span> → <span class="red-highlight">¬p</span> is <span class="blue-highlight">True (T)</span></li>
+        </ul>
+    </div>
+
+    <h3>Truth Table for Negation</h3>
+    <table>
+        <thead>
+            <tr><th>p</th><th>¬p</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td>
+        </tbody>
+    </table>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let <span class="red-highlight">p</span>: "Addis Ababa is the capital city of Ethiopia" (<span class="blue-highlight">True</span>)<br>
+        <span class="orange-highlight">¬p</span> = "Addis Ababa is not the capital city of Ethiopia"<br>
+        <span class="red-highlight">Answer:</span> <span class="red-highlight">False</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Let <span class="red-highlight">p</span>: "2 + 2 = 5" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">¬p</span> = "2 + 2 ≠ 5"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 3</span><br>
+        Let <span class="red-highlight">p</span>: "The sun rises in the west" (<span class="red-highlight">False</span>)<br>
+        <span class="orange-highlight">¬p</span> = "The sun does not rise in the west"<br>
+        <span class="red-highlight">Answer:</span> <span class="blue-highlight">True</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Idea</span><br>
+        Negation simply <span class="red-highlight">flips the truth value</span> of a proposition.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Compound (or Complex) Propositions</h2>
+    
+    <ul class="bullet-list">
+        <li>So far, we learned each logical connective separately (∧, ∨, →, ↔, ¬)</li>
+        <li>But in real mathematics, we often <span class="blue-highlight">combine them together</span> to form more complex statements</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.2</span><br>
+        A <span class="red-highlight">compound proposition</span> (or compound statement) is formed by joining two or more propositions using <span class="blue-highlight">one or more logical connectives</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Important: Use of Brackets</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Just like arithmetic, brackets (parentheses) are <span class="red-highlight">necessary to avoid ambiguity</span></li>
+            <li>Example: Expression <span class="orange-highlight">p → q ∧ r</span> could mean:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li><span class="blue-highlight">(p → q) ∧ r</span></li>
+                    <li>or <span class="blue-highlight">p → (q ∧ r)</span></li>
+                </ul>
+            </li>
+            <li>These are <span class="red-highlight">not the same</span></li>
+            <li>We must use parentheses to make the meaning <span class="blue-highlight">clear</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Truth Tables for Compound Propositions</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>If p and q are propositions → there are <span class="red-highlight">4 possible truth combinations</span>: TT, TF, FT, FF</li>
+            <li>If p, q, r are involved → there are <span class="red-highlight">8 possible truth combinations</span></li>
+            <li>In general, for <span class="blue-highlight">n propositions</span>, there are <span class="orange-highlight">2ⁿ rows</span> in the truth table</li>
+            <li>Truth tables help us <span class="blue-highlight">systematically determine</span> the truth value of a compound proposition</li>
+        </ul>
+    </div>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a)</span><br>
+        Let:<br>
+        p = <span class="blue-highlight">True</span><br>
+        q = <span class="red-highlight">False</span><br>
+        r = <span class="blue-highlight">True</span><br>
+        s = <span class="red-highlight">False</span><br>
+        Find: <span class="orange-highlight">(p ∧ q) → (r ∨ s)</span><br><br>
+        <span class="blue-highlight">Step 1:</span> Compute p ∧ q → (T ∧ F) = <span class="red-highlight">F</span><br>
+        <span class="blue-highlight">Step 2:</span> Compute r ∨ s → (T ∨ F) = <span class="blue-highlight">T</span><br>
+        <span class="blue-highlight">Step 3:</span> Compute (p ∧ q) → (r ∨ s) → (F → T) = <span class="blue-highlight">T</span><br>
+        <span class="red-highlight">Final Answer:</span> <span class="blue-highlight">True</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b)</span><br>
+        Given: <span class="orange-highlight">(p ∨ q) → (r ↔ ¬s)</span><br>
+        Truth values:<br>
+        p = <span class="blue-highlight">T</span><br>
+        q = <span class="red-highlight">F</span><br>
+        r = <span class="red-highlight">F</span><br>
+        s = <span class="blue-highlight">T</span><br><br>
+        <span class="blue-highlight">Step 1:</span> p ∨ q → (T ∨ F) = <span class="blue-highlight">T</span><br>
+        <span class="blue-highlight">Step 2:</span> ¬s → ¬T = <span class="red-highlight">F</span><br>
+        <span class="blue-highlight">Step 3:</span> r ↔ ¬s → (F ↔ F) = <span class="blue-highlight">T</span><br>
+        <span class="blue-highlight">Step 4:</span> (p ∨ q) → (r ↔ ¬s) → (T → T) = <span class="blue-highlight">T</span><br>
+        <span class="red-highlight">Final Answer:</span> <span class="blue-highlight">True</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Convention for Parentheses</span><br>
+        To reduce writing too many brackets, we use this rule:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">¬ (negation)</span> is applied first</li>
+            <li>Then <span class="red-highlight">∧ (and)</span> or <span class="red-highlight">∨ (or)</span></li>
+            <li>Finally, <span class="red-highlight">→ (implication)</span> and <span class="red-highlight">↔ (bi-implication)</span></li>
+        </ul>
+        Examples (by convention):
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>p ∧ q → r means <span class="blue-highlight">(p ∧ q) → r</span></li>
+            <li>p ∨ q ↔ r means <span class="blue-highlight">(p ∨ q) ↔ r</span></li>
+            <li>¬q → ¬p means <span class="blue-highlight">(¬q) → (¬p)</span></li>
+            <li>¬q → p ↔ r means <span class="blue-highlight">((¬q) → p) ↔ r</span></li>
+        </ul>
+        But it is always <span class="red-highlight">safer to use parentheses</span> to avoid confusion.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Idea</span><br>
+        Compound propositions are built by <span class="red-highlight">layering connectives</span>. To evaluate them, use truth tables <span class="blue-highlight">step by step</span>, just like in arithmetic.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Logical Equivalence</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition of Logical Equivalence</span><br>
+        Two compound propositions <span class="red-highlight">P</span> and <span class="red-highlight">Q</span> are said to be <span class="blue-highlight">equivalent</span> if they <span class="red-highlight">always have the same truth value</span> for all possible combinations of truth values of their components.<br>
+        In that case, we write: <span class="orange-highlight">P ≡ Q</span>
+    </div>
+
+    <h3>Example</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let:<br>
+        P: <span class="orange-highlight">p ⇒ q</span><br>
+        Q: <span class="orange-highlight">¬q ⇒ ¬p</span><br><br>
+        Truth table:
+    </div>
+    
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>¬p</th><th>¬q</th><th>p ⇒ q</th><th>¬q ⇒ ¬p</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+        </tbody>
+    </table>
+    
+    <ul class="bullet-list">
+        <li>Notice that the last two columns are <span class="blue-highlight">identical</span></li>
+        <li>Therefore, <span class="orange-highlight">P ≡ Q</span> (they are equivalent)</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Let:<br>
+        P: <span class="orange-highlight">p ⇒ q</span><br>
+        Q: <span class="orange-highlight">¬p ⇒ ¬q</span><br><br>
+        Truth table:
+    </div>
+    
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>¬p</th><th>¬q</th><th>p ⇒ q</th><th>¬p ⇒ ¬q</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td>
+        </tbody>
+    </table>
+    
+    <ul class="bullet-list">
+        <li>This time, the last two columns are <span class="red-highlight">not identical</span></li>
+        <li>So, <span class="orange-highlight">P ≢ Q</span> (they are not equivalent)</li>
+    </ul>
+
+    <h2>Related Conditional Propositions</h2>
+    
+    <ul class="bullet-list">
+        <li>Given a conditional <span class="orange-highlight">p ⇒ q</span>, we can form:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="blue-highlight">Converse:</span> <span class="orange-highlight">q ⇒ p</span></li>
+                <li><span class="blue-highlight">Inverse:</span> <span class="orange-highlight">¬p ⇒ ¬q</span></li>
+                <li><span class="blue-highlight">Contrapositive:</span> <span class="orange-highlight">¬q ⇒ ¬p</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Key Points</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">p ⇒ q</span> and <span class="red-highlight">¬q ⇒ ¬p</span> (contrapositive) are <span class="blue-highlight">equivalent</span></li>
+            <li>But <span class="red-highlight">p ⇒ q</span> is <span class="red-highlight">not equivalent</span> to its converse or inverse</li>
+        </ul>
+    </div>
+
+    <h3>Example (Daily Life)</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a)</span><br>
+        If Kidist lives in Addis Ababa, then she lives in Ethiopia.<br>
+        <span class="blue-highlight">Converse:</span> If Kidist lives in Ethiopia, then she lives in Addis Ababa.<br>
+        <span class="blue-highlight">Contrapositive:</span> If Kidist does not live in Ethiopia, then she does not live in Addis Ababa.<br>
+        <span class="blue-highlight">Inverse:</span> If Kidist does not live in Addis Ababa, then she does not live in Ethiopia.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b)</span><br>
+        If it is morning, then the sun is in the east.<br>
+        <span class="blue-highlight">Converse:</span> If the sun is in the east, then it is morning.<br>
+        <span class="blue-highlight">Contrapositive:</span> If the sun is not in the east, then it is not morning.<br>
+        <span class="blue-highlight">Inverse:</span> If it is not morning, then the sun is not in the east.
+    </div>
+
+    <h2>Laws of Logical Equivalence</h2>
+    
+    <ul class="bullet-list">
+        <li>These laws are useful for <span class="blue-highlight">simplifying logical expressions</span></li>
+    </ul>
+
+    <div class="two-columns">
+        <div class="col">
+            <h3>Idempotent Laws</h3>
+            <ul class="compact-list">
+                <li>p ≡ p ∨ p</li>
+                <li>p ≡ p ∧ p</li>
+            </ul>
+            
+            <h3>Commutative Laws</h3>
+            <ul class="compact-list">
+                <li>p ∧ q ≡ q ∧ p</li>
+                <li>p ∨ q ≡ q ∨ p</li>
+            </ul>
+            
+            <h3>Associative Laws</h3>
+            <ul class="compact-list">
+                <li>p ∧ (q ∧ r) ≡ (p ∧ q) ∧ r</li>
+                <li>p ∨ (q ∨ r) ≡ (p ∨ q) ∨ r</li>
+            </ul>
+            
+            <h3>Distributive Laws</h3>
+            <ul class="compact-list">
+                <li>p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)</li>
+                <li>p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r)</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>De Morgan's Laws</h3>
+            <ul class="compact-list">
+                <li>¬(p ∧ q) ≡ ¬p ∨ ¬q</li>
+                <li>¬(p ∨ q) ≡ ¬p ∧ ¬q</li>
+            </ul>
+            
+            <h3>Law of Contrapositive</h3>
+            <ul class="compact-list">
+                <li>p ⇒ q ≡ ¬q ⇒ ¬p</li>
+            </ul>
+            
+            <h3>Complement Law</h3>
+            <ul class="compact-list">
+                <li>¬(¬p) ≡ p</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Tautology and Contradiction</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>A <span class="red-highlight">tautology</span> is a compound proposition that is <span class="blue-highlight">always true</span>, no matter what truth values its components take</li>
+            <li>A <span class="red-highlight">contradiction</span> is a compound proposition that is <span class="blue-highlight">always false</span>, regardless of the truth values of its components</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1</span><br>
+        Let p be any proposition. Consider:<br>
+        1. <span class="orange-highlight">p ∨ ¬p</span><br>
+        2. <span class="orange-highlight">p ∧ ¬p</span>
+    </div>
+    
+    <table>
+        <thead>
+            <tr><th>p</th><th>¬p</th><th>p ∨ ¬p</th><th>p ∧ ¬p</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+        </tbody>
+     </table>
+    
+    <ul class="bullet-list">
+        <li><span class="orange-highlight">p ∨ ¬p</span> → always true → <span class="blue-highlight">Tautology</span></li>
+        <li><span class="orange-highlight">p ∧ ¬p</span> → always false → <span class="red-highlight">Contradiction</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 2</span><br>
+        Consider: <span class="orange-highlight">p ⇒ (q ⇒ p)</span>
+    </div>
+    
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>q ⇒ p</th><th>p ⇒ (q ⇒ p)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td></tr>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+        </tbody>
+    </table>
+    
+    <ul class="bullet-list">
+        <li>Column for <span class="orange-highlight">p ⇒ (q ⇒ p)</span> is always <span class="blue-highlight">T</span></li>
+        <li>Therefore, <span class="orange-highlight">p ⇒ (q ⇒ p)</span> is a <span class="blue-highlight">tautology</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 3</span><br>
+        Consider: <span class="orange-highlight">(p ⇒ q) ⇔ (p ∧ ¬q)</span>
+    </div>
+    
+    <table>
+        <thead>
+            <tr><th>p</th><th>q</th><th>¬q</th><th>p ∧ ¬q</th><th>p ⇒ q</th><th>(p ⇒ q) ⇔ (p ∧ ¬q)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+            <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td></tr>
+            <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+            <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+        </tbody>
+    </table>
+    
+    <ul class="bullet-list">
+        <li>Column for <span class="orange-highlight">(p ⇒ q) ⇔ (p ∧ ¬q)</span> is always <span class="red-highlight">F</span></li>
+        <li>Therefore, <span class="orange-highlight">(p ⇒ q) ⇔ (p ∧ ¬q)</span> is a <span class="red-highlight">contradiction</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Remarks</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>In a truth table:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>If a column is all <span class="blue-highlight">T</span> → the proposition is a <span class="blue-highlight">Tautology</span></li>
+                    <li>If a column is all <span class="red-highlight">F</span> → the proposition is a <span class="red-highlight">Contradiction</span></li>
+                </ul>
+            </li>
+            <li>Two propositions P and Q are <span class="blue-highlight">logically equivalent</span> if and only if:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li><span class="orange-highlight">(P ⇔ Q)</span> is a <span class="blue-highlight">tautology</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Open Propositions and Quantifiers</div>
+    
+    <h2>Open Propositions (Predicates)</h2>
+    
+    <ul class="bullet-list">
+        <li>In mathematics, we often deal with sentences that contain <span class="blue-highlight">variables</span></li>
+        <li>Example: <span class="orange-highlight">x² + 2x – 3 = 0</span>
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>If x = 1 → the statement is <span class="blue-highlight">true</span></li>
+                <li>If x = -1 → the statement is <span class="red-highlight">false</span></li>
+                <li>The truth value depends on the <span class="red-highlight">value of x</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.4</span><br>
+        An <span class="red-highlight">open statement</span> (also called a <span class="red-highlight">predicate</span>) is a sentence that contains <span class="blue-highlight">one or more variables</span> and whose truth value depends on the values assigned to those variables.<br><br>
+        We usually represent an open statement using a capital letter followed by the variable(s) in parentheses, e.g.:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">P(x)</span></li>
+            <li><span class="orange-highlight">Q(x, y)</span></li>
+        </ul>
+    </div>
+
+    <h3>Examples – Open Propositions</h3>
+    <ul class="bullet-list">
+        <li>a) x is the day before Sunday</li>
+        <li>b) y is a city in Africa</li>
+        <li>c) x is greater than y</li>
+        <li>d) x + 4 = -9</li>
+        <li>Each of these examples involves <span class="red-highlight">variables</span>, so they are not yet propositions, because we cannot directly assign them a truth value</li>
+    </ul>
+
+    <h3>When Do They Become Propositions?</h3>
+    <ul class="bullet-list">
+        <li>If we substitute <span class="blue-highlight">specific values</span> for the variables, the open statements turn into propositions:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>a) Monday is the day before Sunday → <span class="red-highlight">False</span></li>
+                <li>b) London is a city in Africa → <span class="red-highlight">False</span></li>
+                <li>c) 5 is greater than 9 → <span class="red-highlight">False</span></li>
+                <li>d) -13 + 4 = -9 → <span class="blue-highlight">True</span></li>
+            </ul>
+        </li>
+        <li>Once a variable has a value, the statement can be judged as <span class="blue-highlight">True (T)</span> or <span class="red-highlight">False (F)</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Remark</span><br>
+        The set of all possible values that a variable in an open statement can take is called the:<br>
+        <span class="red-highlight">Universal Set (Universe of Discourse)</span>, denoted by <span class="orange-highlight">U</span>.<br><br>
+        For example:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>If the open statement is x > 0, and we consider U = {1, 2, 3, …}, then the statement makes sense within that universe</li>
+            <li>If we change U to include negative integers, the truth of the statement depends on that larger universe</li>
+        </ul>
+    </div>
+
+    <h2>Equivalence of Open Propositions</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition</span><br>
+        Two open propositions <span class="orange-highlight">P(x)</span> and <span class="orange-highlight">Q(x)</span> are said to be <span class="red-highlight">equivalent</span> if and only if:<br>
+        <span class="blue-highlight">P(a) = Q(a)</span> for all individuals a.<br><br>
+        If the universe U is specified, then P(x) and Q(x) are equivalent iff they have the <span class="blue-highlight">same truth value</span> for every a ∈ U.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example</span><br>
+        Let:<br>
+        <span class="orange-highlight">P(x): x² – 1 = 0</span><br>
+        <span class="orange-highlight">Q(x): |x| ≥ 1</span><br>
+        Take U = { -1, -1/2, 0, 1 }<br><br>
+        Evaluate each:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>P(-1): (-1)² – 1 = 0 → <span class="blue-highlight">T</span></li>
+            <li>Q(-1): |-1| ≥ 1 → <span class="blue-highlight">T</span></li>
+            <li>P(-1/2): (-1/2)² – 1 = 1/4 – 1 = -3/4 ≠ 0 → <span class="red-highlight">F</span></li>
+            <li>Q(-1/2): |-1/2| ≥ 1 → <span class="red-highlight">F</span></li>
+            <li>P(0): 0² – 1 = -1 ≠ 0 → <span class="red-highlight">F</span></li>
+            <li>Q(0): |0| ≥ 1 → <span class="red-highlight">F</span></li>
+            <li>P(1): 1² – 1 = 0 → <span class="blue-highlight">T</span></li>
+            <li>Q(1): |1| ≥ 1 → <span class="blue-highlight">T</span></li>
+        </ul>
+        Since P(a) = Q(a) for all a ∈ U,<br>
+        <span class="red-highlight">Therefore, P(x) ≡ Q(x)</span>
+    </div>
+
+    <h2>Tautology for Open Propositions</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.6</span><br>
+        Let U be the universal set.<br>
+        An open proposition <span class="orange-highlight">P(x)</span> is a <span class="red-highlight">tautology</span> if and only if <span class="blue-highlight">P(a) is always true</span> for all a ∈ U.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example</span><br>
+        <span class="orange-highlight">P(x): x² ≥ 0</span> over U = ℝ<br>
+        This is <span class="blue-highlight">always true</span> for all real numbers.<br>
+        <span class="red-highlight">Therefore, P(x) is a tautology.</span>
+    </div>
+
+    <h2>Quantification of Open Propositions</h2>
+    
+    <ul class="bullet-list">
+        <li>We already know:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>Substituting a value for x can convert an open proposition into a proposition</li>
+                <li>Another way: <span class="blue-highlight">Quantification</span></li>
+            </ul>
+        </li>
+        <li>If P(x) is an open proposition over a set S:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>Adding <span class="blue-highlight">"For every x ∈ S"</span> → makes a <span class="red-highlight">universal statement</span></li>
+                <li>Adding <span class="blue-highlight">"For some x ∈ S"</span> → makes an <span class="red-highlight">existential statement</span></li>
+            </ul>
+        </li>
+        <li>These are called <span class="orange-highlight">quantified statements</span></li>
+    </ul>
+
+    <h3>Examples of Quantified Open Propositions</h3>
+    <div class="callout">
+        Let the universe be ℝ.<br><br>
+        1. <span class="orange-highlight">R(x): x² ≥ 0</span><br>
+        → Always true → <span class="blue-highlight">tautology</span><br><br>
+        2. <span class="orange-highlight">P(x): (x + 2)(x – 3) = 0</span><br>
+        → True only for x = -2 or x = 3<br><br>
+        3. <span class="orange-highlight">Q(x): x² < 0</span><br>
+        → Always false for all real numbers → <span class="red-highlight">contradiction</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Summary – Three Possibilities for P(x) in U</span><br>
+        Given an open proposition P(x) with universe U, we may have:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>a) P(x) is true for <span class="blue-highlight">all x ∈ U</span> → <span class="red-highlight">Universal truth (tautology)</span></li>
+            <li>b) P(x) is true for <span class="blue-highlight">some x ∈ U</span> → <span class="red-highlight">Existential truth</span></li>
+            <li>c) P(x) is false for <span class="blue-highlight">all x ∈ U</span> → <span class="red-highlight">Contradiction</span></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Universal and Existential Quantifiers</div>
+    
+    <h2>Universal Quantifier (∀)</h2>
+    
+    <ul class="bullet-list">
+        <li>The phrase <span class="blue-highlight">"for every x"</span>, <span class="blue-highlight">"for all x"</span>, or <span class="blue-highlight">"for each x"</span> means the universal quantifier</li>
+        <li>Symbol: <span class="orange-highlight">(∀x)</span></li>
+        <li>Think of ∀ as an inverted A → stands for <span class="red-highlight">All</span></li>
+        <li>If P(x) is an open proposition with universe U, then:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="orange-highlight">(∀x)P(x)</span> means <span class="blue-highlight">"every x ∈ U has the property P"</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Existential Quantifier (∃)</h2>
+    
+    <ul class="bullet-list">
+        <li>The phrase <span class="blue-highlight">"there exists an x"</span>, <span class="blue-highlight">"for some x"</span>, or <span class="blue-highlight">"for at least one x"</span> means the existential quantifier</li>
+        <li>Symbol: <span class="orange-highlight">(∃x)</span></li>
+        <li>Think of ∃ as a backwards E → stands for <span class="red-highlight">Exists</span></li>
+        <li>If P(x) is an open proposition with universe U, then:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="orange-highlight">(∃x)P(x)</span> means <span class="blue-highlight">"there exists at least one x ∈ U with the property P"</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Important Remarks</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>To show <span class="orange-highlight">(∀x)P(x)</span> is <span class="red-highlight">False (F)</span> → it is enough to find just one counterexample (some a ∈ U such that P(a) = F)
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>This a is called a <span class="blue-highlight">counterexample</span></li>
+                </ul>
+            </li>
+            <li><span class="orange-highlight">(∃x)P(x)</span> is <span class="red-highlight">False (F)</span> if we cannot find any element in U that satisfies P</li>
+        </ul>
+    </div>
+
+    <h3>Examples – Writing Statements with Quantifiers</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a)</span><br>
+        1. Statement: For each real number x > 0, x² + x – 6 = 0<br>
+        Symbolic Form: <span class="orange-highlight">(∀x > 0)(x² + x – 6 = 0)</span><br><br>
+        2. Statement: There is a real number x > 0 such that x² + x – 6 = 0<br>
+        Symbolic Form: <span class="orange-highlight">(∃x > 0)(x² + x – 6 = 0)</span><br><br>
+        3. Statement: The square of any real number is nonnegative<br>
+        Symbolic Form: <span class="orange-highlight">(∀x ∈ ℝ)(x² ≥ 0)</span>
+    </div>
+
+    <h3>Examples – Truth Value Checks</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b)</span><br>
+        i. Let P(x): x² + 1 ≥ 0<br>
+        <span class="orange-highlight">(∀x)(x² + 1 ≥ 0)</span> = <span class="blue-highlight">True (T)</span> since this holds for all real numbers<br><br>
+        ii. Let P(x): x < x²<br>
+        <span class="orange-highlight">(∀x)(x < x²)</span> = <span class="red-highlight">False (F)</span> because x = 1/2 is a counterexample (1/2 < 1/4 is false)<br>
+        <span class="orange-highlight">(∃x)(x < x²)</span> = <span class="blue-highlight">True (T)</span> since for example x = -1 satisfies -1 < 1<br><br>
+        iii. Let P(x): |x| = -1<br>
+        <span class="orange-highlight">(∃x)(|x| = -1)</span> = <span class="red-highlight">False (F)</span> since absolute value cannot be negative
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Summary of Truth Rules for Quantifiers</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">(∀x)P(x)</span> = <span class="blue-highlight">True</span> only if P(x) is true for all x in U</li>
+            <li><span class="orange-highlight">(∀x)P(x)</span> = <span class="red-highlight">False</span> if we find one counterexample</li>
+            <li><span class="orange-highlight">(∃x)P(x)</span> = <span class="blue-highlight">True</span> if at least one x satisfies P(x)</li>
+            <li><span class="orange-highlight">(∃x)P(x)</span> = <span class="red-highlight">False</span> if no x satisfies P(x)</li>
+        </ul>
+    </div>
+
+    <h2>Relationship between Existential (∃) and Universal (∀) Quantifiers</h2>
+    
+    <ul class="bullet-list">
+        <li>Suppose P(x) is a formula in variable x. We often meet four basic statements:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>1. <span class="orange-highlight">(∀x)P(x)</span> → "Everything has property P"</li>
+                <li>2. <span class="orange-highlight">(∃x)P(x)</span> → "Something has property P"</li>
+                <li>3. <span class="orange-highlight">(∀x)¬P(x)</span> → "Nothing has property P"</li>
+                <li>4. <span class="orange-highlight">(∃x)¬P(x)</span> → "Something does not have property P"</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Notice the relationships</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>"Something does not have P" is the <span class="red-highlight">negation</span> of "Everything has P"</li>
+            <li>"Nothing has P" is the <span class="red-highlight">negation</span> of "Something has P"</li>
+        </ul>
+    </div>
+
+    <h2>Negation of Quantifiers</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule</span><br>
+        Let P(x) be an open proposition:<br><br>
+        <span class="orange-highlight">¬(∀x)P(x) ≡ (∃x)¬P(x)</span><br><br>
+        <span class="orange-highlight">¬(∃x)P(x) ≡ (∀x)¬P(x)</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule of Thumb</span><br>
+        To negate a statement with quantifiers:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Change <span class="orange-highlight">∀</span> to <span class="orange-highlight">∃</span> and vice-versa</li>
+            <li><span class="red-highlight">Negate</span> the open proposition</li>
+        </ul>
+    </div>
+
+    <h3>Examples – Negation of Quantifiers</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example</span><br>
+        Let U = ℝ (all real numbers).<br><br>
+        a) <span class="orange-highlight">¬(∃x)(x < x²) ≡ (∀x)¬(x < x²) ≡ (∀x)(x ≥ x²)</span><br><br>
+        b) <span class="orange-highlight">¬(∀x)(4x + 1 = 0) ≡ (∃x)¬(4x + 1 = 0) ≡ (∃x)(4x + 1 ≠ 0)</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Key Insight</span><br>
+        These illustrate how to <span class="red-highlight">switch quantifiers</span> under negation.
+    </div>
+
+    <h2>Compound Propositions with Quantifiers</h2>
+    
+    <ul class="bullet-list">
+        <li>Just like ordinary propositions, we can combine <span class="blue-highlight">quantified statements</span> with connectives</li>
+        <li>For example:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>If we have <span class="orange-highlight">(∀x)P(x)</span> and <span class="orange-highlight">(∃x)Q(x)</span></li>
+                <li>We can form compound statements such as: <span class="orange-highlight">(∀x)P(x) ⟺ (∃x)Q(x)</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Illustrations with Translations</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Examples</span><br>
+        Let's look at how quantifiers appear in real statements:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>a) All rationals are reals → <span class="orange-highlight">(∀x)(Q(x) ⇒ R(x))</span></li>
+            <li>b) No rationals are reals → <span class="orange-highlight">(∀x)(Q(x) ⇒ ¬R(x))</span></li>
+            <li>c) Some rationals are reals → <span class="orange-highlight">(∃x)(Q(x) ∧ R(x))</span></li>
+            <li>d) Some rationals are not reals → <span class="orange-highlight">(∃x)(Q(x) ∧ ¬R(x))</span></li>
+        </ul>
+    </div>
+
+    <h3>Example with Integers</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example</span><br>
+        Let U = the set of integers.<br>
+        Define:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>P(x): x is a prime number</li>
+            <li>Q(x): x is even</li>
+            <li>R(x): x is odd</li>
+        </ul>
+        Now check:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>a) <span class="orange-highlight">(∃x)[P(x) ⇒ Q(x)]</span> = <span class="blue-highlight">True</span> → Example: For x = 2 → Prime and even → True</li>
+            <li>b) <span class="orange-highlight">(∀x)[P(x) ⇒ Q(x)]</span> = <span class="red-highlight">False</span> → Counterexample: x = 7 → Prime but not even → False</li>
+            <li>c) <span class="orange-highlight">(∀x)[R(x) ∧ P(x)]</span> = <span class="red-highlight">False</span> → Not all integers are odd primes</li>
+            <li>d) <span class="orange-highlight">(∀x)[(R(x) ∧ P(x)) ⇒ Q(x)]</span> = <span class="red-highlight">False</span> → Example: x = 3 → Odd prime, but not even → statement fails</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Quick Recap</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Negating quantifiers → swap <span class="orange-highlight">∀</span> ↔ <span class="orange-highlight">∃</span> and <span class="red-highlight">negate</span> the statement</li>
+            <li>Compound propositions with quantifiers behave like ordinary logic with connectives</li>
+            <li>Always look for <span class="blue-highlight">counterexamples</span> when testing truth of universal statements</li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Quantifiers Occurring in Combinations</div>
+    
+    <ul class="bullet-list">
+        <li>So far, we studied <span class="blue-highlight">single quantifiers</span> (either ∀ or ∃)</li>
+        <li>But in real mathematics, quantifiers can <span class="red-highlight">combine</span> → leading to new logical structures</li>
+        <li>The <span class="orange-highlight">order of quantifiers</span> matters a lot</li>
+    </ul>
+
+    <h2>The Four Basic Combinations</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">1️⃣ (∀x)(∀y)P(x, y)</span><br>
+        Meaning: "For all x and for all y, the relation P(x, y) holds"<br>
+        Example: "Every student likes every subject"
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">2️⃣ (∃x)(∃y)P(x, y)</span><br>
+        Meaning: "There is an x and there is a y such that P(x, y) holds"<br>
+        Example: "There is some student and some subject such that the student likes the subject"
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">3️⃣ (∀x)(∃y)P(x, y)</span><br>
+        Meaning: "For every x, there exists at least one y such that P(x, y) holds"<br>
+        Example: "Every student has at least one subject they like"
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">4️⃣ (∃x)(∀y)P(x, y)</span><br>
+        Meaning: "There exists some x such that for all y, P(x, y) holds"<br>
+        Example: "There is one student who likes every subject"
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚠️ Important Note</span><br>
+        <span class="orange-highlight">(∀x)(∃y)P(x, y)</span> is very different from <span class="orange-highlight">(∃x)(∀y)P(x, y)</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>The first says <span class="blue-highlight">everyone has something</span></li>
+            <li>The second says <span class="red-highlight">one person has everything</span></li>
+        </ul>
+    </div>
+
+    <h3>Example with Integers</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example</span><br>
+        Let U = the set of integers<br>
+        Let P(x, y): <span class="orange-highlight">x + y = 5</span><br><br>
+        Now check each combination:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>a) <span class="orange-highlight">(∃x)(∃y)P(x, y)</span><br>
+            "There exists an integer x and an integer y such that x + y = 5"<br>
+            Example: x = 4, y = 1 → <span class="blue-highlight">True</span><br>
+            Since we only need one pair, this statement is <span class="blue-highlight">True</span></li><br>
+            
+            <li>b) <span class="orange-highlight">(∃x)(∀y)P(x, y)</span><br>
+            "There exists an integer x₀ such that for all y, x₀ + y = 5"<br>
+            Suppose x₀ = 1 → then 1 + y = 5 must hold for all y. But if y = 3 → 1 + 3 = 4 ≠ 5<br>
+            <span class="red-highlight">Impossible</span>. So the statement is <span class="red-highlight">False</span></li><br>
+            
+            <li>c) <span class="orange-highlight">(∀x)(∃y)P(x, y)</span><br>
+            "For every integer x, there exists an integer y such that x + y = 5"<br>
+            Let x = a. Then y = 5 - a always works (and is always an integer)<br>
+            <span class="blue-highlight">True</span></li><br>
+            
+            <li>d) <span class="orange-highlight">(∀x)(∀y)P(x, y)</span><br>
+            "For every integer x and for every integer y, x + y = 5"<br>
+            Take x = 2, y = 7 → 2 + 7 = 9 ≠ 5<br>
+            <span class="red-highlight">False</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Quick Recap</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">(∃x)(∃y)</span> → True if <span class="blue-highlight">at least one pair works</span></li>
+            <li><span class="orange-highlight">(∃x)(∀y)</span> → Much stronger: <span class="red-highlight">one fixed x must work for all y</span></li>
+            <li><span class="orange-highlight">(∀x)(∃y)</span> → For every x, <span class="blue-highlight">you can find a matching y</span></li>
+            <li><span class="orange-highlight">(∀x)(∀y)</span> → Strongest claim: <span class="red-highlight">works for all pairs</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Key Insight</span><br>
+        Always pay attention to the <span class="red-highlight">order of quantifiers</span> — changing ∀ and ∃ changes the whole meaning.
+    </div>
+
+    <h2>Examples – Quantifiers in Action</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a) – Universal Quantification in Two Variables</span><br>
+        Statement: For every two real numbers x and y, <span class="orange-highlight">x² + y² ≥ 0</span><br>
+        Predicate: P(x, y): x² + y² ≥ 0<br>
+        Symbolic form: <span class="orange-highlight">(∀x)(∀y)P(x, y)</span><br>
+        Since x² ≥ 0 and y² ≥ 0 for all real numbers, it follows that x² + y² ≥ 0<br>
+        <span class="blue-highlight">Therefore, (∀x)(∀y)P(x, y) is True</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b) – Existential Quantification with Restricted Domains</span><br>
+        Statement: P(x, y): <span class="orange-highlight">|x - 1| + |y - 2| ≤ 2</span><br>
+        Domain: x ∈ even integers, y ∈ odd integers<br>
+        Symbolic form: <span class="orange-highlight">(∃x)(∃y)P(x, y)</span><br>
+        Example: P(2, 3): |2 - 1| + |3 - 2| = 1 + 1 = 2 ≤ 2<br>
+        <span class="blue-highlight">Therefore, (∃x)(∃y)P(x, y) is True</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (c) – Mixed Quantifiers (Order Matters)</span><br>
+        Statement: P(x, y): <span class="orange-highlight">xy = 1</span><br>
+        Domain: x, y ∈ positive rationals<br>
+        Symbolic form: <span class="orange-highlight">(∀x)(∃y)P(x, y)</span><br>
+        For any x, choose y = 1/x (also a positive rational)<br>
+        <span class="blue-highlight">Therefore, (∀x)(∃y)P(x, y) is True</span><br><br>
+        If domain is all real numbers, then x = 0 gives xy = 0 ≠ 1<br>
+        <span class="red-highlight">Therefore, (∀x)(∃y)P(x, y) is False in ℝ</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (d) – Existential before Universal</span><br>
+        Statement: P(x, y): "xy is odd"<br>
+        Domain: x, y ∈ natural numbers<br>
+        Symbolic form: <span class="orange-highlight">(∃x)(∀y)P(x, y)</span><br>
+        If x is even → xy is even (fails)<br>
+        If x is odd → xy is odd only if y is odd (fails for even y)<br>
+        No single x works for all y<br>
+        <span class="red-highlight">Therefore, (∃x)(∀y)P(x, y) is False</span>
+    </div>
+
+    <h2>Swapping Quantifiers</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Same Order – Can Swap Freely</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">(∀x)(∀y)P(x, y) ≡ (∀y)(∀x)P(x, y)</span></li>
+            <li><span class="orange-highlight">(∃x)(∃y)P(x, y) ≡ (∃y)(∃x)P(x, y)</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">⚠️ Mixed Quantifiers – Cannot Swap Freely</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">(∀x)(∃y)P(x, y) ≠ (∃y)(∀x)P(x, y)</span></li>
+        </ul>
+        Example:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">(∀x)(∃y)(x < y)</span> = <span class="blue-highlight">True</span> ("For every number x, there is a number y greater than x")</li>
+            <li><span class="orange-highlight">(∃y)(∀x)(x < y)</span> = <span class="red-highlight">False</span> ("There is one number y greater than every number")</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Implication Relationship</span><br>
+        <span class="orange-highlight">(∃y)(∀x)P(x, y) ⇒ (∀x)(∃y)P(x, y)</span><br>
+        but <span class="red-highlight">not the other way around</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Key Takeaways</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Universal quantifiers (∀) can swap <span class="blue-highlight">freely</span></li>
+            <li>Existential quantifiers (∃) can swap <span class="blue-highlight">freely</span></li>
+            <li>Mixed quantifiers → order <span class="red-highlight">changes meaning</span></li>
+            <li>Always check whether the chosen y <span class="orange-highlight">depends on x</span></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Argument and Validity</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.7 – What is an Argument?</span><br>
+        An <span class="red-highlight">argument</span> (or logical deduction) is a statement showing that a set of statements:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>p₁, p₂, p₃, …, pₙ</li>
+        </ul>
+        called <span class="blue-highlight">premises</span> or <span class="blue-highlight">hypotheses</span>, leads to another statement <span class="red-highlight">Q</span>, called the <span class="blue-highlight">conclusion</span>.
+    </div>
+
+    <ul class="bullet-list">
+        <li>Symbolically, we write:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>p₁, p₂, …, pₙ <span class="blue-highlight">⊢ Q</span></li>
+            </ul>
+        </li>
+        <li>Or in a stacked form:
+            <div class="math-block" style="background: transparent; border-left: none; text-align: center;">
+                p₁<br>
+                p₂<br>
+                …<br>
+                pₙ<br>
+                <span style="border-top: 2px solid #5bc0a8; display: inline-block; width: 50px;"></span><br>
+                Q
+            </div>
+        </li>
+        <li>Think of an argument as a <span class="red-highlight">chain reaction</span>: if all premises are true, they "force" the conclusion to be true</li>
+    </ul>
+
+    <h3>Example – Illustrating an Argument</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Argument:</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>If you study hard, then you will pass the exam</li>
+            <li>You did not pass the exam</li>
+            <li>Therefore, you did not study hard</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Let's assign symbols:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="red-highlight">p</span>: You study hard</li>
+                <li><span class="red-highlight">q</span>: You will pass the exam</li>
+            </ul>
+        </li>
+        <li>Argument in symbolic form:
+            <div class="math-block" style="background: transparent; border-left: none; text-align: center;">
+                p → q<br>
+                ¬q<br>
+                <span style="border-top: 2px solid #5bc0a8; display: inline-block; width: 50px;"></span><br>
+                ¬p
+            </div>
+        </li>
+        <li>This is a classic <span class="blue-highlight">modus tollens</span> argument:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>Premise 1: p → q</li>
+                <li>Premise 2: ¬q</li>
+                <li>Conclusion: ¬p</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition – Validity of an Argument</span><br>
+        An argument <span class="orange-highlight">p₁, p₂, …, pₙ ⊢ Q</span> is <span class="red-highlight">valid</span> if:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Whenever <span class="blue-highlight">all premises</span> p₁, p₂, …, pₙ are <span class="blue-highlight">true</span>, the <span class="blue-highlight">conclusion Q is also true</span></li>
+            <li>Otherwise, the argument is <span class="red-highlight">invalid</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Tip:</span><br>
+        Validity concerns <span class="red-highlight">logical structure</span>, not actual truth. Even false premises can form a valid argument if the reasoning is correct.
+    </div>
+
+    <h3>Example – Investigating Argument Validity (a)</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Argument Form:</span> p → q, ¬q ⊢ ¬p
+    </div>
+
+    <h3>Truth Table</h3>
+    <div style="overflow-x: auto;">
+        <table style="width: 100%;">
+            <thead>
+                <tr><th>p</th><th>q</th><th>¬p</th><th>¬q</th><th>p → q</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+                <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Premises <span class="orange-highlight">p → q</span> and <span class="orange-highlight">¬q</span> are true only in <span class="blue-highlight">row 4</span></li>
+        <li>Conclusion <span class="orange-highlight">¬p</span> is true in the same row <span class="blue-highlight">✓</span></li>
+        <li><span class="red-highlight">Conclusion:</span> Argument is <span class="blue-highlight">valid</span></li>
+    </ul>
+
+    <h3>Example – Investigating Argument Validity (b)</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Argument Form:</span><br>
+        Premises: p → q, ¬q → r, ¬q<br>
+        Conclusion: p<br>
+        <span class="orange-highlight">p → q, ¬q → r, ¬q ⊢ p</span>
+    </div>
+
+    <h3>Truth Table</h3>
+    <div style="overflow-x: auto;">
+        <table style="width: 100%;">
+            <thead>
+                <tr><th>p</th><th>q</th><th>r</th><th>¬q</th><th>p → q</th><th>¬q → r</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td></tr>
+                <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="bullet-list">
+        <li>The premises are true together in rows <span class="blue-highlight">1, 2, 5, 6, 7</span></li>
+        <li>In rows <span class="blue-highlight">5, 6, 7</span>, the conclusion <span class="orange-highlight">p</span> is <span class="red-highlight">false</span> ❌</li>
+        <li><span class="red-highlight">Conclusion:</span> The argument form is <span class="red-highlight">invalid</span></li>
+    </ul>
+
+    <h3>Example – Investigating Argument Validity (c) Real-life Example</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Statement:</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>If it rains, crops will be good</li>
+            <li>It did not rain</li>
+            <li>Therefore, crops were not good</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Symbolization:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="red-highlight">p</span>: It rains</li>
+                <li><span class="red-highlight">q</span>: Crops are good</li>
+                <li><span class="orange-highlight">¬p</span>: It did not rain</li>
+                <li><span class="orange-highlight">¬q</span>: Crops were not good</li>
+            </ul>
+        </li>
+        <li>Argument form: <span class="orange-highlight">p → q, ¬p ⊢ ¬q</span></li>
+    </ul>
+
+    <h3>Truth Table</h3>
+    <div style="overflow-x: auto;">
+        <table style="width: 100%;">
+            <thead>
+                <tr><th>p</th><th>q</th><th>¬p</th><th>¬q</th><th>p → q</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="red-highlight">F</td></tr>
+                <tr><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="red-highlight">F</td><td class="blue-highlight">T</td></tr>
+                <tr><td class="red-highlight">F</td><td class="red-highlight">F</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td><td class="blue-highlight">T</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="bullet-list">
+        <li>The premises <span class="orange-highlight">p → q</span> and <span class="orange-highlight">¬p</span> are true together only in <span class="blue-highlight">row 4</span></li>
+        <li>In that row, the conclusion <span class="orange-highlight">¬q</span> is also true <span class="blue-highlight">✓</span></li>
+        <li><span class="red-highlight">Conclusion:</span> The argument is <span class="blue-highlight">valid</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Remark</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>What is important in validity is the <span class="red-highlight">form of the argument</span> rather than the content of the statements</li>
+            <li>The argument form <span class="orange-highlight">p₁, p₂, p₃, … , pₙ ⊢ Q</span> is valid if and only if the statement <span class="orange-highlight">(p₁ ∧ p₂ ∧ p₃ ∧ … ∧ pₙ) → Q</span> is a <span class="blue-highlight">tautology</span></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Rules of Inference</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 1: Modus Ponens (Law of Detachment)</span><br>
+        <span class="orange-highlight">Form:</span> p, p → q ⊢ q<br>
+        If <span class="red-highlight">p</span> is true and <span class="red-highlight">p implies q</span>, then <span class="blue-highlight">q</span> must also be true.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 2: Modus Tollens</span><br>
+        <span class="orange-highlight">Form:</span> ¬q, p → q ⊢ ¬p<br>
+        If <span class="red-highlight">p implies q</span>, and <span class="red-highlight">q is false</span>, then <span class="blue-highlight">p</span> must also be false.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 3: Principle of Syllogism (Hypothetical Syllogism)</span><br>
+        <span class="orange-highlight">Form:</span> p → q, q → r ⊢ p → r<br>
+        If <span class="red-highlight">p implies q</span>, and <span class="red-highlight">q implies r</span>, then <span class="blue-highlight">p implies r</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 4: Principle of Adjunction</span><br>
+        <span class="orange-highlight">Form (a):</span> p, q ⊢ p ∧ q<br>
+        <span class="orange-highlight">Form (b):</span> q ⊢ p ∨ q<br>
+        We can combine statements with <span class="blue-highlight">∧</span> or extend with <span class="blue-highlight">∨</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 5: Principle of Simplification (Detachment)</span><br>
+        <span class="orange-highlight">Form:</span> p ∧ q ⊢ p, q<br>
+        If <span class="red-highlight">p and q are true together</span>, then <span class="blue-highlight">each is true individually</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 6: Modus Tollendo Ponens (Disjunctive Syllogism)</span><br>
+        <span class="orange-highlight">Form:</span> ¬p, p ∨ q ⊢ q<br>
+        If either <span class="red-highlight">p or q is true</span>, and <span class="red-highlight">p is false</span>, then <span class="blue-highlight">q must be true</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 7: Modus Ponendo Tollens</span><br>
+        <span class="orange-highlight">Form:</span> ¬(p ∧ q), p ⊢ ¬q<br>
+        If <span class="red-highlight">p and q cannot both be true</span>, but <span class="red-highlight">p is true</span>, then <span class="blue-highlight">q must be false</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 8: Constructive Dilemma</span><br>
+        <span class="orange-highlight">Form:</span> (p → q) ∧ (r → s), p ∨ r ⊢ q ∨ s<br>
+        If <span class="red-highlight">p leads to q</span>, and <span class="red-highlight">r leads to s</span>, and either <span class="red-highlight">p or r is true</span>, then either <span class="blue-highlight">q or s must be true</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 9: Principle of Equivalence</span><br>
+        <span class="orange-highlight">Form:</span> p, p ↔ q ⊢ q<br>
+        If <span class="red-highlight">p is equivalent to q</span>, then from <span class="red-highlight">p</span> we can conclude <span class="blue-highlight">q</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Rule 10: Principle of Conditionalization</span><br>
+        <span class="orange-highlight">Form:</span> p ⊢ q → p<br>
+        If <span class="red-highlight">p is true</span>, then we can conclude <span class="blue-highlight">q → p</span> (for any q).
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Formal Proof of Validity of an Argument</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.9: Formal Proof</span><br>
+        A <span class="red-highlight">formal proof</span> of a conclusion Q given hypotheses p₁, p₂, …, pₙ is:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>A <span class="blue-highlight">sequence of steps</span>, where each step applies an <span class="blue-highlight">inference rule</span></li>
+            <li>Rules are applied to either:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li><span class="orange-highlight">Hypotheses (premises)</span>, or</li>
+                    <li><span class="orange-highlight">Previously proven statements (antecedents)</span></li>
+                </ul>
+            </li>
+            <li>The result is a new true statement (the <span class="blue-highlight">consequent</span>)</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>In practice, a formal proof is written in <span class="red-highlight">two columns</span>:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>Left column → <span class="blue-highlight">statements</span> (premises and conclusions)</li>
+                <li>Right column → <span class="blue-highlight">justification</span> for each step</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Example 1</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Prove that the argument is valid:</span><br>
+        <span class="orange-highlight">(p → ¬q), q ⊢ ¬p</span>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table style="width: 100%;">
+            <thead>
+                <tr><th>Step</th><th>Statement</th><th>Justification</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>q</td><td>Premise</td></tr>
+                <tr><td>2</td><td>p → ¬q</td><td>Premise</td></tr>
+                <tr><td>3</td><td>q → ¬p</td><td>Contrapositive of (2)</td></tr>
+                <tr><td>4</td><td>¬p</td><td>Modus Ponens using (1) and (3)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="bullet-list">
+        <li>From Step (2): if p is true, then q is false</li>
+        <li>The contrapositive gives: if q is true, then p must be false (¬p)</li>
+        <li>From Step (1), q is true</li>
+        <li>By <span class="blue-highlight">Modus Ponens</span>, ¬p follows</li>
+        <li><span class="red-highlight">Conclusion:</span> The argument is <span class="blue-highlight">valid</span></li>
+    </ul>
+
+    <h3>Example 2</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Hypotheses in words:</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>It is not sunny this afternoon and it is colder than yesterday</li>
+            <li>If we go swimming, then it is sunny</li>
+            <li>If we do not go swimming, then we will take a canoe trip</li>
+            <li>If we take a canoe trip, then we will be home by sunset</li>
+        </ul>
+        <span class="orange-highlight">Conclusion:</span> We will be home by sunset
+    </div>
+
+    <ul class="bullet-list">
+        <li>Propositional translation:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="red-highlight">p</span>: It is sunny this afternoon</li>
+                <li><span class="red-highlight">q</span>: It is colder than yesterday</li>
+                <li><span class="red-highlight">r</span>: We go swimming</li>
+                <li><span class="red-highlight">s</span>: We take a canoe trip</li>
+                <li><span class="red-highlight">t</span>: We will be home by sunset</li>
+            </ul>
+        </li>
+    </ul>
+
+<div style="overflow-x: auto;">
+    <table style="width: 100%;">
+        <thead>
+            <tr><th>Step</th><th>Statement</th><th>Justification</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>¬p ∧ q</td><td>Hypothesis</td>
+            <tr><td>2</td><td>¬p</td><td>Simplification from (1)</td>
+            <tr><td>3</td><td>r → p</td><td>Hypothesis</td>
+            <tr><td>4</td><td>¬r</td><td>Modus Tollens using (2) and (3)</td>
+            <tr><td>5</td><td>¬r → s</td><td>Hypothesis</td>
+            <tr><td>6</td><td>s</td><td>Modus Ponens using (4) and (5)</td>
+            <tr><td>7</td><td>s → t</td><td>Hypothesis</td>
+            <tr><td>8</td><td>t</td><td>Modus Ponens using (6) and (7)</td>
+        </tbody>
+    </table>
+</div>
+
+    <ul class="bullet-list">
+        <li>From (1), we know <span class="blue-highlight">¬p</span> (not sunny)</li>
+        <li>From (3), if r then p. Since ¬p, by <span class="blue-highlight">Modus Tollens</span> we conclude ¬r</li>
+        <li>From (5), if ¬r then s. Since ¬r, we conclude s</li>
+        <li>From (7), if s then t. Since s, we conclude t</li>
+        <li><span class="red-highlight">Conclusion:</span> Therefore, we will be home by sunset <span class="blue-highlight">(t)</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">⚡ Quick Recap</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>A formal proof proceeds <span class="red-highlight">step by step</span></li>
+            <li>Each step uses either a <span class="blue-highlight">premise</span> or a <span class="blue-highlight">valid inference rule</span></li>
+            <li>Common inference rules:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li><span class="orange-highlight">Modus Ponens:</span> (p → q), p ⊢ q</li>
+                    <li><span class="orange-highlight">Modus Tollens:</span> (p → q), ¬q ⊢ ¬p</li>
+                    <li><span class="orange-highlight">Contrapositive:</span> (p → q) ≡ (¬q → ¬p)</li>
+                    <li><span class="orange-highlight">Simplification:</span> (p ∧ q) ⊢ p</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+        <div class="slide-title">Set theory</div>
+
+    <h2>The Concept of a Set</h2>
+    
+    <ul class="bullet-list">
+        <li>A <span class="red-highlight">set</span> is a <span class="blue-highlight">well-defined collection</span> of objects sharing a common property</li>
+        <li><span class="blue-highlight">Well-defined</span> means we can clearly decide whether an object belongs to the set or not</li>
+        <li>Objects in a set are called <span class="red-highlight">elements</span> (or members)</li>
+        <li>If an element belongs to a set: <span class="orange-highlight">x ∈ A</span></li>
+        <li>If it does not belong: <span class="orange-highlight">x ∉ A</span></li>
+    </ul>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Convention</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Capital letters → <span class="red-highlight">sets</span> (e.g., A, B, C)</li>
+            <li>Lowercase letters → <span class="red-highlight">elements</span> (e.g., x, y, z)</li>
+            <li>For any object x and set A, exactly one of <span class="orange-highlight">x ∈ A</span> or <span class="orange-highlight">x ∉ A</span> is true</li>
+        </ul>
+    </div>
+
+    <h2>Description of Sets</h2>
+    
+    <ul class="bullet-list">
+        <li>Sets can be described in <span class="red-highlight">four different ways</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ 1. Verbal Method</span><br>
+        The set is described in <span class="red-highlight">ordinary language</span>, stating the property of its elements.<br><br>
+        <span class="orange-highlight">Examples:</span>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>The set of counting numbers less than ten</li>
+            <li>The set of letters in the word "Addis Ababa"</li>
+            <li>The set of all countries in Africa</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ 2. Roster (Complete Listing) Method</span><br>
+        If all elements can be listed, we write them inside <span class="red-highlight">curly braces { }</span>, separated by commas.<br>
+        Order does not matter and repetition is <span class="red-highlight">not allowed</span>.<br><br>
+        <span class="orange-highlight">Examples:</span>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>The set of vowels in the English alphabet → <span class="blue-highlight">A = {a, e, i, o, u}</span></li>
+            <li>The set of positive factors of 24 → <span class="blue-highlight">B = {1, 2, 3, 4, 6, 8, 12, 24}</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Remarks on Roster Method</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>The <span class="red-highlight">order</span> of elements does not matter:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>{a, b, c}, {b, c, a}, and {c, a, b} all represent the same set</li>
+                </ul>
+            </li>
+            <li><span class="red-highlight">Repetition</span> of elements is not allowed:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>{a, a, b, b, b} is the same as {a, b}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Examples with Nested Sets</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Let A = {a, b, {c}}:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>Elements of A are: <span class="blue-highlight">a, b, and {c}</span></li>
+                    <li>c and {c} are <span class="red-highlight">different objects</span></li>
+                    <li>{c} ∈ A but <span class="orange-highlight">c ∉ A</span></li>
+                </ul>
+            </li>
+            <li>Let B = {{a}}:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>The only element of B is <span class="blue-highlight">{a}</span></li>
+                    <li>But <span class="orange-highlight">a ∉ B</span></li>
+                </ul>
+            </li>
+            <li>Let C = {a, b, {a, b}, {a, {a}}}:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>C has <span class="blue-highlight">four elements</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ 3. Partial Listing Method</span><br>
+        Sometimes, a set may have <span class="red-highlight">too many elements</span> to list completely, or the set may be <span class="red-highlight">infinite</span>.<br>
+        We partially list the elements and use <span class="orange-highlight">three dots (…)</span> to indicate continuation.<br><br>
+        <span class="orange-highlight">Rules:</span>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>List a few initial elements (or final elements, or both)</li>
+            <li>Use "…" to show that the set continues indefinitely</li>
+            <li>If needed, include a final element to show where the listing ends</li>
+        </ul>
+        <span class="orange-highlight">Examples:</span>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>The set of all counting numbers → <span class="blue-highlight">ℕ = {1, 2, 3, 4, …}</span></li>
+            <li>The set of non-positive integers → <span class="blue-highlight">{…, -4, -3, -2, -1, 0}</span></li>
+            <li>The set of multiples of 5 → <span class="blue-highlight">{…, -15, -10, -5, 0, 5, 10, 15, …}</span></li>
+            <li>The set of odd integers less than 100 → <span class="blue-highlight">{…, -3, -1, 1, 3, 5, …, 99}</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ 4. Set-builder Method</span><br>
+        When all elements of a set satisfy a common property <span class="red-highlight">P</span>, we describe the set using the <span class="blue-highlight">Set-builder Method</span>.<br>
+        The notation is:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">A = {x | P(x)}</span> or <span class="orange-highlight">A = {x : P(x)}</span></li>
+        </ul>
+        Read as: <span class="blue-highlight">"A is the set of all x such that P(x) is true"</span><br>
+        The symbol "|" or ":" means <span class="red-highlight">"such that"</span>.<br><br>
+        <span class="orange-highlight">Note:</span> The variable (x, t, y, n, …) is just a <span class="blue-highlight">placeholder</span>. For the same property P, the following sets are identical:
+        <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+            <li>{x | P(x)}, {t | P(t)}, {y | P(y)}</li>
+        </ul>
+        <span class="orange-highlight">Examples:</span>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>A = {x | x is a vowel in the English alphabet} → <span class="blue-highlight">A = {a, e, i, o, u}</span></li>
+            <li>B = {t | t is an even integer} → <span class="blue-highlight">B = {…, -4, -2, 0, 2, 4, …}</span></li>
+            <li>C = {n | n is a natural number and 2n - 15 is negative}:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>Since 2n - 15 < 0 → n < 7.5</li>
+                    <li>So <span class="blue-highlight">C = {1, 2, 3, 4, 5, 6, 7}</span></li>
+                </ul>
+            </li>
+            <li>D = {y | y² - y - 6 = 0}:
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>Solve: y² - y - 6 = (y - 3)(y + 2) = 0 → y = 3 or y = -2</li>
+                    <li>So <span class="blue-highlight">D = {-2, 3}</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Relationships Between Sets</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.10: Empty (Null) Set</span><br>
+        A set with <span class="red-highlight">no elements</span> is called the <span class="blue-highlight">empty set</span> (or null set).<br>
+        It is denoted by <span class="orange-highlight">∅</span> or <span class="orange-highlight">{}</span>.<br>
+        Think of it as an empty container — a box with nothing inside.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example:</span><br>
+        The set <span class="orange-highlight">{x ∈ ℝ | x² + 1 = 0}</span> means "all real numbers x such that x² + 1 = 0".<br>
+        Solve: x² + 1 = 0 → x² = -1<br>
+        But in real numbers, no number squared can give -1.<br>
+        Therefore, there is no solution in ℝ.<br>
+        So <span class="blue-highlight">{x ∈ ℝ | x² + 1 = 0} = ∅</span>.
+    </div>
+
+    <ul class="bullet-list">
+        <li>Important Notes:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li>The empty set is <span class="red-highlight">not the same</span> as {∅}</li>
+                <li>∅ = {} → <span class="blue-highlight">no element at all</span></li>
+                <li>{∅} → a set with <span class="blue-highlight">one element</span>, and that element is the empty set itself</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.11: Subset</span><br>
+        A set <span class="red-highlight">B</span> is a <span class="blue-highlight">subset</span> of set <span class="red-highlight">A</span> if <span class="orange-highlight">every element of B is also an element of A</span>.<br>
+        We write: <span class="orange-highlight">B ⊆ A</span>.<br>
+        Formally: (∀x)(if x ∈ B then x ∈ A).<br>
+        If there is at least one element of B that is not in A, then B is <span class="red-highlight">not a subset</span> of A. We write: <span class="orange-highlight">B ⊈ A</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Remarks:</span><br>
+        For any set A:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">∅ ⊆ A</span> (the empty set is a subset of every set, because there is no element in ∅ to violate the rule)</li>
+            <li><span class="orange-highlight">A ⊆ A</span> (every set is a subset of itself)</li>
+        </ul>
+    </div>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a)</span><br>
+        Let A = {a, b}, B = {a, b, c}, C = {a, b, d}.<br>
+        <span class="orange-highlight">A ⊆ B</span> → because every element of A (a, b) is inside B.<br>
+        <span class="orange-highlight">A ⊆ C</span> → because every element of A (a, b) is inside C.<br>
+        But:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">B ⊈ A</span> → because c ∈ B but c ∉ A</li>
+            <li><span class="red-highlight">B ⊈ C</span> → because c ∈ B but c ∉ C</li>
+            <li><span class="red-highlight">C ⊈ B</span> → because d ∈ C but d ∉ B</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b)</span><br>
+        Let S = {x | x is a multiple of 6}, T = {x | x is an even integer}.<br>
+        Multiples of 6: {…, -12, -6, 0, 6, 12, 18, …}<br>
+        Even integers: {…, -4, -2, 0, 2, 4, 6, 8, 10, …}<br>
+        Every multiple of 6 is also even → <span class="orange-highlight">S ⊆ T</span>.<br>
+        But not every even number is a multiple of 6 (e.g., 2 ∈ T, but 2 ∉ S) → <span class="red-highlight">T ⊈ S</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (c)</span><br>
+        Let A = {a, {b}}.<br>
+        A has two elements: the symbol a, and the set {b}.<br>
+        <span class="orange-highlight">{a} ⊆ A</span> → because the only element of {a} is a, and a ∈ A.<br>
+        <span class="orange-highlight">{{b}} ⊆ A</span> → because the only element of {{b}} is {b}, and {b} ∈ A.<br>
+        But:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">{b} ⊈ A</span> → because b ∉ A (A only has a and {b}, but not b itself)</li>
+            <li><span class="red-highlight">{a, b} ⊈ A</span> → because a ∈ A, but b ∉ A</li>
+        </ul>
+        Pay attention to the difference between an <span class="blue-highlight">element</span> and a <span class="blue-highlight">set as an element</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.12: Equality of Sets</span><br>
+        Two sets A and B are said to be <span class="blue-highlight">equal</span> if they contain <span class="red-highlight">exactly the same elements</span>.<br>
+        We write: <span class="orange-highlight">A = B</span><br>
+        Formally: (∀x)(x ∈ A ⇔ x ∈ B)<br>
+        This means: For every element x, x belongs to A if and only if it also belongs to B.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Examples:</span><br>
+        <span class="orange-highlight">a) {1, 2, 3}, {2, 1, 3}, {1, 3, 2}</span> → all three sets are equal.<br>
+        Reason: The order of elements does not matter in sets. What matters is membership — which elements are present.<br><br>
+        <span class="orange-highlight">b) {x | x is a counting number} and {x | x is a positive integer}</span> → both describe the same collection: {1, 2, 3, 4, …}.<br>
+        Reason: "Counting numbers" and "positive integers" are two different names for the same set. Therefore, these two sets are equal.
+    </div>
+
+    <ul class="bullet-list">
+        <li>Key Idea: Equality of sets means they are <span class="red-highlight">identical in content</span>, not necessarily in how they are written</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.13: Proper Subset</span><br>
+        A set A is a <span class="blue-highlight">proper subset</span> of set B, written <span class="orange-highlight">A ⊂ B</span>, if:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Every element of A is also in B, and</li>
+            <li><span class="red-highlight">A ≠ B</span> (B must have at least one extra element)</li>
+        </ul>
+        Formally: A ⊂ B ⇔ [(∀x)(x ∈ A ⇒ x ∈ B) ∧ (A ≠ B)]<br>
+        In this case, we also say B is a <span class="blue-highlight">proper superset</span> of A, written B ⊃ A.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Important Note on Symbols:</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">⊆</span> → subset (may be equal)</li>
+            <li><span class="orange-highlight">⊂</span> → proper subset (must be strictly smaller)</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Examples:</span><br>
+        <span class="orange-highlight">1. A = {1, 2}, B = {1, 2, 3}</span> → A ⊂ B because A's elements are inside B, and B has an extra element (3).<br>
+        <span class="orange-highlight">2. A = {1, 2, 3}, B = {1, 2, 3}</span> → A ⊆ B (subset), but not a proper subset because A = B.
+    </div>
+
+    <ul class="bullet-list">
+        <li>Quick Test: If A ⊆ B but A ≠ B, then <span class="red-highlight">A ⊂ B</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.14: Power Set</span><br>
+        The <span class="blue-highlight">power set</span> of a set A, written <span class="orange-highlight">P(A)</span>, is the set of <span class="red-highlight">all subsets</span> of A.<br>
+        Formally: P(A) = {B | B ⊆ A}<br>
+        This means: Collect every possible subset of A (including A itself and the empty set), and that collection is the power set.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example:</span><br>
+        Let A = {x, y, z}<br>
+        List all subsets:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li>Subset with no elements: ∅</li>
+            <li>Subsets with one element: {x}, {y}, {z}</li>
+            <li>Subsets with two elements: {x, y}, {x, z}, {y, z}</li>
+            <li>Subset with all elements: {x, y, z}</li>
+        </ul>
+        P(A) = {∅, {x}, {y}, {z}, {x, y}, {x, z}, {y, z}, {x, y, z}}<br>
+        Since A has 3 elements, P(A) has <span class="blue-highlight">2³ = 8 subsets</span>.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ General Rule:</span><br>
+        If a set has <span class="red-highlight">n</span> elements, its power set has <span class="blue-highlight">2ⁿ</span> subsets.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Universal Set</span><br>
+        Often, we restrict our discussion to a fixed set, called the <span class="blue-highlight">universal set</span> (or universe).<br>
+        It is denoted by <span class="orange-highlight">U</span>.<br>
+        Every set under consideration is a <span class="red-highlight">subset of U</span>.<br>
+        Think of U as the "big world" we are working in, and all other sets are just parts of it.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Examples:</span><br>
+        <span class="orange-highlight">1.</span> If U = {1, 2, 3, 4, 5}, and A = {2, 3}, then A ⊆ U.<br>
+        <span class="orange-highlight">2.</span> If U = ℝ (the set of all real numbers), then any set of real numbers we discuss must be inside U.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Quick Recap</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">Empty set (∅)</span> → the set with no elements</li>
+            <li><span class="red-highlight">Subsets (⊆)</span> → every element of one set lies in another</li>
+            <li><span class="red-highlight">Proper subsets (⊂)</span> → subset but strictly smaller</li>
+            <li><span class="red-highlight">Equal sets (=)</span> → contain exactly the same elements</li>
+            <li><span class="red-highlight">Power set P(A)</span> → the set of all subsets of A (2ⁿ subsets if A has n elements)</li>
+            <li><span class="red-highlight">Universal set (U)</span> → the "universe" containing all sets under consideration</li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Set Operations and Venn Diagrams</h2>
+    
+    <ul class="bullet-list">
+        <li>Given two subsets A and B of a universal set U, we can form new sets from A and B by combining their elements in various ways</li>
+        <li>These processes are called <span class="red-highlight">set operations</span></li>
+        <li>The three most fundamental operations are:
+            <ul class="compact-list" style="margin-top: 8px;">
+                <li><span class="blue-highlight">1. Union</span></li>
+                <li><span class="blue-highlight">2. Intersection</span></li>
+                <li><span class="blue-highlight">3. Complement</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.15: Union of Sets</span><br>
+        The <span class="red-highlight">union</span> of two sets A and B, written <span class="orange-highlight">A ∪ B</span>, is the set of all elements that are in <span class="blue-highlight">A or in B (or in both)</span>.<br>
+        Formally: <span class="orange-highlight">A ∪ B = {x | (x ∈ A) ∨ (x ∈ B)}</span><br>
+        The union operator (∪) in set theory corresponds to the logical operator (∨) "or".
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.16: Intersection of Sets</span><br>
+        The <span class="red-highlight">intersection</span> of two sets A and B, written <span class="orange-highlight">A ∩ B</span>, is the set of all elements that are in <span class="blue-highlight">both A and B</span>.<br>
+        Formally: <span class="orange-highlight">A ∩ B = {x | (x ∈ A) ∧ (x ∈ B)}</span><br>
+        The intersection operator (∩) corresponds to the logical operator (∧) "and".
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Note on Disjoint Sets</span><br>
+        Two sets A and B are said to be <span class="red-highlight">disjoint</span> if they have <span class="blue-highlight">no elements in common</span>.<br>
+        Formally: <span class="orange-highlight">A ∩ B = ∅</span>
+    </div>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a)</span><br>
+        Let A = {0, 1, 3, 5, 6}, B = {1, 2, 3, 4, 6, 7}<br>
+        <span class="orange-highlight">A ∪ B</span> = {0, 1, 2, 3, 4, 5, 6, 7}<br>
+        <span class="orange-highlight">A ∩ B</span> = {1, 3, 6}
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b)</span><br>
+        Let A = {x | x is a positive even integer}, B = {x | x is a positive multiple of 3}<br>
+        <span class="orange-highlight">A ∪ B</span> = {x | x is a positive integer that is either even or a multiple of 3}<br>
+        = {2, 3, 4, 6, 8, 9, 10, 12, 14, 15, 16, …}<br>
+        <span class="orange-highlight">A ∩ B</span> = {x | x is a positive integer that is both even and a multiple of 3}<br>
+        = {6, 12, 18, 24, …} = {x | x is a positive multiple of 6}
+    </div>
+
+    <h2>Set Difference and Complement</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.17: Difference Between Two Sets</span><br>
+        The <span class="red-highlight">difference</span> between two sets A and B, written as <span class="orange-highlight">A - B</span>, is the set of all elements that are in <span class="blue-highlight">A but not in B</span>.<br>
+        This set is also called the <span class="blue-highlight">relative complement</span> of B with respect to A.<br>
+        Symbolically: <span class="orange-highlight">A - B = {x : x ∈ A and x ∉ B}</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1.33</span><br>
+        If A = {1, 3, 5} and B = {1, 2}, then:<br>
+        <span class="orange-highlight">A - B</span> = {3, 5}<br>
+        <span class="orange-highlight">B - A</span> = {2}<br>
+        Note: In general, A - B and B - A are <span class="red-highlight">disjoint sets</span> (they don't overlap).
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition 1.18: Absolute Complement</span><br>
+        Let A be a subset of a universal set U.<br>
+        The <span class="red-highlight">absolute complement</span> (or simply the complement) of A, denoted by <span class="orange-highlight">A′</span> (or Aᶜ or Ā), is the set of all elements in U that are <span class="blue-highlight">not in A</span>.<br>
+        In words: the complement of A is "everything outside A, but still inside U".<br>
+        Symbolically: <span class="orange-highlight">A′ = {x : x ∈ U and x ∉ A}</span><br>
+        or equivalently, <span class="orange-highlight">x ∈ A′ ⇔ x ∉ A</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Important:</span><br>
+        The complement of A is the same as the relative complement of A with respect to U.<br>
+        So, <span class="orange-highlight">A′ = U - A</span>.
+    </div>
+
+    <h3>Examples</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Example (a)</span><br>
+        U = {0, 1, 2, 3, 4}, A = {3, 4}<br>
+        Elements in U but not in A = {0, 1, 2}<br>
+        <span class="orange-highlight">A′ = {0, 1, 2}</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (b)</span><br>
+        U = {1, 2, 3, …, 12}<br>
+        A = {x | x is a positive factor of 12} = {1, 2, 3, 4, 6, 12}<br>
+        B = {x | x is an odd integer in U} = {1, 3, 5, 7, 9, 11}<br><br>
+        <span class="orange-highlight">A′</span> = {5, 7, 8, 9, 10, 11}<br>
+        <span class="orange-highlight">B′</span> = {2, 4, 6, 8, 10, 12}<br>
+        <span class="orange-highlight">(A ∪ B)′</span> = {8, 10}<br>
+        <span class="orange-highlight">A′ ∪ B′</span> = {2, 4, 5, 6, 7, 8, 9, 10, 11, 12}<br>
+        <span class="orange-highlight">A′ ∩ B′</span> = {8, 10}<br>
+        <span class="orange-highlight">A - B</span> = {2, 4, 6, 12}<br>
+        <span class="orange-highlight">(A - B)′</span> = {1, 3, 5, 7, 8, 9, 10, 11}
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example (c)</span><br>
+        U = {a, b, c, d, e, f, g, h}<br>
+        A = {a, e, g, h}<br>
+        B = {b, c, e, f, h}<br><br>
+        <span class="orange-highlight">A′</span> = {b, c, d, f}<br>
+        <span class="orange-highlight">B′</span> = {a, d, g}<br>
+        <span class="orange-highlight">B - A</span> = {b, c, f}<br>
+        <span class="orange-highlight">A - B</span> = {a, g}<br>
+        <span class="orange-highlight">(A ∪ B)′</span> = {d}
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Theorem 1.1: Laws of Complements</span><br>
+        For any two sets A and B (inside a universal set U):
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">1. (A′)′ = A</span> → double complement law</li>
+            <li><span class="orange-highlight">2. A′ = U - A</span> → definition of complement</li>
+            <li><span class="orange-highlight">3. A - B = A ∩ B′</span> → difference rule</li>
+            <li><span class="orange-highlight">4. (A ∪ B)′ = A′ ∩ B′</span> → De Morgan's law</li>
+            <li><span class="orange-highlight">5. (A ∩ B)′ = A′ ∪ B′</span> → De Morgan's law</li>
+            <li><span class="orange-highlight">6. A ⊆ B ⇔ B′ ⊆ A′</span> → complements reverse inclusion</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">✨ Key Takeaways</span><br>
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="red-highlight">Difference (A - B)</span> → in A but not in B</li>
+            <li><span class="red-highlight">Complement (A′)</span> → everything in U but outside A</li>
+            <li><span class="orange-highlight">A - B = A ∩ B′</span> is a useful shortcut</li>
+            <li><span class="red-highlight">De Morgan's Laws:</span>
+                <ul class="compact-list" style="margin-top: 5px; margin-left: 20px;">
+                    <li>(A ∪ B)′ = A′ ∩ B′</li>
+                    <li>(A ∩ B)′ = A′ ∪ B′</li>
+                </ul>
+            </li>
+            <li>Complements flip inclusion: if A ⊆ B, then B′ ⊆ A′</li>
+        </ul>
+    </div>
+
+    <h2>Symmetric Difference and Set Properties</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Definition: Symmetric Difference</span><br>
+        The <span class="red-highlight">symmetric difference</span> of two sets A and B, written as <span class="orange-highlight">A Δ B</span>, is the set of all elements that are in <span class="blue-highlight">A or in B, but not in both</span>.<br>
+        In other words: <span class="orange-highlight">A Δ B = (A - B) ∪ (B - A)</span>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">★ Example 1.35</span><br>
+        Let U = {1, 2, 3, …, 10}<br>
+        A = {2, 4, 6, 8, 9, 10}<br>
+        B = {3, 5, 7, 9}<br><br>
+        <span class="orange-highlight">B - A</span> = {3, 5, 7} (elements in B but not in A)<br>
+        <span class="orange-highlight">A - B</span> = {2, 4, 6, 8, 10} (elements in A but not in B)<br>
+        <span class="orange-highlight">A Δ B</span> = {2, 3, 4, 5, 6, 7, 8, 10}<br>
+        Note: 9 is <span class="red-highlight">not included</span> because it belongs to both sets A and B.
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Theorem 1.2: Properties of Union and Intersection</span><br>
+        For any three sets A, B, and C:
+        <ul class="compact-list" style="margin-top: 8px;">
+            <li><span class="orange-highlight">1. A ∪ B = B ∪ A</span> → (Union is commutative)</li>
+            <li><span class="orange-highlight">2. A ∩ B = B ∩ A</span> → (Intersection is commutative)</li>
+            <li><span class="orange-highlight">3. (A ∪ B) ∪ C = A ∪ (B ∪ C)</span> → (Union is associative)</li>
+            <li><span class="orange-highlight">4. (A ∩ B) ∩ C = A ∩ (B ∩ C)</span> → (Intersection is associative)</li>
+            <li><span class="orange-highlight">5. A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</span> → (Union distributes over intersection)</li>
+            <li><span class="orange-highlight">6. A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</span> → (Intersection distributes over union)</li>
+        </ul>
+    </div>
+
+    <h3>Proof of Property (5)</h3>
+    <div class="callout">
+        <span class="blue-highlight">◆ We want to show:</span> <span class="orange-highlight">A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</span><br><br>
+        Let x be an element:<br>
+        <span class="orange-highlight">1.</span> Suppose x ∈ A ∪ (B ∩ C)<br>
+        → means (x ∈ A) OR (x ∈ B AND x ∈ C)<br><br>
+        <span class="orange-highlight">2.</span> Rewrite with logic:<br>
+        x ∈ A OR (x ∈ B ∧ x ∈ C)<br><br>
+        <span class="orange-highlight">3.</span> Distribute OR over AND:<br>
+        (x ∈ A OR x ∈ B) ∧ (x ∈ A OR x ∈ C)<br><br>
+        <span class="orange-highlight">4.</span> Translate back to sets:<br>
+        x ∈ (A ∪ B) ∧ (A ∪ C)<br><br>
+        <span class="orange-highlight">5.</span> Which means:<br>
+        x ∈ (A ∪ B) ∩ (A ∪ C)<br><br>
+        <span class="blue-highlight">✅ Therefore proved! So, A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C).</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Venn Diagrams</h2>
+    
+    <ul class="bullet-list">
+        <li>While working with sets, it is helpful to use diagrams, called <span class="red-highlight">Venn diagrams</span>, to illustrate the relationships involved</li>
+        <li>A Venn diagram is a <span class="blue-highlight">schematic or pictorial representative</span> of the sets involved in the discussion</li>
+        <li>Usually sets are represented as <span class="orange-highlight">interlocking circles</span>, each of which is enclosed in a <span class="orange-highlight">rectangle</span>, which represents the <span class="red-highlight">universal set U</span></li>
+        <li>In some occasions, we list the <span class="blue-highlight">elements of set A</span> inside the closed curve representing A</li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="venn_diagram_basic.png" alt="Basic Venn diagram showing universal set U and set A" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_basic.png]</div>
+    </div>
+
+
+    <h3>Example (a)</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ If U = {1, 2, 3, 4, 5, 6, 7} and A = {2, 4, 6}</span><br>
+        A Venn diagram representation of these two sets looks like the following.
+    </div>
+
+    <div class="image-figure">
+        <img src="venn_diagram_example_a.png" alt="Venn diagram showing U = {1,2,3,4,5,6,7} and A = {2,4,6}" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-caption">Fig: Venn diagram for U = {1,2,3,4,5,6,7} and A = {2,4,6}</div>
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_example_a.png]</div>
+    </div>
+
+    <h3>Example (b)</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Let U = {x | x is a positive integer less than 13}</span><br>
+        A = {x | x ∈ U and x is even}<br>
+        B = {x | x ∈ U and x is a multiple of 3}<br>
+        A Venn diagram representation of these sets is given below.
+    </div>
+
+    <div class="image-figure">
+        <img src="venn_diagram_example_b.png" alt="Venn diagram showing sets A (even numbers) and B (multiples of 3) within U (positive integers less than 13)" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-caption">Fig: Venn diagram for even numbers and multiples of 3 within U = {1,2,...,12}</div>
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_example_b.png]</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <h2>Venn Diagrams - Examples</h2>
+    
+    <h3>Example 1.37</h3>
+    <div class="callout">
+        <span class="blue-highlight">★ Let U = The set of one digit numbers</span><br>
+        A = The set of one digit even numbers<br>
+        B = The set of positive prime numbers less than 10<br>
+        We illustrate the sets using a Venn diagram as follows.
+    </div>
+
+    <div class="image-figure">
+        <img src="venn_diagram_example37_sets.png" alt="Venn diagram showing U (one digit numbers), A (even numbers), and B (prime numbers less than 10)" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-caption">Fig: Venn diagram for U = {0,1,2,3,4,5,6,7,8,9}, A = {0,2,4,6,8}, B = {2,3,5,7}</div>
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_example37_sets.png]</div>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ (a) Illustrate A ∩ B by a Venn diagram</span><br>
+        <span class="orange-highlight">A ∩ B</span> → The shaded portion represents the intersection of A and B.
+    </div>
+
+    <div class="image-figure">
+        <img src="venn_diagram_intersection.png" alt="Venn diagram showing shaded intersection of A and B" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-caption">Fig: A ∩ B (shaded region) - elements common to both A and B</div>
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_intersection.png]</div>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ (b) Illustrate A′ by a Venn diagram</span><br>
+        <span class="orange-highlight">A′</span> → The shaded portion represents the complement of A.
+    </div>
+
+    <div class="image-figure">
+        <img src="venn_diagram_complement.png" alt="Venn diagram showing shaded complement of A" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-caption">Fig: A′ (shaded region) - all elements in U that are not in A</div>
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_complement.png]</div>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">◆ (c) Illustrate A \ B by a Venn diagram</span><br>
+        <span class="orange-highlight">A \ B</span> (or A - B) → The shaded portion represents the difference (elements in A but not in B).
+    </div>
+
+    <div class="image-figure">
+        <img src="venn_diagram_difference.png" alt="Venn diagram showing shaded difference A minus B" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-caption">Fig: A \ B (shaded region) - elements in A but not in B</div>
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_difference.png]</div>
+    </div>
+
+    <h2>Venn Diagram Illustrations of Union and Intersection</h2>
+    
+    <div class="callout">
+        <span class="blue-highlight">◆ Now we illustrate intersections and unions of sets by Venn diagram</span>
+    </div>
+	
+ <div class="image-figure">
+        <img src="venn_diagram_illustrate.png" alt="Venn diagram showing shaded difference A minus B" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display:none;">[venn_diagram_difference.png]</div>
+    </div>
+
+
+
+    <div class="callout">
+        <span class="blue-highlight">◆ Note:</span><br>
+        When A and B have <span class="red-highlight">no common elements</span>, they are called <span class="orange-highlight">disjoint sets</span>, and we write <span class="blue-highlight">A ∩ B = ∅</span>.
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }
+    });
+</script>
+</body>
+</html>
