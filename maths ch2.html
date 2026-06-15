@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>  </title>
+    <!-- KaTeX CSS + JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false},{left: '\\(', right: '\\)', display: false},{left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a1f1a;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            position: relative;
+            max-width: 1100px;
+            width: 100%;
+            background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+            padding: 32px 38px 50px 38px;
+            margin-bottom: 40px;
+            border: 1px solid #2a5a4a;
+            color: #ffffff;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .slide:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide::before {
+            content: "QELEME EXAMS";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-family: 'Segoe UI', 'Georgia', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: rgba(91, 192, 168, 0.12);
+            pointer-events: none;
+            z-index: 10000;
+            white-space: nowrap;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: none;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide * {
+            z-index: auto !important;
+        }
+
+        .slide :not(.slide::before) {
+            z-index: auto;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide .col, .slide .math-block, .slide .callout, .slide .image-figure, .slide .two-columns {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(155, 199, 187, 0.55);
+            font-family: monospace;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f5d742;
+            margin-bottom: 10px;
+            border-left: 5px solid #5bc0a8;
+            padding-left: 20px;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #f5d742;
+            margin-bottom: 22px;
+            padding-left: 26px;
+            border-bottom: 1px solid #2a5a4a;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #f5d742;
+            margin: 18px 0 12px 0;
+            border-left: 3px solid #5bc0a8;
+            padding-left: 14px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5e29e;
+            margin: 10px 0 6px 0;
+        }
+
+        p, li, .bullet-list li, .compact-list li, .callout, .math-block, .image-caption, .col p, .col li, td, th {
+            color: #ffffff;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .math-block .katex, .math-block .katex * {
+            color: #ffffff;
+        }
+
+        .highlight {
+            background: #1a4036;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: inline-block;
+            color: #ffffff;
+        }
+
+        .blue-highlight {
+            color: #6bc8ff !important;
+            font-weight: 600;
+        }
+
+        .red-highlight {
+            color: #ff8a7a !important;
+            font-weight: 600;
+        }
+
+        .orange-highlight {
+            color: #ffb347 !important;
+            font-weight: 600;
+        }
+
+        strong.blue-highlight, b.blue-highlight {
+            color: #6bc8ff !important;
+        }
+        strong.red-highlight, b.red-highlight {
+            color: #ff8a7a !important;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin: 8px 0 14px 0;
+            padding-left: 0;
+        }
+        .bullet-list li {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5bc0a8;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .compact-list {
+            list-style: none;
+            margin: 6px 0 10px 0;
+            padding-left: 0;
+        }
+        .compact-list li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .compact-list li::before {
+            content: "◦";
+            position: absolute;
+            left: 0;
+            color: #7acfb8;
+            font-size: 0.95rem;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin: 14px 0;
+        }
+        .col {
+            background: #0f2c23;
+            border-radius: 20px;
+            padding: 16px 18px;
+            border: 1px solid #2a5a4a;
+        }
+        .col .bullet-list li::before {
+            color: #5bc0a8;
+        }
+
+        .math-block {
+            background: #0a241d;
+            padding: 14px 18px;
+            border-radius: 18px;
+            margin: 14px 0;
+            border-left: 5px solid #5bc0a8;
+            overflow-x: auto;
+            font-size: 1rem;
+        }
+        .math-block .katex {
+            font-size: 1.05em;
+        }
+
+        .callout {
+            background: #0e2a22;
+            border-left: 5px solid #5bc0a8;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 14px 0;
+            font-size: 1rem;
+        }
+
+        .image-figure {
+            margin: 16px 0;
+            text-align: center;
+        }
+        .image-figure img {
+            max-width: 75%;
+            height: auto;
+            max-height: 210px;
+            border-radius: 12px;
+            border: 1px solid #3a7a64;
+            background: #0a241d;
+            object-fit: contain;
+        }
+        .image-caption {
+            font-size: 0.75rem;
+            color: #9bc7bb;
+            margin-top: 5px;
+        }
+        .image-placeholder-note {
+            background: #0a241d;
+            border-radius: 12px;
+            padding: 10px 16px;
+            text-align: center;
+            margin: 12px 0;
+            border: 1px dashed #5bc0a8;
+            color: #9bc7bb;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f2c23;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #2a5a4a;
+            padding: 8px 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+        th {
+            background: #1a4036;
+            color: #f5d742;
+        }
+
+        .inline-arrow {
+            font-weight: 500;
+            color: #8bcbae;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 750px) {
+            .slide { padding: 24px 22px 50px 22px; }
+            .two-columns { grid-template-columns: 1fr; gap: 16px; }
+            .slide-title { font-size: 1.9rem; }
+            .image-figure img { max-width: 85%; max-height: 180px; }
+            .slide::before { font-size: 2rem; letter-spacing: 4px; opacity: 0.6; }
+            .slide-footer { font-size: 0.55rem; bottom: 8px; }
+            p, li, .bullet-list li { font-size: 1rem; }
+        }
+
+        /* PRINT STYLES - each slide stays on ONE page (no cutting) */
+       /* PRINT STYLES - each slide stays on ONE page (no cutting) */
+@media print {
+    @page {
+        margin: 0;
+        size: auto;
+    }
+    
+    html, body {
+        background: #0a231c;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: #0a231c;
+        padding: 0;
+    }
+    
+    .slide {
+        position: relative;
+        background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+        border: none;  /* ← REMOVED BORDER FOR PRINT */
+        box-shadow: none;
+        margin: 0;
+        margin-bottom: 0;
+        padding: 0.35in 0.4in 0.55in 0.4in;
+        border-radius: 0;
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: visible;
+        isolation: isolate;
+    }
+    
+    .slide:last-child {
+        page-break-after: auto;
+    }
+    
+   .slide::before {
+        content: "QELEME EXAMS";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-25deg);
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgba(91, 192, 168, 0.08);  /* ← Changed from 0.25 to 0.08 (much lighter) */
+        white-space: nowrap;
+        letter-spacing: 6px;
+        z-index: 10000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .slide-footer {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        font-size: 0.55rem;
+        color: rgba(155, 199, 187, 0.6);
+        text-align: center;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        z-index: 1;
+    }
+    
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .image-figure img {
+        max-height: 180px;
+        max-width: 65%;
+    }
+    
+    .slide > * {
+        z-index: 1;
+        position: relative;
+    }
+
+    /* Prevent headings from being left alone at the bottom of a page */
+    h1, h2, h3, h4, .slide-title, .subhead {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-after: avoid;
+    }
+
+    /* Keep headings with at least 3 lines of following content */
+    h2, h3, .slide-title {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Prevent callouts, tables, and columns from breaking */
+    .callout, .math-block, table, .two-columns, .col {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Ensure list items stay together when possible */
+    li {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* For long lists, allow breaks but keep minimum 3 items together */
+    ul, .bullet-list, .compact-list {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+        .katex { color: #ffffff; }
+        .katex .mord, .katex .mbin, .katex .mrel { color: #f0f9f5; }
+    </style>
+</head>
+<body>
+
+
+
+  <!-- Cover Page -->
+
+<div class="slide" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0a2a1f 0%, #071a12 100%); padding: 60px 40px;">
+    <div class="slide-footer" style="position: absolute; bottom: 20px; left: 0; right: 0;">© 2019 All Rights Reserved | Qeleme Exams App</div>
+    
+    <!-- Logo Image -->
+    <div style="width: 120px; height: 120px; margin-bottom: 30px;">
+        <img src="Qeleme_Exams.png" alt="Qeleme Exams Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; box-shadow: 0 20px 35px -8px rgba(0,0,0,0.4), 0 0 0 4px rgba(91,192,168,0.2);">
+    </div>
+    
+    <!-- App Name -->
+    <div style="margin-bottom: 20px;">
+        <span style="font-size: 1.2rem; font-weight: 500; color: #5bc0a8; letter-spacing: 4px; text-transform: uppercase;">Qeleme Exams</span>
+    </div>
+    
+    <!-- Main Title -->
+    <h1 style="font-size: 3.2rem; font-weight: 800; color: #f5d742; margin: 15px 0 10px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); letter-spacing: -0.5px;">
+        Mathematics <br>for <br>Natural 
+Sciences
+    </h1>
+    
+    <div style="width: 80px; height: 3px; background: #5bc0a8; margin: 20px auto;"></div>
+    
+    <h2 style="font-size: 2rem; font-weight: 600; color: #ffffff; margin: 10px 0 25px 0; border-left: none; padding-left: 0;">
+        Chapter 2
+    </h2>
+    
+    <div style="background: rgba(91,192,168,0.15); padding: 12px 28px; border-radius: 50px; margin-bottom: 40px; border: 1px solid rgba(91,192,168,0.3);">
+        <span style="font-size: 1rem; color: #9bc7bb; letter-spacing: 1px;">The Real and the Complex Number System </span>
+    </div>
+        <div style="margin-bottom: 25px;">
+        <span style="font-size: 0.85rem; color: #9bc7bb;">Instructor: <strong style="color: #f5d742;">Mr. Dagim</strong></span>
+    </div>
+    <!-- Prepared by line -->
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(91,192,168,0.3); width: 80%;">
+        <p style="font-size: 0.85rem; color: #9bc7bb; margin: 5px 0;">
+            <strong style="color: #f5d742;">Prepared by Qeleme Exams - Learn. Practice. Win</strong>
+        </p>
+        <p style="font-size: 0.75rem; color: #6a9e8e; margin-top: 10px;">
+             Interactive Learning Resource 
+        </p>
+    </div>
+    
+    <!-- Decorative dots -->
+    <div style="position: absolute; bottom: 80px; left: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+    <div style="position: absolute; top: 80px; right: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Contents</div>
+    <div class="two-columns">
+        <div class="col">
+            <h3 style="color: #f5d742;">2.1 The Real Number System</h3>
+            
+            <h3 style="color: #f5d742;">2.1.1 The Set of Natural Numbers ($\mathbb{N}$)</h3>
+            <ul class="compact-list">
+                <li>2.1.1.1 Operations on $\mathbb{N}$</li>
+                <li>2.1.1.2 Order Relation in $\mathbb{N}$</li>
+                <li>2.1.1.3 Factors of a Number</li>
+                <li>2.1.1.4 Classification of Numbers</li>
+                <li>2.1.1.5 Prime Factorization</li>
+                <li>2.1.1.6 Greatest Common Factor (GCF)</li>
+                <li>2.1.1.7 Least Common Multiple (LCM)</li>
+                <li>2.1.1.8 Well Ordering Principle</li>
+                <li>2.1.1.9 Mathematical Induction</li>
+            </ul>
+            
+            <h3 style="color: #f5d742;">2.1.2 The Set of Integers ($\mathbb{Z}$)</h3>
+            
+            <h3 style="color: #f5d742;">2.1.3 The Set of Rational Numbers ($\mathbb{Q}$)</h3>
+            <ul class="compact-list">
+                <li>2.1.3.1 Operations on $\mathbb{Q}$</li>
+                <li>2.1.3.2 Order Relation in $\mathbb{Q}$</li>
+                <li>2.1.3.3 Decimal Representation</li>
+                <li>2.1.3.4 Fraction Form of Decimals</li>
+                <li>2.1.3.5 Non-Terminating Non-Periodic Decimals</li>
+            </ul>
+        </div>
+        
+        <div class="col">
+            <h3 style="color: #f5d742;">2.1.4 The Set of Real Numbers ($\mathbb{R}$)</h3>
+            <ul class="compact-list">
+                <li>2.1.4.1 Operations on $\mathbb{R}$</li>
+                <li>2.1.4.2 The Number Line</li>
+                <li>2.1.4.3 Order Relation in $\mathbb{R}$</li>
+                <li>2.1.4.4 Intervals</li>
+                <li>2.1.4.5 Upper and Lower Bounds</li>
+                <li>2.1.4.6 Completeness Property</li>
+            </ul>
+            
+            <h3 style="color: #f5d742; margin-top: 15px;">2.2 The Set of Complex Numbers ($\mathbb{C}$)</h3>
+            <ul class="compact-list">
+                <li>2.2.1 Plotting Complex Numbers</li>
+                <li>2.2.2 Operations on $\mathbb{C}$</li>
+                <li>2.2.3 Conjugate of a Complex Number</li>
+                <li>2.2.4 Modulus of a Complex Number</li>
+                <li>2.2.5 Additive and Multiplicative Inverses</li>
+                <li>2.2.6 Argument of a Complex Number</li>
+                <li>2.2.7 Polar Form</li>
+                <li>2.2.8 Argument of a Product</li>
+                <li>2.2.9 Argument of a Quotient</li>
+                <li>De Moivre's Formula</li>
+                <li>Euler's Formula</li>
+                <li>2.2.10 Roots of Complex Numbers</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">2.1 The Real Number System</div>
+    <div class="subhead"></div>
+<h2>2.1.1 The Set of Natural Numbers</h2>
+    <ul class="bullet-list">
+        <li>The first set of numbers used by ancient humans for <span class="blue-highlight">counting</span> purposes → <span class="orange-highlight">natural (counting) numbers</span></li>
+        <li><span class="blue-highlight">Definition 2.1.1:</span> The set of natural numbers is denoted by <span class="orange-highlight">$\mathbb{N}$</span> and is described as:
+            <div class="math-block" style="margin-top: 8px;">$\mathbb{N} = \{1, 2, 3, 4, \dots\}$</div>
+        </li>
+        <li>These numbers are called "natural" because they occur naturally in everyday counting situations</li>
+    </ul>
+
+    <h2>2.1.1.1 Operations on the Set of Natural Numbers</h2>
+
+    <h3>i) Addition ($+$)</h3>
+    <ul class="bullet-list">
+        <li>When two natural numbers $a$ and $b$ are added using the operation "$+$" → the sum $a + b$ is <span class="blue-highlight">also a natural number</span></li>
+        <li>If the sum of two natural numbers $a$ and $b$ is denoted by $c$ → we can write: <span class="orange-highlight">$c = a + b$</span></li>
+        <li>$c$ is called the <span class="blue-highlight">sum</span>, while $a$ and $b$ are called <span class="blue-highlight">terms</span> (or addends)</li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $3 + 8 = 11$ → here $11$ is the sum, whereas $3$ and $8$ are terms</div>
+
+    <h3>ii) Multiplication ($\times$)</h3>
+    <ul class="bullet-list">
+        <li>When two natural numbers $a$ and $b$ are multiplied using the operation "$\times$" → the product $a \times b$ is <span class="blue-highlight">also a natural number</span></li>
+        <li>If the product of two natural numbers $a$ and $b$ is denoted by $c$ → we can write: <span class="orange-highlight">$c = a \times b$</span></li>
+        <li>$c$ is called the <span class="blue-highlight">product</span>, while $a$ and $b$ are called <span class="blue-highlight">factors</span></li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $3 \times 4 = 12$ → here $12$ is the product, whereas $3$ and $4$ are factors</div>
+
+    <h2>Properties of Addition and Multiplication on the Set of Natural Numbers</h2>
+
+    <h3>Properties of Addition</h3>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Closure Property:</span> For any two natural numbers $a$ and $b$, the sum $a + b$ is also a natural number.
+            <div class="math-block">Example: $3$ and $8$ are natural numbers → their sum $11$ is also a natural number. In general, we say the set of natural numbers is <span class="orange-highlight">closed under addition</span>.</div>
+        </li>
+        <li><span class="blue-highlight">ii) Commutative Property:</span> For any two natural numbers $a$ and $b$, $a + b = b + a$.
+            <div class="math-block">Example: $3 + 8 = 8 + 3 = 11$. In general, we say addition is <span class="orange-highlight">commutative</span> on the set of natural numbers.</div>
+        </li>
+        <li><span class="blue-highlight">iii) Associative Property:</span> For any three natural numbers $a$, $b$, and $c$, $(a + b) + c = a + (b + c)$.
+            <div class="math-block">Example: $(3 + 8) + 6 = 3 + (8 + 6) = 17$. In general, we say addition is <span class="orange-highlight">associative</span> on the set of natural numbers.</div>
+        </li>
+    </ul>
+
+    <h3>Properties of Multiplication</h3>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Closure Property:</span> For any two natural numbers $a$ and $b$, the product $a \times b$ is also a natural number.
+            <div class="math-block">Example: $3$ and $4$ are natural numbers → their product $12$ is also a natural number. In general, we say the set of natural numbers is <span class="orange-highlight">closed under multiplication</span>.</div>
+        </li>
+        <li><span class="blue-highlight">ii) Commutative Property:</span> For any two natural numbers $a$ and $b$, $a \times b = b \times a$.
+            <div class="math-block">Example: $3 \times 4 = 4 \times 3 = 12$. In general, we say multiplication is <span class="orange-highlight">commutative</span> on the set of natural numbers.</div>
+        </li>
+        <li><span class="blue-highlight">iii) Associative Property:</span> For any three natural numbers $a$, $b$, and $c$, $(a \times b) \times c = a \times (b \times c)$.
+            <div class="math-block">Example: $(2 \times 4) \times 5 = 2 \times (4 \times 5) = 40$. In general, we say multiplication is <span class="orange-highlight">associative</span> on the set of natural numbers.</div>
+        </li>
+        <li><span class="blue-highlight">iv) Identity Property:</span> For any natural number $a$, it holds that $a \times 1 = 1 \times a = a$.
+            <div class="math-block">Example: $6 \times 1 = 1 \times 6 = 6$. In general, we say multiplication has an <span class="orange-highlight">identity element</span> on the set of natural numbers, and <span class="blue-highlight">$1$</span> is the identity element.</div>
+        </li>
+        <li><span class="blue-highlight">v) Distributive Property:</span> For any three natural numbers $a$, $b$, and $c$, $a \times (b + c) = (a \times b) + (a \times c)$.
+            <div class="math-block">Example: $3 \times (5 + 7) = (3 \times 5) + (3 \times 7) = 15 + 21 = 36$. In general, we say multiplication is <span class="orange-highlight">distributive over addition</span> on the set of natural numbers.</div>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Note:</span> Consider two numbers $a$ and $b$. We say <span class="orange-highlight">$a$ is greater than $b$</span>, denoted by $a > b$, if <span class="red-highlight">$a - b$ is positive</span>.
+    </div>
+
+    <h2>2.1.1.2 Order Relation in $\mathbb{N}$</h2>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Transitive Property:</span> For any three natural numbers $a$, $b$, and $c$, if $a > b$ and $b > c$, then $a > c$.
+            <div class="math-block">Example: If $10 > 7$ and $7 > 3$, then $10 > 3$.</div>
+        </li>
+        <li><span class="blue-highlight">ii) Addition Property:</span> For any three natural numbers $a$, $b$, and $c$, if $a > b$, then $a + c > b + c$.
+            <div class="math-block">Example: If $7 > 4$, then $7 + 2 > 4 + 2 \rightarrow 9 > 6$.</div>
+        </li>
+        <li><span class="blue-highlight">iii) Multiplication Property:</span> For any three natural numbers $a$, $b$, and $c$, if $a > b$, then $ac > bc$.
+            <div class="math-block">Example: If $5 > 3$, then $5 \times 2 > 3 \times 2 \rightarrow 10 > 6$.</div>
+        </li>
+        <li><span class="blue-highlight">iv) Law of Trichotomy:</span> For any two natural numbers $a$ and $b$, exactly one of the following is true: $a > b$ OR $a < b$ OR $a = b$.
+            <div class="math-block">Example: For $5$ and $8$ → $5 < 8$; for $12$ and $7$ → $12 > 7$; for $9$ and $9$ → $9 = 9$.</div>
+        </li>
+    </ul>
+
+    <h2>2.1.1.3 Factors of a Number</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.2:</strong><br>
+        If $a, b, c \in \mathbb{N}$ such that $ab = c$, then $a$ and $b$ are called <span class="blue-highlight">factors (or divisors)</span> of $c$, and $c$ is called the <span class="orange-highlight">product (or multiple)</span> of $a$ and $b$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li>In other words, if $a$ divides $c$ exactly with no remainder → $a$ is a factor of $c$</li>
+    </ul>
+    
+    <div class="math-block"><strong>Example:</strong> Find the factors of $15$.<br><br>Solution: Factors of $15$ are numbers that divide $15$ exactly: $1$, $3$, $5$, and $15$.<br>We can write: $F(15) = \{1, 3, 5, 15\}$</div>
+
+    <h2>Classification of Numbers</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.3:</strong><br>
+        A number $a \in \mathbb{N}$ is said to be:
+    </div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Even:</span> if it is divisible by $2$ (leaves no remainder).
+            <div class="math-block">Example: $2, 4, 6, 8, 10, \dots$ are even numbers.</div>
+        </li>
+        <li><span class="blue-highlight">ii) Odd:</span> if it is NOT divisible by $2$.
+            <div class="math-block">Example: $1, 3, 5, 7, 9, \dots$ are odd numbers.</div>
+        </li>
+        <li><span class="blue-highlight">iii) Prime:</span> if it has exactly two distinct factors: $1$ and itself.
+            <div class="math-block">Example: $2, 3, 5, 7, 11, 13, \dots$ are prime numbers.<br>Note: $2$ is the only even prime number.</div>
+        </li>
+        <li><span class="blue-highlight">iv) Composite:</span> if it has three or more factors.
+            <div class="math-block">Example: $4, 6, 8, 9, 10, 12, \dots$ are composite numbers.</div>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Remark:</span> The number <span class="orange-highlight">$1$</span> is <span class="red-highlight">neither prime nor composite</span>. It has only one factor (itself), so it does not satisfy the definition of prime (needs exactly two factors) nor composite (needs three or more factors).
+    </div>
+
+
+
+
+    <h2>2.1.1.5 Prime Factorization</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.4:</strong><br>
+        Prime factorization of a composite number is the <span class="blue-highlight">product of all its prime factors</span>.
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong><br>
+        a) $6 = 2 \times 3$<br>
+        b) $30 = 2 \times 3 \times 5$<br>
+        c) $12 = 2 \times 2 \times 3 = 2^2 \times 3$<br>
+        d) $8 = 2 \times 2 \times 2 = 2^3$<br>
+        e) $180 = 2^2 \times 3^2 \times 5$
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Fundamental Theorem of Arithmetic:</span><br>
+        Every composite number can be expressed as a product of its prime factors. This factorization is <span class="orange-highlight">unique</span> except the order of the factors.
+    </div>
+
+    <h2>2.1.1.6 Greatest Common Factor (GCF)</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.5:</strong><br>
+        The greatest common factor (GCF) of two numbers $a$ and $b$ is denoted by <span class="orange-highlight">GCF$(a, b)$</span> and is the greatest number which is a factor of each of the given numbers.
+    </div>
+    
+    <ul class="bullet-list">
+        <li>If the GCF of two numbers is $1$ → the numbers are called <span class="blue-highlight">relatively prime</span></li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Consider the two numbers $24$ and $60$.<br><br>
+        $F_{24} = \{1, 2, 3, 4, 6, 8, 12, 24\}$<br>
+        $F_{60} = \{1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60\}$<br>
+        $F_{24} \cap F_{60} = \{1, 2, 3, 4, 6, 12\}$<br><br>
+        Therefore, <span class="orange-highlight">GCF$(24, 60) = 12$</span>
+    </div>
+
+    <ul class="bullet-list">
+        <li>This method of finding the GCF is usually <span class="red-highlight">lengthy and time consuming</span></li>
+        <li>Hence an alternative method (<span class="blue-highlight">Prime Factorization Method</span>) is provided:</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Step 1:</strong> Find the prime factorization of each natural number<br>
+        <strong>Step 2:</strong> Form the GCF as the product of every factor that appears in <span class="orange-highlight">each</span> prime factorization → take the <span class="blue-highlight">least number of times</span> it appears
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Consider the two numbers $24$ and $60$.<br><br>
+        <strong>Step 1:</strong><br>
+        $24 = 2^3 \times 3$<br>
+        $60 = 2^2 \times 3 \times 5$<br><br>
+        <strong>Step 2:</strong> The factors that appear in both cases are $2$ and $3$ → take the least number of times.<br>
+        <span class="orange-highlight">GCF$(24, 60) = 2^2 \times 3 = 12$</span>
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Consider the three numbers $20$, $80$, and $450$.<br><br>
+        <strong>Step 1:</strong><br>
+        $20 = 2^2 \times 5$<br>
+        $80 = 2^4 \times 5$<br>
+        $450 = 2 \times 3^2 \times 5^2$<br><br>
+        <strong>Step 2:</strong> The factors that appear in all cases are $2$ and $5$ → take the least number of times.<br>
+        <span class="orange-highlight">GCF$(20, 80, 450) = 2 \times 5 = 10$</span>
+    </div>
+
+    <h2>2.1.1.7 Least Common Multiple (LCM)</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.6:</strong><br>
+        The least common multiple (LCM) of two numbers $a$ and $b$ is denoted by <span class="orange-highlight">LCM$(a, b)$</span> and is the least number which is a multiple of each of the given numbers.
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Consider the two numbers $18$ and $24$.<br><br>
+        $M_{18} = \{18, 36, 54, 72, 90, 108, 126, 144, \dots\}$<br>
+        $M_{24} = \{24, 48, 72, 96, 120, 144, \dots\}$<br>
+        $M_{18} \cap M_{24} = \{72, 144, \dots\}$<br><br>
+        Therefore, <span class="orange-highlight">LCM$(18, 24) = 72$</span>
+    </div>
+    
+    <ul class="bullet-list">
+        <li>This method of finding the LCM is usually <span class="red-highlight">lengthy and time consuming</span></li>
+        <li>Hence an alternative method (<span class="blue-highlight">Prime Factorization Method</span>) is provided:</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Step 1:</strong> Find the prime factorization of each natural number<br>
+        <strong>Step 2:</strong> Form the LCM as the product of every factor that appears in <span class="orange-highlight">any</span> prime factorization → take the <span class="blue-highlight">highest number of times</span> it appears
+    </div>
+
+    <div class="math-block">
+        <strong>Example:</strong> Consider the two numbers $18$ and $24$.<br><br>
+        <strong>Step 1:</strong><br>
+        $18 = 2 \times 3^2$<br>
+        $24 = 2^3 \times 3$<br><br>
+        <strong>Step 2:</strong> The factors that appear in any case are $2$ and $3$ → take the highest number of times.<br>
+        <span class="orange-highlight">LCM$(18, 24) = 2^3 \times 3^2 = 72$</span>
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Consider the three numbers $20$, $80$, and $450$.<br><br>
+        <strong>Step 1:</strong><br>
+        $20 = 2^2 \times 5$<br>
+        $80 = 2^4 \times 5$<br>
+        $450 = 2 \times 3^2 \times 5^2$<br><br>
+        <strong>Step 2:</strong> The factors that appear in any case are $2$, $3$, and $5$ → take the highest number of times.<br>
+        <span class="orange-highlight">LCM$(20, 80, 450) = 2^4 \times 3^2 \times 5^2 = 3600$</span>
+    </div>
+  
+
+    <h2>2.1.1.8 Well Ordering Principle in the Set of Natural Numbers</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.7:</strong><br>
+        Every non-empty subset of the set of natural numbers has a <span class="blue-highlight">smallest (least) element</span>.
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong><br>
+        $A = \{2, 3, 4, \dots\} \subseteq \mathbb{N}$<br>
+        Smallest element of $A = 2$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Note:</span> The set of counting numbers including zero is called the set of <span class="orange-highlight">whole numbers</span> and is denoted by $\mathbb{W}$.<br>
+        i.e., $\mathbb{W} = \{0, 1, 2, 3, \dots\}$
+    </div>
+
+    <h2>2.1.1.9 Principle of Mathematical Induction</h2>
+    
+    <ul class="bullet-list">
+        <li>Mathematical induction is one of the most important techniques used to prove conjectures in mathematics</li>
+        <li>It is used to check conjectures about the outcome of processes that occur repeatedly according to definite patterns</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>For a given assertion involving a natural number $n$:</strong><br><br>
+        i. The assertion is true for $n = 1$ (usually)<br>
+        ii. It is true for $n = k + 1$ whenever it is true for $n = k$ (where $k \ge 1$)<br><br>
+        Then the assertion is true for <span class="orange-highlight">every natural number $n$</span>
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The method is used to prove different propositions involving positive integers using <span class="blue-highlight">three steps</span>:
+            <div class="math-block" style="margin-top: 8px;">
+                <strong>Step 1:</strong> Prove that $T_1$ (usually) holds true<br>
+                <strong>Step 2:</strong> Assume that $T_k$ for $k = n$ is true (Induction Hypothesis)<br>
+                <strong>Step 3:</strong> Show that $T_k$ is true for $k = n + 1$
+            </div>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <strong>Example 1:</strong> Show that $1 + 3 + 5 + \dots + (2n - 1) = n^2$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Step 1 (Base Case):</span> For $n = 1$ → $1 = 1^2$ which is <span class="orange-highlight">true</span></li>
+        <li><span class="blue-highlight">Step 2 (Induction Hypothesis):</span> Assume it is true for $n = k$<br>
+            i.e., $1 + 3 + 5 + \dots + (2k - 1) = k^2$</li>
+        <li><span class="blue-highlight">Step 3 (Induction Step):</span> Show it is true for $n = k + 1$<br>
+            <strong>Claim:</strong> $1 + 3 + 5 + \dots + (2k - 1) + (2k + 1) = (k + 1)^2$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Proof of Step 3:</strong><br><br>
+        $1 + 3 + 5 + \dots + (2k - 1) + (2k + 1)$<br>
+        $= k^2 + (2k + 1)$ (by induction hypothesis)<br>
+        $= k^2 + 2k + 1$<br>
+        $= (k + 1)^2$<br><br>
+        <span class="orange-highlight">∴ The statement is true for any natural number $n$</span>
+    </div>
+    
+    <div class="math-block">
+        <strong>Example 2:</strong> Show that $1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Step 1 (Base Case):</span> For $n = 1$ → $1 = \frac{1(1+1)}{2}$ which is <span class="orange-highlight">true</span></li>
+        <li><span class="blue-highlight">Step 2 (Induction Hypothesis):</span> Assume it is true for $n = k$<br>
+            i.e., $1 + 2 + 3 + \dots + k = \frac{k(k+1)}{2}$</li>
+        <li><span class="blue-highlight">Step 3 (Induction Step):</span> Show it is true for $n = k + 1$<br>
+            <strong>Claim:</strong> $1 + 2 + 3 + \dots + k + (k+1) = \frac{(k+1)(k+2)}{2}$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Proof of Step 3:</strong><br><br>
+        $1 + 2 + 3 + \dots + k + (k+1)$<br>
+        $= \frac{k(k+1)}{2} + (k+1)$<br>
+        $= \frac{k(k+1) + 2(k+1)}{2}$<br>
+        $= \frac{(k+1)(k+2)}{2}$<br><br>
+        <span class="orange-highlight">∴ The statement is true for any natural number $n$</span>
+    </div>
+
+    <div class="math-block">
+        <strong>Example 3:</strong> Show that $5^n + 6^n < 9^n$ for $n \ge 2$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Step 1 (Base Case):</span> For $n = 2$<br>
+            $5^2 + 6^2 = 25 + 36 = 61$ and $9^2 = 81$<br>
+            Since $61 < 81$ → the statement is <span class="orange-highlight">true</span></li>
+        
+        <li><span class="blue-highlight">Step 2 (Induction Hypothesis):</span> Assume it is true for $n = k$ (where $k \ge 2$)<br>
+            i.e., $5^k + 6^k < 9^k$</li>
+        
+        <li><span class="blue-highlight">Step 3 (Induction Step):</span> Show it is true for $n = k + 1$<br>
+            <strong>Claim:</strong> $5^{k+1} + 6^{k+1} < 9^{k+1}$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Proof of Step 3:</strong><br><br>
+        $5^{k+1} + 6^{k+1} = 5 \cdot 5^k + 6 \cdot 6^k$<br><br>
+        $< 6 \cdot 5^k + 6 \cdot 6^k$ (since $5 \cdot 5^k < 6 \cdot 5^k$)<br><br>
+        $= 6(5^k + 6^k)$<br><br>
+        $< 9(5^k + 6^k)$ (since $6 < 9$)<br><br>
+        $< 9 \cdot 9^k$ (by induction hypothesis: $5^k + 6^k < 9^k$)<br><br>
+        $= 9^{k+1}$<br><br>
+        <span class="orange-highlight">∴ $5^{k+1} + 6^{k+1} < 9^{k+1}$</span>
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Conclusion:</span> Since the statement is true for $n = 2$ and whenever it is true for $n = k$ (where $k \ge 2$) it is also true for $n = k + 1$,<br>
+        ∴ The statement is true for any natural number $n \ge 2$.
+    </div>
+</div>
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">2.1.2 The Set of Integers</div>
+    
+    <ul class="bullet-list">
+        <li>As human knowledge increased, it became necessary to extend the natural number system</li>
+        <li>For example, to solve the equation $x + 1 = 0$, the set of natural numbers was <span class="red-highlight">not sufficient</span></li>
+        <li>Hence, the set of integers was developed to satisfy such extended demands</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Definition 2.8:</strong><br>
+        The set of integers is denoted by $\mathbb{Z}$ and is described as:<br>
+        $\mathbb{Z} = \{\dots, -2, -1, 0, 1, 2, \dots\}$
+    </div>
+
+    <h2>2.1.2.1 Operations on the Set of Integers</h2>
+    
+    <h3>i) Addition ($+$)</h3>
+    <ul class="bullet-list">
+        <li>If two integers $a$ and $b$ are added using the operation "$+$" → the sum $a + b$ is <span class="blue-highlight">also an integer</span></li>
+        <li>If the sum of two integers $a$ and $b$ is denoted by $c$ → we can write: $c = a + b$</li>
+        <li>$c$ is called the <span class="blue-highlight">sum</span>, while $a$ and $b$ are called <span class="blue-highlight">terms</span></li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $4 + 9 = 13$ → here $13$ is the sum, whereas $4$ and $9$ are terms</div>
+    
+    <h3>ii) Subtraction ($-$)</h3>
+    <ul class="bullet-list">
+        <li>For any two integers $a$ and $b$, subtraction of $b$ from $a$ is denoted by $a - b$</li>
+        <li>Defined as: <span class="orange-highlight">$a - b = a + (-b)$</span></li>
+        <li>This means subtracting $b$ from $a$ is equivalent to adding the <span class="blue-highlight">additive inverse</span> of $b$ to $a$</li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $7 - 5 = 7 + (-5) = 2$</div>
+    
+    <h3>iii) Multiplication ($\times$)</h3>
+    <ul class="bullet-list">
+        <li>If two integers $a$ and $b$ are multiplied using the operation "$\times$" → the product $a \times b$ is <span class="blue-highlight">also an integer</span></li>
+        <li>If the product of two integers $a$ and $b$ is denoted by $c$ → we can write: $c = a \times b$</li>
+        <li>$c$ is called the <span class="blue-highlight">product</span>, while $a$ and $b$ are called <span class="blue-highlight">factors</span></li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $4 \times 7 = 28$ → here $28$ is the product, whereas $4$ and $7$ are factors</div>
+
+    <h2>Properties of Addition and Multiplication on $\mathbb{Z}$</h2>
+    
+    <h2>Properties of Addition</h2>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Closure Property:</span> For any $a, b \in \mathbb{Z}$ → $a + b \in \mathbb{Z}$<br>
+            Example: $4$ and $9$ are integers → their sum $13$ is also an integer</li>
+        <li><span class="blue-highlight">ii) Commutative Property:</span> For any $a, b \in \mathbb{Z}$ → $a + b = b + a$<br>
+            Example: $4 + 9 = 9 + 4 = 13$</li>
+        <li><span class="blue-highlight">iii) Associative Property:</span> For any $a, b, c \in \mathbb{Z}$ → $(a + b) + c = a + (b + c)$<br>
+            Example: $(5 + 9) + 8 = 5 + (9 + 8) = 22$</li>
+        <li><span class="blue-highlight">iv) Identity Element:</span> For any $a \in \mathbb{Z}$ → $a + 0 = 0 + a = a$<br>
+            Example: $7 + 0 = 0 + 7 = 7$<br>
+            <span class="orange-highlight">$0$ is the additive identity element</span></li>
+        <li><span class="blue-highlight">v) Additive Inverse:</span> For any $a \in \mathbb{Z}$ → $a + (-a) = -a + a = 0$<br>
+            Example: $4 + (-4) = -4 + 4 = 0$<br>
+            Every integer $a$ has an additive inverse denoted by $-a$</li>
+    </ul>
+    
+    <h2>Properties of Multiplication</h2>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">vi) Closure Property:</span> For any $a, b \in \mathbb{Z}$ → $a \times b \in \mathbb{Z}$<br>
+            Example: $4$ and $7$ are integers → their product $28$ is also an integer</li>
+        <li><span class="blue-highlight">vii) Commutative Property:</span> For any $a, b \in \mathbb{Z}$ → $a \times b = b \times a$<br>
+            Example : $4 \times 7 = 7 \times 4 = 28$</li>
+        <li><span class="blue-highlight">viii) Associative Property:</span> For any $a, b, c \in \mathbb{Z}$ → $(a \times b) \times c = a \times (b \times c)$<br>
+            Example: $(3 \times 5) \times 4 = 3 \times (5 \times 4) = 60$</li>
+        <li><span class="blue-highlight">ix) Identity Element:</span> For any $a \in \mathbb{Z}$ → $a \times 1 = 1 \times a = a$<br>
+            Example: $5 \times 1 = 1 \times 5 = 5$<br>
+            <span class="orange-highlight">$1$ is the multiplicative identity element</span></li>
+        <li><span class="blue-highlight">x) Distributive Property:</span> For any $a, b, c \in \mathbb{Z}$ → $a \times (b + c) = (a \times b) + (a \times c)$<br>
+            Example: $4 \times (5 + 6) = (4 \times 5) + (4 \times 6) = 44$<br>
+            Multiplication is <span class="orange-highlight">distributive over addition</span> on $\mathbb{Z}$</li>
+    </ul>
+  
+    <h2>2.1.2.2 Order Relation in $\mathbb{Z}$</h2>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Transitive Property:</span> For any three integers $a$, $b$, and $c$ → if $a > b$ and $b > c$, then $a > c$
+            <div class="math-block">Example: If $10 > 5$ and $5 > 1$, then $10 > 1$</div>
+        </li>
+        <li><span class="blue-highlight">ii) Addition Property:</span> For any three integers $a$, $b$, and $c$ → if $a > b$, then $a + c > b + c$
+            <div class="math-block">Example: If $7 > 3$, then $7 + 2 > 3 + 2 \rightarrow 9 > 5$</div>
+        </li>
+        <li><span class="blue-highlight">iii) Multiplication Property:</span> For any three integers $a$, $b$, and $c$, where $c > 0$ → if $a > b$, then $ac > bc$
+            <div class="math-block">Example: If $5 > 2$ and $c = 3 > 0$, then $5 \times 3 > 2 \times 3 \rightarrow 15 > 6$</div>
+            <div class="callout" style="margin-top: 8px;"><span class="orange-highlight">Note:</span> If $c < 0$, the inequality reverses: $a > b \Rightarrow ac < bc$</div>
+        </li>
+        <li><span class="blue-highlight">iv) Law of Trichotomy:</span> For any two integers $a$ and $b$ → exactly one of the following is true: $a > b$ OR $a < b$ OR $a = b$
+            <div class="math-block">Example: For $5$ and $8$ → $5 < 8$; for $12$ and $7$ → $12 > 7$; for $9$ and $9$ → $9 = 9$</div>
+        </li>
+    </ul>
+    
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">2.1.3 The Set of Rational Numbers</div>
+    
+    <ul class="bullet-list">
+        <li>As human knowledge increased with time, it became necessary to extend the set of integers</li>
+        <li>For example, to solve the equation $2x + 1 = 0$, the set of integers was <span class="red-highlight">not sufficient</span></li>
+        <li>Hence, the set of rational numbers was developed to satisfy such extended needs</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Definition 2.9:</strong><br>
+        Any number that can be expressed in the form $\frac{a}{b}$, where $a$ and $b$ are integers and $b \neq 0$, is called a <span class="blue-highlight">rational number</span>.<br><br>
+        The set of rational numbers denoted by $\mathbb{Q}$ is described as:<br>
+        $\mathbb{Q} = \left\{ \frac{a}{b} : a, b \in \mathbb{Z} \text{ and } b \neq 0 \right\}$
+    </div>
+    
+    <h3>Notes:</h3>
+    <ul class="bullet-list">
+        <li>i) In the expression $\frac{a}{b}$ → $a$ is called the <span class="orange-highlight">numerator</span> and $b$ is called the <span class="orange-highlight">denominator</span></li>
+        <li>ii) A rational number $\frac{a}{b}$ is said to be in <span class="orange-highlight">lowest form</span> if GCF$(a, b) = 1$</li>
+    </ul>
+
+    <h2>2.1.3.1 Operations on the Set of Rational Numbers</h2>
+    
+    <h3>i) Addition ($+$)</h3>
+    <ul class="bullet-list">
+        <li>If two rational numbers $\frac{a}{b}$ and $\frac{c}{d}$ are added → the sum is defined as:
+            <div class="math-block">$\frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$</div>
+        </li>
+        <li>The sum is <span class="blue-highlight">also a rational number</span></li>
+    </ul>
+    <div class="math-block"><strong>Example :</strong> $\frac{1}{2} + \frac{3}{5} = \frac{(1 \times 5) + (3 \times 2)}{2 \times 5} = \frac{5 + 6}{10} = \frac{11}{10}$</div>
+    
+    <h3>ii) Subtraction ($-$)</h3>
+    <ul class="bullet-list">
+        <li>For any two rational numbers $\frac{a}{b}$ and $\frac{c}{d}$, subtraction is defined as:
+            <div class="math-block">$\frac{a}{b} - \frac{c}{d} = \frac{a}{b} + \left(-\frac{c}{d}\right)$</div>
+        </li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $\frac{1}{2} - \frac{3}{5} = \frac{1}{2} + \left(-\frac{3}{5}\right) = \frac{(1 \times 5) + (-3 \times 2)}{10} = \frac{5 - 6}{10} = -\frac{1}{10}$</div>
+    
+    <h3>iii) Multiplication ($\times$)</h3>
+    <ul class="bullet-list">
+        <li>If two rational numbers $\frac{a}{b}$ and $\frac{c}{d}$ are multiplied → the product is defined as:
+            <div class="math-block">$\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$</div>
+        </li>
+        <li>The product is <span class="blue-highlight">also a rational number</span></li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $\frac{1}{2} \times \frac{3}{5} = \frac{1 \times 3}{2 \times 5} = \frac{3}{10}$</div>
+    
+    <h3>iv) Division ($\div$)</h3>
+    <ul class="bullet-list">
+        <li>For any two rational numbers $\frac{a}{b}$ and $\frac{c}{d}$ (with $c \neq 0$), division is defined as:
+            <div class="math-block">$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}, \quad c \neq 0$</div>
+        </li>
+    </ul>
+    <div class="math-block"><strong>Example:</strong> $\frac{1}{2} \div \frac{3}{5} = \frac{1}{2} \times \frac{5}{3} = \frac{5}{6}$</div>
+
+    <h2>Properties of Addition and Multiplication on $\mathbb{Q}$</h2>
+    
+    <ul class="bullet-list">
+        <li>Let $\frac{a}{b}$, $\frac{c}{d}$, and $\frac{e}{f}$ be three rational numbers</li>
+    </ul>
+    
+    <div class="two-columns">
+        <div class="col">
+            <h3 style="color: #5bc0a8;">Properties of Addition</h3>
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Closure:</span> $\frac{a}{b} + \frac{c}{d} \in \mathbb{Q}$</li>
+                <li><span class="blue-highlight">Commutative:</span> $\frac{a}{b} + \frac{c}{d} = \frac{c}{d} + \frac{a}{b}$</li>
+                <li><span class="blue-highlight">Associative:</span> $(\frac{a}{b} + \frac{c}{d}) + \frac{e}{f} = \frac{a}{b} + (\frac{c}{d} + \frac{e}{f})$</li>
+                <li><span class="blue-highlight">Additive Identity:</span> $\frac{a}{b} + 0 = 0 + \frac{a}{b} = \frac{a}{b}$<br>($0$ is the additive identity)</li>
+                <li><span class="blue-highlight">Additive Inverse:</span> $\frac{a}{b} + (-\frac{a}{b}) = -\frac{a}{b} + \frac{a}{b} = 0$<br>Every rational number has an additive inverse</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3 style="color: #5bc0a8;">Properties of Multiplication</h3>
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Closure:</span> $\frac{a}{b} \times \frac{c}{d} \in \mathbb{Q}$</li>
+                <li><span class="blue-highlight">Commutative:</span> $\frac{a}{b} \times \frac{c}{d} = \frac{c}{d} \times \frac{a}{b}$</li>
+                <li><span class="blue-highlight">Associative:</span> $(\frac{a}{b} \times \frac{c}{d}) \times \frac{e}{f} = \frac{a}{b} \times (\frac{c}{d} \times \frac{e}{f})$</li>
+                <li><span class="blue-highlight">Multiplicative Identity:</span> $\frac{a}{b} \times 1 = 1 \times \frac{a}{b} = \frac{a}{b}$<br>($1$ is the multiplicative identity)</li>
+                <li><span class="blue-highlight">Multiplicative Inverse:</span> $\frac{a}{b} \times \frac{b}{a} = \frac{b}{a} \times \frac{a}{b} = 1$ (for $\frac{a}{b} \neq 0$)<br>Every non-zero rational number has a multiplicative inverse</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Distributive Property:</span><br>
+        Multiplication distributes over addition in $\mathbb{Q}$:<br>
+        $\frac{a}{b} \times \left(\frac{c}{d} + \frac{e}{f}\right) = \left(\frac{a}{b} \times \frac{c}{d}\right) + \left(\frac{a}{b} \times \frac{e}{f}\right)$
+    </div>
+
+    <h2>2.1.3.2 Order Relation in $\mathbb{Q}$</h2>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Transitive Property:</span> For any three rational numbers $\frac{a}{b}$, $\frac{c}{d}$, and $\frac{e}{f}$ → if $\frac{a}{b} > \frac{c}{d}$ and $\frac{c}{d} > \frac{e}{f}$, then $\frac{a}{b} > \frac{e}{f}$
+            <div class="math-block">Example: If $\frac{3}{2} > \frac{5}{4}$ and $\frac{5}{4} > 1$, then $\frac{3}{2} > 1$</div>
+        </li>
+        
+        <li><span class="blue-highlight">ii) Addition Property:</span> For any three rational numbers $\frac{a}{b}$, $\frac{c}{d}$, and $\frac{e}{f}$ → if $\frac{a}{b} > \frac{c}{d}$, then $\frac{a}{b} + \frac{e}{f} > \frac{c}{d} + \frac{e}{f}$
+            <div class="math-block">Example: If $\frac{5}{2} > \frac{3}{2}$, then $\frac{5}{2} + \frac{1}{4} > \frac{3}{2} + \frac{1}{4} \rightarrow \frac{11}{4} > \frac{7}{4}$</div>
+        </li>
+        
+        <li><span class="blue-highlight">iii) Multiplication Property:</span> For any three rational numbers $\frac{a}{b}$, $\frac{c}{d}$, and $\frac{e}{f}$ with $\frac{e}{f} > 0$ → if $\frac{a}{b} > \frac{c}{d}$, then $\frac{a}{b} \times \frac{e}{f} > \frac{c}{d} \times \frac{e}{f}$
+            <div class="math-block">Example: If $\frac{4}{3} > \frac{2}{3}$ and $\frac{1}{2} > 0$, then $\frac{4}{3} \times \frac{1}{2} > \frac{2}{3} \times \frac{1}{2} \rightarrow \frac{2}{3} > \frac{1}{3}$</div>
+            <div class="callout" style="margin-top: 8px;"><span class="orange-highlight">Note:</span> If $\frac{e}{f} < 0$, the inequality reverses: $\frac{a}{b} > \frac{c}{d} \Rightarrow \frac{a}{b} \times \frac{e}{f} < \frac{c}{d} \times \frac{e}{f}$</div>
+        </li>
+        
+        <li><span class="blue-highlight">iv) Law of Trichotomy:</span> For any two rational numbers $\frac{a}{b}$ and $\frac{c}{d}$ → exactly one of the following is true:
+            <div class="math-block">$\frac{a}{b} > \frac{c}{d}$ OR $\frac{a}{b} < \frac{c}{d}$ OR $\frac{a}{b} = \frac{c}{d}$</div>
+            <div class="math-block">Example: For $\frac{3}{4}$ and $\frac{5}{6}$ → $\frac{3}{4} < \frac{5}{6}$; for $\frac{7}{3}$ and $\frac{7}{4}$ → $\frac{7}{3} > \frac{7}{4}$; for $\frac{2}{3}$ and $\frac{4}{6}$ → $\frac{2}{3} = \frac{4}{6}$</div>
+        </li>
+    </ul>
+    
+
+    <h2>2.1.3.3 Decimal Representation of Rational Numbers</h2>
+    
+    <ul class="bullet-list">
+        <li>A rational number $\frac{a}{b}$ can be written in decimal form using <span class="blue-highlight">long division</span></li>
+    </ul>
+    
+    <h3>2.1.3.3.1 Terminating Decimals</h3>
+    <div class="math-block">
+        <strong>Example:</strong> Express the fraction $\frac{25}{4}$ in decimal form.<br><br>
+        <strong>Solution:</strong> $\frac{25}{4} = 6.25$
+    </div>
+    
+    <h3>2.1.3.3.2 Non-Terminating Periodic Decimals</h3>
+    <div class="math-block">
+        <strong>Example:</strong> Express the fraction $\frac{25}{3}$ in decimal form.<br><br>
+        <strong>Solution:</strong> $\frac{25}{3} = 8.333\ldots = 8.\overline{3}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Multiplying a decimal by $10$ pushes the decimal point to the right by <span class="orange-highlight">one position</span></li>
+        <li>In general, multiplying a decimal by $10^n$ pushes the decimal point to the right by <span class="orange-highlight">$n$ positions</span></li>
+    </ul>
+
+    <h2>2.1.3.4 Fraction Form of Decimal Numbers</h2>
+    
+    <ul class="bullet-list">
+        <li>A rational number written in decimal form can be converted to fraction form $\frac{a}{b}$ in <span class="blue-highlight">lowest (simplified) form</span></li>
+        <li>$a$ and $b$ are <span class="orange-highlight">relatively prime</span> (GCF$(a, b) = 1$)</li>
+    </ul>
+    
+    <h3>2.1.3.4.1 Terminating Decimals</h3>
+    <ul class="bullet-list">
+        <li>Let $d$ be any terminating decimal number that terminates in $n$ digits after the decimal point</li>
+        <li>$d$ can be converted to fraction form as: <span class="orange-highlight">$d = d \times \frac{10^n}{10^n}$</span></li>
+    </ul>
+    <div class="math-block">
+        <strong>Example:</strong> Convert the terminating decimal $3.47$ to fraction form.<br><br>
+        <strong>Solution:</strong> $3.47 = 3.47 \times \frac{10^2}{10^2} = \frac{347}{100}$
+    </div>
+
+    <h3>2.1.3.4.2 Non-Terminating Periodic Decimals</h3>
+    <ul class="bullet-list">
+        <li>Let $d$ be any non-terminating periodic decimal number</li>
+        <li>Suppose $d$ has $k$ <span class="blue-highlight">non-repeating digits</span> and $p$ <span class="blue-highlight">repeating digits</span> after the decimal point</li>
+        <li>$d$ can be converted to fraction form as:</li>
+    </ul>
+    <div class="math-block">
+        $d = d \times \frac{10^{k+p} - 10^k}{10^{k+p} - 10^k}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Convert the non-terminating periodic decimal $42.5\overline{38}$ to fraction form.<br><br>
+        <strong>Solution:</strong> Here $k = 1$ (the digit $5$ is non-repeating), $p = 2$ (the digits $3$ and $8$ repeat).<br><br>
+        $d = 42.5\overline{38} = 42.5383838\ldots$<br><br>
+        $d = d \times \frac{10^{k+p} - 10^k}{10^{k+p} - 10^k} = 42.5\overline{38} \times \frac{10^{3} - 10^{1}}{10^{3} - 10^{1}}$<br><br>
+        $= \frac{42538.\overline{38} - 425.\overline{38}}{1000 - 10} = \frac{42113}{990}$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Note:</span> From the above two cases, we can conclude that <span class="orange-highlight">both terminating decimals and non-terminating periodic decimals are rational numbers</span>.<br>
+        (Why? Because they can be expressed as $\frac{a}{b}$ where $a, b \in \mathbb{Z}$, $b \neq 0$)
+    </div>
+
+    <h2>2.1.3.5 Non-Terminating and Non-Periodic Decimals</h2>
+    
+    <ul class="bullet-list">
+        <li>Some decimal numbers are <span class="red-highlight">neither terminating nor non-terminating periodic</span></li>
+        <li>Such types of numbers are called <span class="blue-highlight">irrational numbers</span></li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Example:</strong> $62.757757775\ldots$ (the digits do not repeat in a fixed pattern)
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Show that $\sqrt{2}$ is an irrational number.
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof (by contradiction):</strong><br><br>
+        <strong>Step 1:</strong> Suppose $\sqrt{2}$ is a rational number.<br><br>
+        $\Rightarrow \sqrt{2} = \frac{a}{b}$, where GCF$(a, b) = 1$ (fraction in lowest terms).<br><br>
+        <strong>Step 2:</strong> Square both sides:<br>
+        $2 = \frac{a^2}{b^2}$<br><br>
+        $\Rightarrow a^2 = 2b^2$  ...(1)<br><br>
+        <strong>Step 3:</strong> $a^2$ is even $\Rightarrow a$ is even.<br>
+        Let $a = 2n$ ...(2)
+    </div>
+
+    <div class="math-block">
+        <strong>Step 4:</strong> Substitute $a = 2n$ into equation (1):<br><br>
+        $(2n)^2 = 2b^2$<br><br>
+        $4n^2 = 2b^2$<br><br>
+        $b^2 = 2n^2$ ...(3)<br><br>
+        <strong>Step 5:</strong> $b^2$ is even $\Rightarrow b$ is even.<br>
+        Let $b = 2m$ ...(4)<br><br>
+        <strong>Step 6:</strong> From (2) and (4):<br>
+        $a = 2n$ and $b = 2m$<br><br>
+        $\Rightarrow$ GCF$(a, b) \ge 2$<br><br>
+        This <span class="red-highlight">contradicts</span> our initial assumption that GCF$(a, b) = 1$.
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Conclusion:</span><br>
+        Since assuming $\sqrt{2}$ is rational leads to a contradiction,<br>
+        $\sqrt{2}$ <span class="orange-highlight">cannot be a rational number</span>.<br><br>
+        Therefore, $\sqrt{2}$ is an <span class="red-highlight">irrational number</span>.
+    </div>
+    
+  
+</div>
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">2.1.4 The Set of Real Numbers</div>
+    
+    <div class="math-block">
+        <strong>Definition 2.10:</strong><br>
+        A number is called a <span class="blue-highlight">real number</span> if and only if it is either a rational number or an irrational number.
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The set of real numbers denoted by $\mathbb{R}$ can be described as the <span class="orange-highlight">union</span> of the set of rational and irrational numbers:</li>
+    </ul>
+    
+    <div class="math-block">
+        $\mathbb{R} = \{x : x \text{ is a rational number or an irrational number}\} = \mathbb{Q} \cup \mathbb{I}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>There is a <span class="blue-highlight">1-1 correspondence</span> between the set of real numbers and the number line</li>
+        <li>For each point on the number line, there is a corresponding real number, and vice-versa</li>
+    </ul>
+
+    <h2>2.1.4.1 Operations on the Set of Real Numbers</h2>
+    
+    <h3>i) Addition ($+$)</h3>
+    <ul class="bullet-list">
+        <li>If two real numbers are added using the operation "$+$" → the sum is <span class="blue-highlight">also a real number</span></li>
+    </ul>
+    
+    <h3>ii) Subtraction ($-$)</h3>
+    <ul class="bullet-list">
+        <li>For any two real numbers $a$ and $b$, subtraction is defined as: <span class="orange-highlight">$a - b = a + (-b)$</span></li>
+    </ul>
+    
+    <h3>iii) Multiplication ($\times$)</h3>
+    <ul class="bullet-list">
+        <li>If two real numbers $a$ and $b$ are multiplied → the product $a \times b = ab$ is <span class="blue-highlight">also a real number</span></li>
+    </ul>
+    
+    <h3>iv) Division ($\div$)</h3>
+    <ul class="bullet-list">
+        <li>For any two real numbers $a$ and $b$ (with $b \neq 0$), division is defined as: <span class="orange-highlight">$a \div b = a \times \frac{1}{b}$</span></li>
+    </ul>
+
+    <h2>Properties of Addition and Multiplication on $\mathbb{R}$</h2>
+    
+    <ul class="bullet-list">
+        <li>Let $a$, $b$, and $c$ be three real numbers</li>
+    </ul>
+    
+    <div class="two-columns">
+        <div class="col">
+            <h3 style="color: #5bc0a8;">Properties of Addition</h3>
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Closure:</span> $a + b \in \mathbb{R}$</li>
+                <li><span class="blue-highlight">Commutative:</span> $a + b = b + a$</li>
+                <li><span class="blue-highlight">Associative:</span> $(a + b) + c = a + (b + c)$</li>
+                <li><span class="blue-highlight">Additive Identity:</span> $a + 0 = 0 + a = a$<br>($0$ is the additive identity)</li>
+                <li><span class="blue-highlight">Additive Inverse:</span> $a + (-a) = -a + a = 0$<br>Every real number has an additive inverse</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3 style="color: #5bc0a8;">Properties of Multiplication</h3>
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Closure:</span> $a \times b \in \mathbb{R}$</li>
+                <li><span class="blue-highlight">Commutative:</span> $a \times b = b \times a$</li>
+                <li><span class="blue-highlight">Associative:</span> $(a \times b) \times c = a \times (b \times c)$</li>
+                <li><span class="blue-highlight">Multiplicative Identity:</span> $a \times 1 = 1 \times a = a$<br>($1$ is the multiplicative identity)</li>
+                <li><span class="blue-highlight">Multiplicative Inverse:</span> $a \times \frac{1}{a} = \frac{1}{a} \times a = 1$ (for $a \neq 0$)<br>Every non-zero real number has a multiplicative inverse</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Distributive Property:</span><br>
+        Multiplication distributes over addition in $\mathbb{R}$:<br>
+        $a \times (b + c) = (a \times b) + (a \times c)$
+    </div>
+
+
+    <h2>2.1.4.2 The Real Number and the Number Line</h2>
+    
+    <ul class="bullet-list">
+        <li>One of the most important properties of real numbers is that they can be represented <span class="blue-highlight">graphically</span> by points on a straight line</li>
+        <li>The point $0$ is termed the <span class="orange-highlight">origin</span></li>
+        <li>Points to the <span class="blue-highlight">right</span> of $0$ are called <span class="orange-highlight">positive real numbers</span></li>
+        <li>Points to the <span class="blue-highlight">left</span> of $0$ are called <span class="orange-highlight">negative real numbers</span></li>
+        <li>Each point on the number line corresponds to a <span class="blue-highlight">unique real number</span> and vice-versa</li>
+    </ul>
+    
+  <div class="image-figure">
+        <img src="numberline.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Geometrically, we say $a > b$ if $a$ is located <span class="orange-highlight">to the right of $b$</span> on the number line</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Example:</strong> On the number line, $3$ is to the right of $1$ → $3 > 1$<br>
+        $-2$ is to the left of $0$ → $-2 < 0$
+    </div>
+
+    <h2>2.1.4.3 Order Relation in $\mathbb{R}$</h2>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Transitive Property:</span> For any three real numbers $a$, $b$, and $c$ → if $a > b$ and $b > c$, then $a > c$
+            <div class="math-block">Example: If $10 > 5$ and $5 > 1$, then $10 > 1$</div>
+        </li>
+        
+        <li><span class="blue-highlight">ii) Addition Property:</span> For any three real numbers $a$, $b$, and $c$ → if $a > b$, then $a + c > b + c$
+            <div class="math-block">Example: If $7 > 3$, then $7 + 2 > 3 + 2 \rightarrow 9 > 5$</div>
+        </li>
+        
+        <li><span class="blue-highlight">iii) Multiplication Property:</span> For any three real numbers $a$, $b$, and $c$ with $c > 0$ → if $a > b$, then $ac > bc$
+            <div class="math-block">Example: If $5 > 2$ and $c = 3 > 0$, then $5 \times 3 > 2 \times 3 \rightarrow 15 > 6$</div>
+            <div class="callout" style="margin-top: 8px;"><span class="orange-highlight">Note:</span> If $c < 0$, the inequality reverses: $a > b \Rightarrow ac < bc$</div>
+        </li>
+        
+        <li><span class="blue-highlight">iv) Law of Trichotomy:</span> For any two real numbers $a$ and $b$ → exactly one of the following is true:
+            <div class="math-block">$a > b$ OR $a < b$ OR $a = b$</div>
+            <div class="math-block">Example: For $5$ and $8$ → $5 < 8$; for $12$ and $7$ → $12 > 7$; for $9$ and $9$ → $9 = 9$</div>
+        </li>
+    </ul>
+	    <h2>Summary: The Real Number System</h2>
+  <div class="image-figure">
+        <img src="2.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+
+    <h2>2.1.4.4 Intervals</h2>
+    
+    <ul class="bullet-list">
+        <li>Let $a$ and $b$ be two real numbers such that $a < b$</li>
+        <li>Intervals are subsets of $\mathbb{R}$ with end points $a$ and $b$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>i) Open Interval:</strong><br>
+        $(a, b) = \{x : a < x < b\}$<br>
+        (does not include endpoints $a$ and $b$)
+    </div>
+    
+    <div class="math-block">
+        <strong>ii) Closed Interval:</strong><br>
+        $[a, b] = \{x : a \le x \le b\}$<br>
+        (includes both endpoints $a$ and $b$)
+    </div>
+    
+    <div class="math-block">
+        <strong>iii) Open-Closed Interval:</strong><br>
+        $(a, b] = \{x : a < x \le b\}$<br>
+        (includes $b$ but not $a$)
+    </div>
+    
+    <div class="math-block">
+        <strong>iv) Closed-Open Interval:</strong><br>
+        $[a, b) = \{x : a \le x < b\}$<br>
+        (includes $a$ but not $b$)
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Note:</span> The symbols $\infty$ (infinity) and $-\infty$ (negative infinity) are used to represent unbounded intervals:<br>
+        $(a, \infty) = \{x : x > a\}$, $(-\infty, b) = \{x : x < b\}$, $(-\infty, \infty) = \mathbb{R}$
+    </div>
+
+    <h2>2.1.4.5 Upper Bounds and Lower Bounds</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.11:</strong><br>
+        Let $A$ be non-empty and $A \subseteq \mathbb{R}$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">i) Upper Bound:</span> A point $a \in \mathbb{R}$ is called an <span class="orange-highlight">upper bound</span> of $A$ iff $x \le a$ for all $x \in A$</li>
+        <li><span class="blue-highlight">ii) Least Upper Bound (lub):</span> An upper bound of $A$ is called the <span class="orange-highlight">least upper bound</span> (also called supremum) iff it is the <span class="blue-highlight">least</span> of all upper bounds</li>
+        <li><span class="blue-highlight">iii) Lower Bound:</span> A point $a \in \mathbb{R}$ is called a <span class="orange-highlight">lower bound</span> of $A$ iff $x \ge a$ for all $x \in A$</li>
+        <li><span class="blue-highlight">iv) Greatest Lower Bound (glb):</span> A lower bound of $A$ is called the <span class="orange-highlight">greatest lower bound</span> (also called infimum) iff it is the <span class="blue-highlight">greatest</span> of all lower bounds</li>
+    </ul>
+
+    <div class="math-block">
+        <strong>Example 1:</strong> Consider the set $A = [2, 5) \subseteq \mathbb{R}$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Lower bounds:</span> $\dots, -9, -3, 0, \frac{1}{2}, 1, 2$<br>
+        The greatest element among all lower bounds is <span class="orange-highlight">$2$</span><br>
+        $\therefore$ glb $= 2$</li>
+        
+        <li><span class="blue-highlight">Upper bounds:</span> $5, 6, \frac{25}{3}, 20, 99, 1000, \dots$<br>
+        The least element among all upper bounds is <span class="orange-highlight">$5$</span><br>
+        $\therefore$ lub $= 5$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Example 2:</strong> Consider the set $A = \left\{ \frac{1}{n} : n \in \mathbb{N} \right\}$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li>$A = \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \dots\right\}$</li>
+        
+        <li><span class="blue-highlight">Lower bounds:</span> $\dots, -3, -2, 0$<br>
+        The greatest element among all lower bounds is <span class="orange-highlight">$0$</span><br>
+        $\therefore$ glb $= 0$</li>
+        
+        <li><span class="blue-highlight">Upper bounds:</span> $1, 3, \frac{9}{2}, 50, \dots$<br>
+        The least element among all upper bounds is <span class="orange-highlight">$1$</span><br>
+        $\therefore$ lub $= 1$</li>
+    </ul>
+    
+
+
+    <h2>2.1.4.6 Completeness Property of Real Numbers ($\mathbb{R}$)</h2>
+    
+    <div class="math-block">
+        <strong>Completeness Property of $\mathbb{R}$:</strong>
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The completeness property of real numbers states that:</li>
+    </ul>
+    
+    <div class="math-block">
+        • Every <span class="blue-highlight">non-empty subset</span> of $\mathbb{R}$ that has lower bounds has a <span class="orange-highlight">greatest lower bound (glb)</span><br><br>
+        • Every <span class="blue-highlight">non-empty subset</span> of $\mathbb{R}$ that has upper bounds has a <span class="orange-highlight">least upper bound (lub)</span>
+    </div>
+    
+    <ul class="bullet-list">
+        <li>This property is what distinguishes $\mathbb{R}$ from $\mathbb{Q}$ (the set of rational numbers)</li>
+        <li>Not every subset of $\mathbb{Q}$ that is bounded above has a least upper bound in $\mathbb{Q}$</li>
+        <li>Example: The set $\{x \in \mathbb{Q} : x^2 < 2\}$ is bounded above in $\mathbb{Q}$ but has no least upper bound in $\mathbb{Q}$ (since $\sqrt{2}$ is irrational)</li>
+    </ul>
+    
+   
+</div>
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">2.2 The Set of Complex Numbers</div>
+    
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Positive integers (whole numbers)</span> → invented to count things</li>
+        <li><span class="blue-highlight">Negative integers</span> → introduced to count money when we owed more than we had</li>
+        <li><span class="blue-highlight">Rational numbers</span> → invented for measuring quantities (voltage, length, time, etc.)</li>
+        <li><span class="blue-highlight">Real numbers</span> → invented for mathematical reasons (lengths like the diagonal of the unit square couldn't be measured by rational numbers)</li>
+        <li><span class="blue-highlight">Complex numbers</span> → invented for purely mathematical reasons to make things neat and tidy in solving equations</li>
+    </ul>
+    
+    <div class="callout">
+        <span class="blue-highlight">Key Points about Complex Numbers:</span><br>
+        • Complex numbers are <span class="orange-highlight">points in the plane</span>, together with a rule for multiplying them<br>
+        • They are <span class="orange-highlight">two-dimensional</span>, whereas real numbers are one-dimensional<br>
+        • Equations of the form $x^2 + 1 = 0$ have <span class="red-highlight">no solution</span> in $\mathbb{R}$ → complex numbers permit us to solve such equations
+    </div>
+    
+    <div class="math-block">
+        <strong>Definition 2.12:</strong><br>
+        The set of complex numbers is denoted by $\mathbb{C}$ and is described by:<br>
+        $\mathbb{C} = \{z \mid z = x + iy,\ x, y \in \mathbb{R} \text{ and } i^2 = -1\}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>$x$ is called the <span class="blue-highlight">real part</span> and is denoted by $\text{Re}(z)$</li>
+        <li>$y$ is called the <span class="blue-highlight">imaginary part</span> and is denoted by $\text{Im}(z)$</li>
+        <li>If $x = 0$ → the number is called <span class="orange-highlight">purely imaginary</span></li>
+        <li>If $y = 0$ → the number is called <span class="orange-highlight">purely real</span></li>
+        <li>Complex numbers can be defined as an <span class="blue-highlight">ordered pair $(x, y)$</span> of real numbers interpreted as points in the complex plane ($z$-plane)</li>
+    </ul>
+
+
+    <div class="math-block">
+        <strong>Example:</strong> Find the real and imaginary parts of the following complex numbers:
+    </div>
+    
+    <ul class="bullet-list">
+        <li>a) $z = 3 + 7i$ → $\text{Re}(z) = 3$, $\text{Im}(z) = 7$</li>
+        <li>b) $z = 1 - i$ → $\text{Re}(z) = 1$, $\text{Im}(z) = -1$</li>
+    </ul>
+    
+    <h2>2.2.1 Plotting Complex Numbers</h2>
+    
+    <ul class="bullet-list">
+        <li>Any complex number $z = x + iy$ can be drawn in the <span class="blue-highlight">complex plane</span> (Argand diagram)</li>
+        <div class="image-figure">
+        <img src="3.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+	   <li>Horizontal axis → <span class="orange-highlight">real axis</span> ($x$-axis)</li>
+        <li>Vertical axis → <span class="orange-highlight">imaginary axis</span> ($y$-axis)</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Draw the complex number $z = 2 + 3i$ in the complex plane.
+    </div>
+    
+       <div class="image-figure">
+        <img src="4.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    
+    <h2>Equality of Complex Numbers</h2>
+    
+    <div class="math-block">
+        Two complex numbers $z_1 = a + ib$ and $z_2 = c + id$ are <span class="orange-highlight">equal</span> iff:<br>
+        $a = c$ and $b = d$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> If $z_1 = 2 + ix$ and $z_2 = y + 6i$ are equal, find $x$ and $y$.<br><br>
+        <strong>Solution:</strong><br>
+        Equating real parts: $2 = y \Rightarrow y = 2$<br>
+        Equating imaginary parts: $x = 6$<br>
+        $\therefore x = 6,\ y = 2$
+    </div>
+
+    <h2>2.2.2 Operations on Complex Numbers</h2>
+    
+    <ul class="bullet-list">
+        <li>Let $z_1 = a + ib$ and $z_2 = c + id$ be any two complex numbers</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>1. Addition:</strong><br>
+        $z_1 + z_2 = (a + c) + i(b + d)$
+    </div>
+    
+    <div class="math-block">
+        <strong>2. Subtraction:</strong><br>
+        $z_1 - z_2 = (a - c) + i(b - d)$
+    </div>
+    
+    <div class="math-block">
+        <strong>3. Multiplication:</strong><br>
+        $z_1 \cdot z_2 = (a + ib)(c + id)$<br>
+        $= a(c + id) + ib(c + id)$<br>
+        $= ac + iad + ibc - bd$<br>
+        $= (ac - bd) + i(ad + bc)$
+    </div>
+    
+    <div class="math-block">
+        <strong>4. Division:</strong><br>
+        $\frac{z_1}{z_2} = \frac{a + ib}{c + id},\quad z_2 \neq 0$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> If $z_1 = 2 + 3i$ and $z_2 = 4 + i$, find:<br>
+        a) $z_1 + z_2$<br>
+        b) $z_1 - z_2$<br>
+        c) $z_1 \cdot z_2$<br>
+        d) $\frac{z_1}{z_2}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>a) $z_1 + z_2 = (2 + 4) + i(3 + 1) = 6 + 4i$</li>
+        <li>b) $z_1 - z_2 = (2 - 4) + i(3 - 1) = -2 + 2i$</li>
+        <li>c) $z_1 \cdot z_2 = (2 + 3i)(4 + i) = 8 + 2i + 12i - 3 = 5 + 14i$</li>
+        <li>d) $\frac{z_1}{z_2} = \frac{2 + 3i}{4 + i}$ (to be simplified later)</li>
+    </ul>
+
+    <h2>2.2.3 Conjugate of a Complex Number</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.13:</strong><br>
+        The conjugate of a complex number $z = x + yi$ is denoted by $\bar{z}$ and is defined as:<br>
+        $\bar{z} = x - yi$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The conjugate is represented by the point $(x, -y)$</li>
+        <li>This is the <span class="blue-highlight">reflection</span> of the point $(x, y)$ about the <span class="orange-highlight">real axis</span> ($x$-axis)</li>
+    </ul>
+     <div class="image-figure">
+        <img src="5.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    <div class="math-block">
+        <strong>Example:</strong> Find the conjugate of $z = 2 + 9i$.<br><br>
+        <strong>Solution:</strong><br>
+        $z = 2 + 9i \Rightarrow \bar{z} = 2 - 9i$
+    </div>
+    
+   <h2>Properties of Conjugate</h2>
+
+<div class="two-columns">
+    <div class="col">
+        <ul class="compact-list">
+            <li>a) $\overline{\bar{z}} = z$</li>
+            <li>b) $z + \bar{z} = 2x = 2\,\text{Re}(z)$</li>
+            <li>c) $z - \bar{z} = 2iy = 2i\,\text{Im}(z)$</li>
+            <li>d) $\overline{z_1 + z_2} = \bar{z_1} + \bar{z_2}$</li>
+            <li>e) $\overline{z_1 - z_2} = \bar{z_1} - \bar{z_2}$</li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul class="compact-list">
+            <li>f) $\overline{z_1 \cdot z_2} = \bar{z_1} \cdot \bar{z_2}$</li>
+            <li>g) $\overline{\left(\frac{z_1}{z_2}\right)} = \frac{\bar{z_1}}{\bar{z_2}},\quad z_2 \neq 0$</li>
+        </ul>
+    </div>
+</div>
+    
+    <div class="math-block">
+        <strong>Proof of property (d):</strong><br><br>
+        Let $z_1 = x_1 + iy_1$ and $z_2 = x_2 + iy_2$<br>
+        $\Rightarrow \bar{z_1} = x_1 - iy_1$ and $\bar{z_2} = x_2 - iy_2$<br><br>
+        $z_1 + z_2 = (x_1 + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2)$<br>
+        $\overline{z_1 + z_2} = (x_1 + x_2) - i(y_1 + y_2) = (x_1 - iy_1) + (x_2 - iy_2) = \bar{z_1} + \bar{z_2}$
+    </div>
+    
+
+
+    <h2>2.2.4 Modulus (Norm) of a Complex Number</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.14:</strong><br>
+        The modulus of a complex number $z = x + iy$ is a <span class="blue-highlight">non-negative real number</span> denoted by $|z|$ and is defined as:<br>
+        $|z| = \sqrt{x^2 + y^2}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Geometrically, $|z|$ represents the <span class="orange-highlight">distance</span> between the point $(x, y)$ and the origin $(0, 0)$ in the complex plane</li>
+    </ul>
+     <div class="image-figure">
+        <img src="6.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    <div class="math-block">
+        <strong>Example:</strong> Find the modulus of $z = 3 - 4i$.<br><br>
+        <strong>Solution:</strong><br>
+        $z = 3 - 4i$<br>
+        $|z| = \sqrt{(3)^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5$
+    </div>
+    
+    <h2>Properties of Modulus</h2>
+    
+    <div class="two-columns">
+        <div class="col">
+            <ul class="compact-list">
+                <li>a) $|\bar{z}| = |z|$</li>
+                <li>b) $|z|^2 = z \cdot \bar{z}$</li>
+                <li>c) $|z_1 \cdot z_2| = |z_1| \cdot |z_2|$</li>
+                <li>d) $\left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|},\quad z_2 \neq 0$</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul class="compact-list">
+                <li>e) $|z_1 + z_2| \le |z_1| + |z_2|$ (Triangle Inequality)</li>
+                <li>f) $|z_1 - z_2| \ge ||z_1| - |z_2||$</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="math-block">
+        <strong>Proof (a):</strong> $|\bar{z}| = |z|$<br><br>
+        Let $z = x + iy$ ⇒ $\bar{z} = x - iy$<br>
+        $|z| = \sqrt{x^2 + y^2}$<br>
+        $|\bar{z}| = \sqrt{x^2 + (-y)^2} = \sqrt{x^2 + y^2}$<br>
+        $\therefore |\bar{z}| = |z|$
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof (b):</strong> $|z|^2 = z \cdot \bar{z}$<br><br>
+        Let $z = x + iy$ ⇒ $\bar{z} = x - iy$<br>
+        $|z|^2 = x^2 + y^2$<br>
+        $z \cdot \bar{z} = (x + iy)(x - iy) = x^2 - ixy + ixy - i^2y^2 = x^2 + y^2$<br>
+        $\therefore |z|^2 = z \cdot \bar{z}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof (c):</strong> $|z_1 \cdot z_2| = |z_1| \cdot |z_2|$<br><br>
+        $|z_1 \cdot z_2|^2 = (z_1 z_2)(\overline{z_1 z_2}) = (z_1 z_2)(\bar{z_1} \bar{z_2})$<br>
+        $= (z_1 \bar{z_1})(z_2 \bar{z_2}) = |z_1|^2 \cdot |z_2|^2$<br>
+        $\Rightarrow |z_1 \cdot z_2| = |z_1| \cdot |z_2|$
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof (d):</strong> $\left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|},\quad z_2 \neq 0$<br><br>
+        $\left|\frac{z_1}{z_2}\right|^2 = \left(\frac{z_1}{z_2}\right)\left(\overline{\frac{z_1}{z_2}}\right) = \frac{z_1 \bar{z_1}}{z_2 \bar{z_2}} = \frac{|z_1|^2}{|z_2|^2} = \left(\frac{|z_1|}{|z_2|}\right)^2$<br>
+        $\Rightarrow \left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|}$
+    </div>
+    
+
+    <h2>2.2.5 Additive and Multiplicative Inverses</h2>
+    
+    <ul class="bullet-list">
+        <li>Let $z = x + iy$ be a complex number</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>i) Additive Inverse:</strong><br>
+        The additive inverse of $z$, denoted by $(-z)$, is given by:<br>
+        $-z = -(x + iy) = -x - iy$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The additive inverse satisfies: $z + (-z) = 0$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>ii) Multiplicative Inverse:</strong><br>
+        The multiplicative inverse of $z$ (for $z \neq 0$), denoted by $z^{-1}$, is given by:<br>
+        $z^{-1} = \frac{1}{x + iy} = \frac{x}{x^2 + y^2} - i\frac{y}{x^2 + y^2}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The multiplicative inverse satisfies: $z \cdot z^{-1} = 1$</li>
+        <li>To find $z^{-1}$, multiply numerator and denominator by the conjugate $\bar{z} = x - iy$:</li>
+    </ul>
+    
+    <div class="math-block">
+        $\frac{1}{x + iy} = \frac{1}{x + iy} \cdot \frac{x - iy}{x - iy} = \frac{x - iy}{x^2 + y^2} = \frac{x}{x^2 + y^2} - i\frac{y}{x^2 + y^2}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Find the additive and multiplicative inverses of $z = 3 + 4i$.<br><br>
+        <strong>Solution:</strong><br>
+        $z = 3 + 4i$<br><br>
+        i) Additive inverse: $-z = -3 - 4i$<br><br>
+        ii) Multiplicative inverse:<br>
+        $z^{-1} = \frac{1}{3 + 4i} = \frac{1}{3 + 4i} \cdot \frac{3 - 4i}{3 - 4i} = \frac{3 - 4i}{3^2 + 4^2} = \frac{3 - 4i}{9 + 16} = \frac{3}{25} - \frac{4}{25}i$
+    </div>
+    
+
+
+    <h2>2.2.6 Argument (Amplitude) of a Complex Number</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.15:</strong><br>
+        The <span class="blue-highlight">argument</span> of a complex number $z = x + iy$ is the angle $\theta$ formed by the complex number with the positive $x$-axis (real axis).
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The argument of $z = x + iy$ is denoted by $\arg z$ and is given by:</li>
+    </ul>
+    
+    <div class="math-block">
+        $\arg(z) = \tan^{-1}\left(\frac{y}{x}\right)$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>The particular argument of $z$ that lies in the range $-\pi < \theta \le \pi$ is called the <span class="orange-highlight">principal argument</span> and is denoted by $\text{Arg } z$</li>
+    </ul>
+    
+    <h3>Notes:</h3>
+    <ul class="bullet-list">
+        <li>1. $\text{Arg } z \in (-\pi, \pi]$</li>
+        <li>2. If $0 \le \text{Arg } z \le \pi$ → measure <span class="blue-highlight">counterclockwise</span> from the positive $x$-axis</li>
+        <li>3. If $-\pi < \text{Arg } z < 0$ → measure <span class="blue-highlight">clockwise</span> from the positive $x$-axis</li>
+    </ul>
+    
+    <div class="callout">
+        <span class="blue-highlight">Important:</span> When finding the argument using $\tan^{-1}(y/x)$, the quadrant of the point $(x, y)$ must be considered to determine the correct angle.
+    </div>
+
+    <div class="math-block">
+        <strong>Example:</strong> Find the principal argument of the following complex numbers:
+    </div>
+    
+    <div class="math-block">
+        <strong>a) $z = 1 + i$</strong><br>
+        Point $(1, 1)$ is in <span class="orange-highlight">Quadrant I</span><br>
+        $\text{Arg } z = \tan^{-1}\left(\frac{1}{1}\right) = \tan^{-1}(1) = \frac{\pi}{4}$
+    </div>
+    
+    <div class="math-block">
+        <strong>b) $z = -2 + 2\sqrt{3}i$</strong><br>
+        Point $(-2, 2\sqrt{3})$ is in <span class="orange-highlight">Quadrant II</span><br>
+        $\text{Arg } z = \tan^{-1}\left(\frac{2\sqrt{3}}{-2}\right) = \tan^{-1}(-\sqrt{3}) = \frac{2\pi}{3}$<br>
+        (Since the point is in Quadrant II, add $\pi$ to the reference angle: $\pi - \pi/3 = 2\pi/3$)
+    </div>
+    
+<div class="math-block">
+    <strong>c) $z = -\sqrt{3} - i$</strong><br>
+    Point $(-\sqrt{3}, -1)$ is in <span class="orange-highlight">Quadrant III</span><br>
+    Reference angle: $\tan^{-1}\left(\frac{|-1|}{|-\sqrt{3}|}\right) = \tan^{-1}\left(\frac{1}{\sqrt{3}}\right) = \frac{\pi}{6}$<br>
+    For Quadrant III: $\text{Arg } z = -\pi + \frac{\pi}{6} = -\frac{5\pi}{6}$
+</div>
+
+
+    <h2>Properties of Arguments</h2>
+    
+    
+    <div class="two-columns">
+        <div class="col">
+            <ul class="compact-list">
+                <li>1. $\text{Arg}(z_1 z_2) = \text{Arg } z_1 + \text{Arg } z_2$</li>
+                <li>2. $\text{Arg}\left(\frac{z_1}{z_2}\right) = \text{Arg } z_1 - \text{Arg } z_2$</li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul class="compact-list">
+                <li>3. $\text{Arg}(z^n) = n \cdot \text{Arg } z$</li>
+                <li>4. $\text{Arg}\left(\frac{1}{z}\right) = -\text{Arg } z$</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Note:</span> These properties hold up to multiples of $2\pi$. The principal argument may need adjustment to stay within $(-\pi, \pi]$.
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Find the principal argument of:<br><br>
+        a) $(1 + i)(-1 - i)$<br>
+        b) $\frac{-2 + 2i}{1 - i}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution (a):</strong><br>
+        $\text{Arg}((1 + i)(-1 - i)) = \text{Arg}(1 + i) + \text{Arg}(-1 - i)$<br>
+        $\text{Arg}(1 + i) = \frac{\pi}{4}$<br>
+        $\text{Arg}(-1 - i) = -\frac{3\pi}{4}$ (or $\frac{5\pi}{4}$? In principal range: $-1 - i$ is in Quadrant III → $\text{Arg} = -\frac{3\pi}{4}$)<br>
+        Sum: $\frac{\pi}{4} + \left(-\frac{3\pi}{4}\right) = -\frac{2\pi}{4} = -\frac{\pi}{2}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution (b):</strong><br>
+        $\text{Arg}\left(\frac{-2 + 2i}{1 - i}\right) = \text{Arg}(-2 + 2i) - \text{Arg}(1 - i)$<br>
+        $\text{Arg}(-2 + 2i) = \frac{3\pi}{4}$ (Quadrant II)<br>
+        $\text{Arg}(1 - i) = -\frac{\pi}{4}$ (Quadrant IV)<br>
+        Difference: $\frac{3\pi}{4} - \left(-\frac{\pi}{4}\right) = \frac{3\pi}{4} + \frac{\pi}{4} = \frac{4\pi}{4} = \pi$
+    </div>
+    
+  
+
+    <h2>2.2.7 Polar Form of a Complex Number</h2>
+    
+    <div class="math-block">
+        <strong>Definition 2.16:</strong><br>
+        Let $r$ and $\theta$ be polar coordinates of the point $(x, y)$ representing the complex number $z = x + iy$.
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Since $x = r \cos \theta$ and $y = r \sin \theta$, the complex number can be written as:</li>
+    </ul>
+    
+    <div class="math-block">
+        $z = r(\cos \theta + i \sin \theta)$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>This is called the <span class="blue-highlight">polar form</span> (or trigonometric form) of a complex number</li>
+        <li>$r = |z| = \sqrt{x^2 + y^2}$ is the <span class="orange-highlight">modulus</span> of $z$</li>
+        <li>$\theta = \text{Arg } z$ is the <span class="orange-highlight">principal argument</span> of $z$ (usually in radians)</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Express the following complex numbers in polar form:
+    </div>
+    
+    <div class="math-block">
+        <strong>a) $z = 1 + i$</strong><br>
+        $r = \sqrt{1^2 + 1^2} = \sqrt{2}$<br>
+        $\theta = \tan^{-1}\left(\frac{1}{1}\right) = \frac{\pi}{4}$ (Quadrant I)<br>
+        $\therefore z = \sqrt{2}\left(\cos \frac{\pi}{4} + i \sin \frac{\pi}{4}\right)$
+    </div>
+    
+    <div class="math-block">
+        <strong>b) $z = 3 - 3i$</strong><br>
+        $r = \sqrt{3^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}$<br>
+        $\theta = \tan^{-1}\left(\frac{-3}{3}\right) = \tan^{-1}(-1) = -\frac{\pi}{4}$ (Quadrant IV)<br>
+        $\therefore z = 3\sqrt{2}\left(\cos\left(-\frac{\pi}{4}\right) + i \sin\left(-\frac{\pi}{4}\right)\right) = 3\sqrt{2}\left(\cos \frac{\pi}{4} - i \sin \frac{\pi}{4}\right)$
+    </div>
+    
+
+
+    <h2>Multiplication and Division in Polar Form</h2>
+    
+    <ul class="bullet-list">
+        <li>Let $z_1 = r_1(\cos \theta_1 + i \sin \theta_1)$ and $z_2 = r_2(\cos \theta_2 + i \sin \theta_2)$</li>
+    </ul>
+    
+    <div class="math-block">
+        <strong>a) Multiplication:</strong><br>
+        $z_1 \cdot z_2 = r_1 r_2 \left[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)\right]$
+    </div>
+    
+    <div class="math-block">
+        <strong>b) Division:</strong><br>
+        $\frac{z_1}{z_2} = \frac{r_1}{r_2} \left[\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)\right],\quad z_2 \neq 0$
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof of (a):</strong><br><br>
+        $z_1 \cdot z_2 = r_1(\cos \theta_1 + i \sin \theta_1) \cdot r_2(\cos \theta_2 + i \sin \theta_2)$<br><br>
+        $= r_1 r_2 [\cos \theta_1 \cos \theta_2 + i \cos \theta_1 \sin \theta_2 + i \sin \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2]$<br><br>
+        $= r_1 r_2 [(\cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2) + i(\cos \theta_1 \sin \theta_2 + \sin \theta_1 \cos \theta_2)]$<br><br>
+        $= r_1 r_2 [\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$
+    </div>
+
+  
+    <div class="math-block">
+        <strong>Proof of (b):</strong><br><br>
+        $\frac{z_1}{z_2} = \frac{r_1(\cos \theta_1 + i \sin \theta_1)}{r_2(\cos \theta_2 + i \sin \theta_2)}$<br><br>
+        $= \frac{r_1}{r_2} \cdot \frac{\cos \theta_1 + i \sin \theta_1}{\cos \theta_2 + i \sin \theta_2} \cdot \frac{\cos \theta_2 - i \sin \theta_2}{\cos \theta_2 - i \sin \theta_2}$<br><br>
+        $= \frac{r_1}{r_2} \cdot \frac{(\cos \theta_1 + i \sin \theta_1)(\cos \theta_2 - i \sin \theta_2)}{\cos^2 \theta_2 + \sin^2 \theta_2}$<br><br>
+        $= \frac{r_1}{r_2} [\cos \theta_1 \cos \theta_2 + \sin \theta_1 \sin \theta_2 + i(\sin \theta_1 \cos \theta_2 - \cos \theta_1 \sin \theta_2)]$<br><br>
+        $= \frac{r_1}{r_2} [\cos(\theta_1 - \theta_2) + i \sin(\theta_1 - \theta_2)]$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong><br>
+        Given $z_1 = 6\left(\cos \frac{\pi}{2} + i \sin \frac{\pi}{2}\right)$ and $z_2 = 2\left(\cos \frac{\pi}{3} + i \sin \frac{\pi}{3}\right)$, find:<br>
+        a) $z_1 \cdot z_2$<br>
+        b) $\frac{z_1}{z_2}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution (a):</strong><br>
+        $z_1 \cdot z_2 = 6 \cdot 2 \left[\cos\left(\frac{\pi}{2} + \frac{\pi}{3}\right) + i \sin\left(\frac{\pi}{2} + \frac{\pi}{3}\right)\right]$<br>
+        $= 12 \left[\cos\left(\frac{3\pi}{6} + \frac{2\pi}{6}\right) + i \sin\left(\frac{5\pi}{6}\right)\right]$<br>
+        $= 12 \left[\cos \frac{5\pi}{6} + i \sin \frac{5\pi}{6}\right]$
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution (b):</strong><br>
+        $\frac{z_1}{z_2} = \frac{6}{2} \left[\cos\left(\frac{\pi}{2} - \frac{\pi}{3}\right) + i \sin\left(\frac{\pi}{2} - \frac{\pi}{3}\right)\right]$<br>
+        $= 3 \left[\cos\left(\frac{3\pi}{6} - \frac{2\pi}{6}\right) + i \sin\left(\frac{\pi}{6}\right)\right]$<br>
+        $= 3 \left[\cos \frac{\pi}{6} + i \sin \frac{\pi}{6}\right]$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Key Insight:</span><br>
+        In polar form, multiplication multiplies moduli and <span class="orange-highlight">adds arguments</span>.<br>
+        Division divides moduli and <span class="orange-highlight">subtracts arguments</span>.
+    </div>
+
+
+
+    <h2>2.2.8 Argument of a Product</h2>
+    
+    <ul class="bullet-list">
+        <li>The argument of the <span class="blue-highlight">product</span> of two complex numbers is the <span class="orange-highlight">sum</span> of their arguments</li>
+    </ul>
+    	 <div class="image-figure">
+        <img src="7.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    <div class="math-block">
+        $\arg(z_1 \cdot z_2) = \arg(z_1) + \arg(z_2)$
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof:</strong><br><br>
+        Let $z_1 = r_1(\cos \theta_1 + i \sin \theta_1)$ and $z_2 = r_2(\cos \theta_2 + i \sin \theta_2)$.
+    </div>
+    
+    <div class="math-block">
+        $z_1 \cdot z_2 = r_1(\cos \theta_1 + i \sin \theta_1) \cdot r_2(\cos \theta_2 + i \sin \theta_2)$<br><br>
+        $= r_1 r_2[\cos \theta_1(\cos \theta_2 + i \sin \theta_2) + i \sin \theta_1(\cos \theta_2 + i \sin \theta_2)]$<br><br>
+        $= r_1 r_2[(\cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin \theta_2) + i(\cos \theta_1 \sin \theta_2 + \sin \theta_1 \cos \theta_2)]$<br><br>
+        $= r_1 r_2[\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$
+    </div>
+    
+    <div class="math-block">
+        $\Rightarrow \arg(z_1 \cdot z_2) = \tan^{-1}\left(\frac{\sin(\theta_1 + \theta_2)}{\cos(\theta_1 + \theta_2)}\right) = \tan^{-1}(\tan(\theta_1 + \theta_2)) = \theta_1 + \theta_2$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Geometric Interpretation:</span><br>
+        When multiplying two complex numbers, their moduli are multiplied and their arguments are added.<br>
+        The resulting complex number has modulus $r_1 r_2$ and argument $\theta_1 + \theta_2$.
+    </div>
+
+    <h2>2.2.9 Argument of a Quotient</h2>
+    
+    <ul class="bullet-list">
+        <li>The argument of the <span class="blue-highlight">quotient</span> of two complex numbers is the <span class="orange-highlight">difference</span> of their arguments</li>
+    </ul>
+    
+    <div class="math-block">
+        $\arg\left(\frac{z_1}{z_2}\right) = \arg(z_1) - \arg(z_2),\quad z_2 \neq 0$
+    </div>
+    
+    <div class="math-block">
+        <strong>Proof:</strong><br><br>
+        $\arg\left(\frac{z_1}{z_2}\right) = \arg(z_1 \cdot z_2^{-1})$<br><br>
+        $= \arg(z_1) + \arg(z_2^{-1})$ (using the product property)<br><br>
+        $= \arg(z_1) + (-\arg(z_2))$ (since $\arg(z^{-1}) = -\arg(z)$)<br><br>
+        $= \arg(z_1) - \arg(z_2)$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong><br>
+        Find $\arg\left(\frac{-4}{1 + \sqrt{3}i}\right)$.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br><br>
+        $\arg(-4) = \pi$ (since $-4$ lies on the negative real axis)<br>
+        $\arg(1 + \sqrt{3}i) = \tan^{-1}\left(\frac{\sqrt{3}}{1}\right) = \frac{\pi}{3}$ (Quadrant I)<br><br>
+        $\arg\left(\frac{-4}{1 + \sqrt{3}i}\right) = \arg(-4) - \arg(1 + \sqrt{3}i)$<br><br>
+        $= \pi - \frac{\pi}{3} = \frac{2\pi}{3}$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Summary:</span><br>
+        • $\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)$<br>
+        • $\arg(z_1 / z_2) = \arg(z_1) - \arg(z_2)$<br>
+        • These properties hold up to multiples of $2\pi$; the principal argument may need adjustment to stay in $(-\pi, \pi]$.
+    </div>
+
+    <h2>De Moivre's Formula</h2>
+    
+    <ul class="bullet-list">
+        <li>Recall the product formula:</li>
+    </ul>
+    
+    <div class="math-block">
+        $z_1 \cdot z_2 = r_1 r_2 [\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)]$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Similarly, for $n$ complex numbers:</li>
+    </ul>
+    
+    <div class="math-block">
+        $z_1 \cdot z_2 \cdots z_n = r_1 r_2 \cdots r_n [\cos(\theta_1 + \theta_2 + \cdots + \theta_n) + i \sin(\theta_1 + \theta_2 + \cdots + \theta_n)]$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>If all $z_k$ are equal to $z = r(\cos \theta + i \sin \theta)$, then we get:</li>
+    </ul>
+    
+    <div class="math-block">
+        $z^n = r^n [\cos(n\theta) + i \sin(n\theta)]$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">De Moivre's Formula:</span><br>
+        $z^n = r^n (\cos n\theta + i \sin n\theta)$<br>
+        This holds for any integer $n$.
+    </div>
+    
+    <div class="math-block">
+        <strong>Example 1:</strong> Express $(2 + 2i)^{100}$ in polar form.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        Let $z = 2 + 2i$<br>
+        $r = \sqrt{2^2 + 2^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}$<br>
+        $\theta = \tan^{-1}\left(\frac{2}{2}\right) = \tan^{-1}(1) = \frac{\pi}{4}$<br><br>
+        $(2 + 2i)^{100} = z^{100} = (\sqrt{8})^{100} \left[\cos\left(100 \cdot \frac{\pi}{4}\right) + i \sin\left(100 \cdot \frac{\pi}{4}\right)\right]$<br>
+        $= 8^{50} [\cos(25\pi) + i \sin(25\pi)]$
+    </div>
+
+    <div class="math-block">
+        <strong>Example 2:</strong> Express $(\sqrt{3} + i)^{60}$ in polar form.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        Let $z = \sqrt{3} + i$<br>
+        $r = \sqrt{(\sqrt{3})^2 + 1^2} = \sqrt{3 + 1} = \sqrt{4} = 2$<br>
+        $\theta = \tan^{-1}\left(\frac{1}{\sqrt{3}}\right) = \frac{\pi}{6}$<br><br>
+        $(\sqrt{3} + i)^{60} = z^{60} = 2^{60} \left[\cos\left(60 \cdot \frac{\pi}{6}\right) + i \sin\left(60 \cdot \frac{\pi}{6}\right)\right]$<br>
+        $= 2^{60} [\cos(10\pi) + i \sin(10\pi)]$
+    </div>
+    
+    <h2>Euler's Formula</h2>
+    
+    <ul class="bullet-list">
+        <li>The complex number $z = r(\cos \theta + i \sin \theta)$ can be written in <span class="blue-highlight">exponential form</span> as:</li>
+    </ul>
+    
+    <div class="math-block">
+        $z = r e^{i\theta}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>This is called <span class="orange-highlight">Euler's Formula</span> (or Euler's notation)</li>
+    </ul>
+    
+    <div class="callout">
+        <span class="blue-highlight">Note:</span><br>
+        $z^n = r^n (\cos n\theta + i \sin n\theta) = r^n e^{i n\theta}$
+    </div>
+
+    <div class="math-block">
+        <strong>Example 1:</strong> Express $z = 1 + i$ using Euler's formula.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        $z = 1 + i$<br>
+        $r = \sqrt{1^2 + 1^2} = \sqrt{2}$<br>
+        $\theta = \tan^{-1}\left(\frac{1}{1}\right) = \frac{\pi}{4}$<br>
+        $\therefore z = \sqrt{2} e^{i\pi/4}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example 2:</strong> Express $z = 1 + \sqrt{3}i$ using Euler's formula.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        $z = 1 + \sqrt{3}i$<br>
+        $r = \sqrt{1^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = \sqrt{4} = 2$<br>
+        $\theta = \tan^{-1}\left(\frac{\sqrt{3}}{1}\right) = \frac{\pi}{3}$<br>
+        $\therefore z = 2 e^{i\pi/3}$
+    </div>
+    
+    <div class="math-block">
+        <strong>Example:</strong> Express $z = (\sqrt{3} + i)^7$ using Euler's formula.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        Let $w = \sqrt{3} + i$<br>
+        $r = 2$, $\theta = \frac{\pi}{6}$<br>
+        $w = 2 e^{i\pi/6}$<br>
+        $\therefore (\sqrt{3} + i)^7 = w^7 = (2 e^{i\pi/6})^7 = 2^7 e^{i 7\pi/6} = 128 e^{i 7\pi/6}$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Key Formulas:</span><br>
+        • <span class="orange-highlight">De Moivre:</span> $z^n = r^n(\cos n\theta + i \sin n\theta)$<br>
+        • <span class="orange-highlight">Euler:</span> $z = r e^{i\theta}$ and $z^n = r^n e^{i n\theta}$<br>
+        • $e^{i\theta} = \cos \theta + i \sin \theta$ (Euler's identity)
+    </div>
+
+
+    <h2>2.2.10 Roots of Complex Numbers (Extraction of Roots)</h2>
+    
+    <ul class="bullet-list">
+        <li>Suppose $z_0 = r_0 e^{i\theta_0}$ is the $n^{\text{th}}$ root of a non-zero complex number $z = r e^{i\theta}$, where $n \ge 2$</li>
+        <li>Then $z_0^n = z$, which implies:</li>
+    </ul>
+    
+    <div class="math-block">
+        $r_0^n e^{i n \theta_0} = r e^{i \theta}$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Equating moduli and arguments:</li>
+    </ul>
+    
+    <div class="math-block">
+        $r_0^n = r \quad \text{and} \quad n\theta_0 = \theta + 2k\pi, \quad k = 0, 1, 2, \dots, (n-1)$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>Solving for $r_0$ and $\theta_0$:</li>
+    </ul>
+    
+  <div class="math-block">
+    $$r_0 = r^{1/n} \quad \text{and} \quad \theta_0 = \frac{\theta}{n} + \frac{2k\pi}{n}$$
+</div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Formula for the $n^{\text{th}}$ Roots:</span><br>
+        $z_0 = r^{1/n} e^{i\left(\frac{\theta}{n} + \frac{2k\pi}{n}\right)}, \quad k = 0, 1, 2, \dots, (n-1)$<br><br>
+        Or denoted by $C_k$ as:<br>
+        $C_k = r^{1/n} \left[\cos\left(\frac{\theta}{n} + \frac{2k\pi}{n}\right) + i \sin\left(\frac{\theta}{n} + \frac{2k\pi}{n}\right)\right]$
+    </div>
+    
+    <ul class="bullet-list">
+        <li>There are exactly $n$ distinct $n^{\text{th}}$ roots of any non-zero complex number</li>
+        <li>Geometrically, these $n$ roots lie on a circle of radius $r^{1/n}$ and are equally spaced by angles of $\frac{2\pi}{n}$</li>
+    </ul>
+
+
+
+    <div class="math-block">
+        <strong>Example 1:</strong> Find the square roots of $z = 1 + \sqrt{3}i$.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        $z = 1 + \sqrt{3}i$<br>
+        $r = \sqrt{1^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = \sqrt{4} = 2$<br>
+        $\theta = \tan^{-1}\left(\frac{\sqrt{3}}{1}\right) = \frac{\pi}{3}$<br>
+        $n = 2$, $k = 0, 1$
+    </div>
+    
+    <div class="math-block">
+        $C_k = r^{1/n} e^{i\left(\frac{\theta}{n} + \frac{2k\pi}{n}\right)} = \sqrt{2} e^{i\left(\frac{\pi}{6} + k\pi\right)}$
+    </div>
+    
+    <div class="math-block">
+        <strong>For $k = 0$:</strong><br>
+        $C_0 = \sqrt{2} e^{i\pi/6} = \sqrt{2}\left(\cos\frac{\pi}{6} + i \sin\frac{\pi}{6}\right)$<br>
+        $= \sqrt{2}\left(\frac{\sqrt{3}}{2} + \frac{i}{2}\right) = \frac{\sqrt{2}}{2}(\sqrt{3} + i) = \frac{\sqrt{6}}{2} + \frac{\sqrt{2}}{2}i$
+    </div>
+    
+    <div class="math-block">
+        <strong>For $k = 1$:</strong><br>
+        $C_1 = \sqrt{2} e^{i(\pi/6 + \pi)} = \sqrt{2} e^{i 7\pi/6} = \sqrt{2}\left(\cos\frac{7\pi}{6} + i \sin\frac{7\pi}{6}\right)$<br>
+        $= \sqrt{2}\left(-\frac{\sqrt{3}}{2} - \frac{i}{2}\right) = -\frac{\sqrt{2}}{2}(\sqrt{3} + i) = -\frac{\sqrt{6}}{2} - \frac{\sqrt{2}}{2}i$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Answer:</span> The square roots of $1 + \sqrt{3}i$ are:<br>
+        $C_0 = \frac{\sqrt{6}}{2} + \frac{\sqrt{2}}{2}i$ and $C_1 = -\frac{\sqrt{6}}{2} - \frac{\sqrt{2}}{2}i$
+    </div>
+
+
+
+    <div class="math-block">
+        <strong>Example 2:</strong> Find the cube roots of $z = 8i$.
+    </div>
+    
+    <div class="math-block">
+        <strong>Solution:</strong><br>
+        $z = 8i = 0 + 8i$<br>
+        $r = \sqrt{0^2 + 8^2} = \sqrt{64} = 8$<br>
+        $\theta = \frac{\pi}{2}$ (since the point $(0, 8)$ lies on the positive imaginary axis)<br>
+        $n = 3$, $k = 0, 1, 2$
+    </div>
+    
+    <div class="math-block">
+        $C_k = r^{1/n} e^{i\left(\frac{\theta}{n} + \frac{2k\pi}{n}\right)} = 8^{1/3} e^{i\left(\frac{\pi}{6} + \frac{2k\pi}{3}\right)} = 2 e^{i\left(\frac{\pi}{6} + \frac{2k\pi}{3}\right)}$
+    </div>
+    
+    <div class="math-block">
+        <strong>For $k = 0$:</strong><br>
+        $C_0 = 2 e^{i\pi/6} = 2\left(\cos\frac{\pi}{6} + i \sin\frac{\pi}{6}\right) = 2\left(\frac{\sqrt{3}}{2} + \frac{i}{2}\right) = \sqrt{3} + i$
+    </div>
+    
+    <div class="math-block">
+        <strong>For $k = 1$:</strong><br>
+        $C_1 = 2 e^{i(\pi/6 + 2\pi/3)} = 2 e^{i(\pi/6 + 4\pi/6)} = 2 e^{i 5\pi/6}$<br>
+        $= 2\left(\cos\frac{5\pi}{6} + i \sin\frac{5\pi}{6}\right) = 2\left(-\frac{\sqrt{3}}{2} + \frac{i}{2}\right) = -\sqrt{3} + i$
+    </div>
+    
+    <div class="math-block">
+        <strong>For $k = 2$:</strong><br>
+        $C_2 = 2 e^{i(\pi/6 + 4\pi/3)} = 2 e^{i(\pi/6 + 8\pi/6)} = 2 e^{i 9\pi/6} = 2 e^{i 3\pi/2}$<br>
+        $= 2\left(\cos\frac{3\pi}{2} + i \sin\frac{3\pi}{2}\right) = 2(0 - i) = -2i$
+    </div>
+    
+    <div class="callout">
+        <span class="blue-highlight">Answer:</span> The cube roots of $8i$ are:<br>
+        $C_0 = \sqrt{3} + i,\quad C_1 = -\sqrt{3} + i,\quad C_2 = -2i$
+    </div>
+    
+    <div class="math-block" style="margin-top: 20px;">
+        <strong>Note:</strong> These three roots are equally spaced on a circle of radius $2$ in the complex plane, at angles $\frac{\pi}{6}$, $\frac{5\pi}{6}$, and $\frac{3\pi}{2}$.
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }
+    });
+</script>
+</body>
+</html>
