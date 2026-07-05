@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>  </title>
+    <!-- KaTeX CSS + JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false},{left: '\\(', right: '\\)', display: false},{left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a1f1a;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            position: relative;
+            max-width: 1100px;
+            width: 100%;
+            background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+            padding: 32px 38px 50px 38px;
+            margin-bottom: 40px;
+            border: 1px solid #2a5a4a;
+            color: #ffffff;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .slide:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide::before {
+            content: "QELEME EXAMS";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-family: 'Segoe UI', 'Georgia', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: rgba(91, 192, 168, 0.12);
+            pointer-events: none;
+            z-index: 10000;
+            white-space: nowrap;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: none;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide * {
+            z-index: auto !important;
+        }
+
+        .slide :not(.slide::before) {
+            z-index: auto;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide .col, .slide .math-block, .slide .callout, .slide .image-figure, .slide .two-columns {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(155, 199, 187, 0.55);
+            font-family: monospace;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f5d742;
+            margin-bottom: 10px;
+            border-left: 5px solid #5bc0a8;
+            padding-left: 20px;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #f5d742;
+            margin-bottom: 22px;
+            padding-left: 26px;
+            border-bottom: 1px solid #2a5a4a;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #f5d742;
+            margin: 18px 0 12px 0;
+            border-left: 3px solid #5bc0a8;
+            padding-left: 14px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5e29e;
+            margin: 10px 0 6px 0;
+        }
+
+        p, li, .bullet-list li, .compact-list li, .callout, .math-block, .image-caption, .col p, .col li, td, th {
+            color: #ffffff;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .math-block .katex, .math-block .katex * {
+            color: #ffffff;
+        }
+
+        .highlight {
+            background: #1a4036;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: inline-block;
+            color: #ffffff;
+        }
+
+        .blue-highlight {
+            color: #6bc8ff !important;
+            font-weight: 600;
+        }
+
+        .red-highlight {
+            color: #ff8a7a !important;
+            font-weight: 600;
+        }
+
+        .orange-highlight {
+            color: #ffb347 !important;
+            font-weight: 600;
+        }
+
+        strong.blue-highlight, b.blue-highlight {
+            color: #6bc8ff !important;
+        }
+        strong.red-highlight, b.red-highlight {
+            color: #ff8a7a !important;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin: 8px 0 14px 0;
+            padding-left: 0;
+        }
+        .bullet-list li {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5bc0a8;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .compact-list {
+            list-style: none;
+            margin: 6px 0 10px 0;
+            padding-left: 0;
+        }
+        .compact-list li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .compact-list li::before {
+            content: "◦";
+            position: absolute;
+            left: 0;
+            color: #7acfb8;
+            font-size: 0.95rem;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin: 14px 0;
+        }
+        .col {
+            background: #0f2c23;
+            border-radius: 20px;
+            padding: 16px 18px;
+            border: 1px solid #2a5a4a;
+        }
+        .col .bullet-list li::before {
+            color: #5bc0a8;
+        }
+
+        .math-block {
+            background: #0a241d;
+            padding: 14px 18px;
+            border-radius: 18px;
+            margin: 14px 0;
+            border-left: 5px solid #5bc0a8;
+            overflow-x: auto;
+            font-size: 1rem;
+        }
+        .math-block .katex {
+            font-size: 1.05em;
+        }
+
+        .callout {
+            background: #0e2a22;
+            border-left: 5px solid #5bc0a8;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 14px 0;
+            font-size: 1rem;
+        }
+
+        .image-figure {
+            margin: 16px 0;
+            text-align: center;
+        }
+        .image-figure img {
+            max-width: 75%;
+            height: auto;
+            max-height: 210px;
+            border-radius: 12px;
+            border: 1px solid #3a7a64;
+            background: #0a241d;
+            object-fit: contain;
+        }
+        .image-caption {
+            font-size: 0.75rem;
+            color: #9bc7bb;
+            margin-top: 5px;
+        }
+        .image-placeholder-note {
+            background: #0a241d;
+            border-radius: 12px;
+            padding: 10px 16px;
+            text-align: center;
+            margin: 12px 0;
+            border: 1px dashed #5bc0a8;
+            color: #9bc7bb;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f2c23;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #2a5a4a;
+            padding: 8px 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+        th {
+            background: #1a4036;
+            color: #f5d742;
+        }
+
+        .inline-arrow {
+            font-weight: 500;
+            color: #8bcbae;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 750px) {
+            .slide { padding: 24px 22px 50px 22px; }
+            .two-columns { grid-template-columns: 1fr; gap: 16px; }
+            .slide-title { font-size: 1.9rem; }
+            .image-figure img { max-width: 85%; max-height: 180px; }
+            .slide::before { font-size: 2rem; letter-spacing: 4px; opacity: 0.6; }
+            .slide-footer { font-size: 0.55rem; bottom: 8px; }
+            p, li, .bullet-list li { font-size: 1rem; }
+        }
+
+        /* PRINT STYLES - each slide stays on ONE page (no cutting) */
+       /* PRINT STYLES - each slide stays on ONE page (no cutting) */
+@media print {
+    @page {
+        margin: 0;
+        size: auto;
+    }
+    
+    html, body {
+        background: #0a231c;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: #0a231c;
+        padding: 0;
+    }
+    
+    .slide {
+        position: relative;
+        background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+        border: none;  /* ← REMOVED BORDER FOR PRINT */
+        box-shadow: none;
+        margin: 0;
+        margin-bottom: 0;
+        padding: 0.35in 0.4in 0.55in 0.4in;
+        border-radius: 0;
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: visible;
+        isolation: isolate;
+    }
+    
+    .slide:last-child {
+        page-break-after: auto;
+    }
+    
+   .slide::before {
+        content: "QELEME EXAMS";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-25deg);
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgba(91, 192, 168, 0.08);  /* ← Changed from 0.25 to 0.08 (much lighter) */
+        white-space: nowrap;
+        letter-spacing: 6px;
+        z-index: 10000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .slide-footer {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        font-size: 0.55rem;
+        color: rgba(155, 199, 187, 0.6);
+        text-align: center;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        z-index: 1;
+    }
+    
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .image-figure img {
+        max-height: 180px;
+        max-width: 65%;
+    }
+    
+    .slide > * {
+        z-index: 1;
+        position: relative;
+    }
+
+    /* Prevent headings from being left alone at the bottom of a page */
+    h1, h2, h3, h4, .slide-title, .subhead {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-after: avoid;
+    }
+
+    /* Keep headings with at least 3 lines of following content */
+    h2, h3, .slide-title {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Prevent callouts, tables, and columns from breaking */
+    .callout, .math-block, table, .two-columns, .col {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Ensure list items stay together when possible */
+    li {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* For long lists, allow breaks but keep minimum 3 items together */
+    ul, .bullet-list, .compact-list {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+        .katex { color: #ffffff; }
+        .katex .mord, .katex .mbin, .katex .mrel { color: #f0f9f5; }
+    </style>
+</head>
+<body>
+
+  <!-- Cover Page -->
+
+<div class="slide" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0a2a1f 0%, #071a12 100%); padding: 60px 40px;">
+    <div class="slide-footer" style="position: absolute; bottom: 20px; left: 0; right: 0;">© 2019 All Rights Reserved | Qeleme Exams App</div>
+    
+    <!-- Logo Image -->
+    <div style="width: 120px; height: 120px; margin-bottom: 30px;">
+        <img src="Qeleme_Exams.png" alt="Qeleme Exams Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; box-shadow: 0 20px 35px -8px rgba(0,0,0,0.4), 0 0 0 4px rgba(91,192,168,0.2);">
+    </div>
+    
+    <!-- App Name -->
+    <div style="margin-bottom: 20px;">
+        <span style="font-size: 1.2rem; font-weight: 500; color: #5bc0a8; letter-spacing: 4px; text-transform: uppercase;">Qeleme Exams</span>
+    </div>
+    
+    <!-- Main Title -->
+    <h1 style="font-size: 3.2rem; font-weight: 800; color: #f5d742; margin: 15px 0 10px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); letter-spacing: -0.5px;">
+        Mathematics <br>for <br>Natural 
+Sciences
+    </h1>
+    
+    <div style="width: 80px; height: 3px; background: #5bc0a8; margin: 20px auto;"></div>
+    
+    <h2 style="font-size: 2rem; font-weight: 600; color: #ffffff; margin: 10px 0 25px 0; border-left: none; padding-left: 0;">
+        Chapter 3
+    </h2>
+    
+    <div style="background: rgba(91,192,168,0.15); padding: 12px 28px; border-radius: 50px; margin-bottom: 40px; border: 1px solid rgba(91,192,168,0.3);">
+        <span style="font-size: 1rem; color: #9bc7bb; letter-spacing: 1px;">Functions</span>
+    </div>
+        <div style="margin-bottom: 25px;">
+        <span style="font-size: 0.85rem; color: #9bc7bb;">Instructor: <strong style="color: #f5d742;">Mr. Dagim</strong></span>
+    </div>
+    <!-- Prepared by line -->
+    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(91,192,168,0.3); width: 80%;">
+        <p style="font-size: 0.85rem; color: #9bc7bb; margin: 5px 0;">
+            <strong style="color: #f5d742;">Prepared by Qeleme Exams - Learn. Practice. Win</strong>
+        </p>
+        <p style="font-size: 0.75rem; color: #6a9e8e; margin-top: 10px;">
+             Interactive Learning Resource 
+        </p>
+    </div>
+    
+    <!-- Decorative dots -->
+    <div style="position: absolute; bottom: 80px; left: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+    <div style="position: absolute; top: 80px; right: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Contents</div>
+    <div class="two-columns">
+        <div class="col">
+            <h3 style="color: #f5d742;">🔹 Relations and Functions</h3>
+            <ul class="compact-list">
+                <li>Cartesian product of two sets</li>
+                <li>Definition of relation</li>
+                <li>Domain, codomain and range of a relation</li>
+                <li>Inverse of a relation</li>
+                <li>Definition of function</li>
+                <li>Domain, codomain and range of a function</li>
+            </ul>
+            
+            <h3 style="color: #f5d742; margin-top: 15px;">🔹 Real Valued Functions</h3>
+            <ul class="compact-list">
+                <li>Definition of real valued function</li>
+                <li>Operations on functions (sum, difference, product, quotient)</li>
+                <li>Composition of functions</li>
+                <li>Equality of functions</li>
+            </ul>
+            
+            <h3 style="color: #f5d742; margin-top: 15px;">🔹 Types of Functions</h3>
+            <ul class="compact-list">
+                <li>One-to-one functions</li>
+                <li>Onto functions</li>
+                <li>One-to-one correspondence</li>
+                <li>Inverse of a function</li>
+            </ul>
+        </div>
+        
+        <div class="col">
+            <h3 style="color: #f5d742;">🔹 Polynomial and Rational Functions</h3>
+            <ul class="compact-list">
+                <li>Polynomial functions and their properties</li>
+                <li>Zeros of polynomials</li>
+                <li>Division algorithm</li>
+                <li>Remainder theorem</li>
+                <li>Factor theorem</li>
+                <li>Fundamental theorem of algebra</li>
+                <li>Rational root theorem</li>
+                <li>Rational functions and their graphs</li>
+                <li>Vertical and horizontal asymptotes</li>
+            </ul>
+            
+            <h3 style="color: #f5d742; margin-top: 15px;">🔹 Exponential and Logarithmic Functions</h3>
+            <ul class="compact-list">
+                <li>Exponents and radicals</li>
+                <li>Exponential functions and their graphs</li>
+                <li>Logarithmic functions and their graphs</li>
+                <li>Properties of logarithms</li>
+            </ul>
+            
+            <h3 style="color: #f5d742; margin-top: 15px;">🔹 Trigonometric and Hyperbolic Functions</h3>
+            <ul class="compact-list">
+                <li>Angle measurement (degrees and radians)</li>
+                <li>Trigonometric functions and their graphs</li>
+                <li>Periodic functions, amplitude, and frequency</li>
+                <li>Hyperbolic functions and their graphs</li>
+                <li>Properties of hyperbolic functions</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Review of Relations and Functions</div>
+    <div class="subhead">Cartesian Products, Relations, Functions and Key Definitions</div>
+
+    <ul class="bullet-list">
+        <li>Ordered pair → (first coordinate, second coordinate)
+            <ul class="compact-list">
+                <li>Examples: $(2,3)$, $(-2,4)$, $(a,b)$</li>
+                <li>First coordinates: $2$, $-2$, $a$</li>
+                <li>Second coordinates: $3$, $4$, $b$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Cartesian Product</h2>
+    <ul class="bullet-list">
+        <li>Given sets $A = \{3, 4\}$ and $B = \{2, 4, 5\}$
+            <ul class="compact-list">
+                <li>$A \times B = \{(3,2), (3,4), (3,5), (4,2), (4,4), (4,5)\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> Suppose $A$ and $B$ are sets. The Cartesian product of $A$ and $B$, denoted by $A \times B$, is the set which contains every ordered pair whose first coordinate is an element of $A$ and second coordinate is an element of $B$, i.e.
+        $$A \times B = \{(a, b) : a \in A \text{ and } b \in B\}$$
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Example:</span> For $A = \{2, 4\}$ and $B = \{-1, 3\}$
+            <ul class="compact-list">
+                <li>$A \times B = \{(2, -1), (2, 3), (4, -1), (4, 3)\}$</li>
+                <li>$B \times A = \{(-1, 2), (-1, 4), (3, 2), (3, 4)\}$</li>
+                <li>$A \times B$ and $B \times A$ are <span class="red-highlight">not equal</span> (order matters)</li>
+            </ul>
+        </li>
+        <li>Two sets are equal if one is a subset of the other and vice versa</li>
+        <li>To check equality of Cartesian products we need to define equality of ordered pairs</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Equality of Ordered Pairs:</span>
+        Two ordered pairs $(a, b)$ and $(c, d)$ are equal if and only if $a = c$ and $b = d$.
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Example:</span> Let $A = \{1, 2, 3\}$ and $B = \{a, b, c\}$
+            <ul class="compact-list">
+                <li>$A \times B = \{(1, a), (1, b), (1, c), (2, a), (2, b), (2, c), (3, a), (3, b), (3, c)\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Relations</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> If $A$ and $B$ are sets, any subset of $A \times B$ is called a <span class="orange-highlight">relation from $A$ into $B$</span>.
+    </div>
+
+    <ul class="bullet-list">
+        <li>Suppose $R$ is a relation from a set $A$ to a set $B$
+            <ul class="compact-list">
+                <li>$R \subseteq A \times B$</li>
+                <li>For each $(a, b) \in A \times B$, either $(a, b) \in R$ or $(a, b) \notin R$</li>
+                <li>$(a, b) \in R$ → <span class="blue-highlight">$a$ is R-related to $b$</span> (write $aRb$)</li>
+                <li>$(a, b) \notin R$ → $a$ is not related to $b$</li>
+            </ul>
+        </li>
+        <li>If $R$ is a relation from $A$ to itself → $R$ is called a <span class="blue-highlight">relation on $A$</span></li>
+    </ul>
+
+    <h3>Examples of Relations</h3>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Example 1:</span> $A = \{1, 3, 5, 7\}$, $B = \{6, 8\}$, $R$ = "less than" from $A$ to $B$
+            <ul class="compact-list">
+                <li>$R = \{(1, 6), (1, 8), (3, 6), (3, 8), (5, 6), (5, 8), (7, 8)\}$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Example 2:</span> $A = \{1, 2, 3, 4, 5\}$, $B = \{a, b, c\}$
+            <ul class="compact-list">
+                <li>Relations from $A$ into $B$:
+                    <ul class="compact-list">
+                        <li>$R_1 = \{(1, a)\}$</li>
+                        <li>$R_2 = \{(2, b), (3, b), (4, c), (5, a)\}$</li>
+                        <li>$R_3 = \{(1, a), (2, b), (3, c)\}$</li>
+                    </ul>
+                </li>
+                <li>Relations from $B$ to $A$:
+                    <ul class="compact-list">
+                        <li>$R_4 = \{(a, 3), (b, 1)\}$</li>
+                        <li>$R_5 = \{(b, 2), (c, 4), (a, 2), (b, 3)\}$</li>
+                        <li>$R_6 = \{(b, 5)\}$</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> Let $R$ be a relation from $A$ into $B$. Then,
+        <ul class="compact-list">
+            <li>The <span class="blue-highlight">domain</span> of $R$, denoted by $\text{Dom}(R)$, is the set of first coordinates of the elements of $R$:
+            $$\text{Dom}(R) = \{a \in A : (a, b) \in R\}$$</li>
+            <li>The <span class="blue-highlight">range</span> of $R$, denoted by $\text{Range}(R)$, is the set of second coordinates of elements of $R$:
+            $$\text{Range}(R) = \{b \in B : (a, b) \in R\}$$</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Remark:</span> If $R$ is a relation from $A$ to $B$, then $B$ is called the <span class="orange-highlight">codomain</span> of $R$. The range is always a <span class="red-highlight">subset</span> of the codomain.
+    </div>
+
+    <h3>Example 1</h3>
+    <div class="math-block">
+        <span class="blue-highlight">Question:</span> Given $R = \{(4,7), (5,8), (6,10)\}$ is a relation from $A = \{1,2,3,4,5,6\}$ to $B = \{6,7,8,9,10\}$. Find the domain, range, and codomain of $R$.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$\text{Dom}(R) = \{4,5,6\}$</li>
+                <li>$\text{Range}(R) = \{7,8,10\}$</li>
+                <li>$\text{Codomain}(R) = \{6,7,8,9,10\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Question:</span> Given $R = \{(8,2), (6,-3), (5,7), (5,-3)\}$ is a relation between $\{5,6,8\}$ and $\{2,-3,7\}$. Find the domain and range of $R$.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$\text{Dom}(R) = \{5,6,8\}$</li>
+                <li>$\text{Range}(R) = \{2,-3,7\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Important Remarks:</span>
+        <ul class="compact-list">
+            <li>If $(a,b) \in R$, then $b$ is called the <span class="orange-highlight">image</span> of $a$, while $a$ is called the <span class="orange-highlight">pre-image</span> of $b$</li>
+            <li>If domain and/or range is infinite, use <span class="blue-highlight">set builder notation</span></li>
+            <li>Example: $R = \{(x, y) : y = 2x - 3, x, y \in \mathbb{R}\}$
+                <ul class="compact-list">
+                    <li>$(0,-3)$, $(0.5,-2)$, $(-2,-7)$ are examples of ordered pairs in the relation</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h3>Example 2</h3>
+    <div class="math-block">
+        <span class="blue-highlight">Question (a):</span> Let $A = \{1,2,3,4,6\}$ and $R$ be the relation on $A$ defined by $R = \{(a, b) : a,b \in A, a \text{ is a factor of } b\}$. Find $\text{Dom}(R)$ and $\text{Range}(R)$.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$R = \{(1,1), (1,2), (1,3), (1,4), (1,6), (2,2), (2,4), (2,6), (3,3), (3,6), (4,4), (6,6)\}$</li>
+                <li>$\text{Dom}(R) = \{1,2,3,4,6\}$</li>
+                <li>$\text{Range}(R) = \{1,2,3,4,6\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Question (b):</span> Let $A = \{1,2,3,4,5\}$, $B = \{1,2,3,\dots,67\}$, and $R = \{(x,y) \in A \times B : x \text{ is cube root of } y\}$. Find $R$, $\text{Dom}(R)$, and $\text{Range}(R)$.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$1 = \sqrt[3]{1}$, $2 = \sqrt[3]{8}$, $3 = \sqrt[3]{27}$, $4 = \sqrt[3]{64}$ (all in $B$)</li>
+                <li>$5 = \sqrt[3]{125}$ (not in $B$)</li>
+                <li>$R = \{(1,1), (2,8), (3,27), (4,64)\}$</li>
+                <li>$\text{Dom}(R) = \{1,2,3,4\}$</li>
+                <li>$\text{Range}(R) = \{1,8,27,64\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Special Relations</h3>
+    <ul class="bullet-list">
+        <li>A relation $R$ on a set $A$ is called:
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Universal relation</span> → $R = A \times A$</li>
+                <li><span class="blue-highlight">Identity relation</span> → $R = \{(a,a) : a \in A\}$</li>
+                <li><span class="blue-highlight">Void or empty relation</span> → $R = \emptyset$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Inverse of a Relation</h3>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> If $R$ is a relation from $A$ to $B$, then the <span class="orange-highlight">inverse relation</span> of $R$, denoted by $R^{-1}$, is a relation from $B$ to $A$ defined as:
+        $$R^{-1} = \{(y,x) : (x,y) \in R\}$$
+        <ul class="compact-list">
+            <li>$\text{Dom}(R) = \text{Range}(R^{-1})$</li>
+            <li>$\text{Range}(R) = \text{Dom}(R^{-1})$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Example:</span> If $R = \{(1,4), (9,15), (10,2)\}$ is a relation on $A = \{1,2,3,\dots,20\}$
+            <ul class="compact-list">
+                <li>$R^{-1} = \{(4,1), (15,9), (2,10)\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Example 3</h3>
+    <div class="math-block">
+        <span class="blue-highlight">Question:</span> Let $R$ be a relation defined on $\mathbb{N}$ by $R = \{(a,b) : a,b \in \mathbb{N}, a + 2b = 11\}$. Find:
+        <ul class="compact-list">
+            <li>$R$</li>
+            <li>$\text{Dom}(R)$</li>
+            <li>$\text{Range}(R)$</li>
+            <li>$R^{-1}$</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>Find all ordered pairs:
+                    <ul class="compact-list">
+                        <li>$b=1 \rightarrow a=9$</li>
+                        <li>$b=2 \rightarrow a=7$</li>
+                        <li>$b=3 \rightarrow a=5$</li>
+                        <li>$b=4 \rightarrow a=3$</li>
+                        <li>$b=5 \rightarrow a=1$</li>
+                        <li>$b=6 \rightarrow a=-1 \notin \mathbb{N}$</li>
+                    </ul>
+                </li>
+                <li>$R = \{(9,1), (7,2), (5,3), (3,4), (1,5)\}$</li>
+                <li>$\text{Dom}(R) = \{1,3,5,7,9\}$</li>
+                <li>$\text{Range}(R) = \{1,2,3,4,5\}$</li>
+                <li>$R^{-1} = \{(1,9), (2,7), (3,5), (4,3), (5,1)\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Functions</h2>
+
+    <ul class="bullet-list">
+        <li>Mathematically, it is important to distinguish among relations that assign a <span class="blue-highlight">unique range element</span> to each domain element and those that do not</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A <span class="orange-highlight">function</span> is a relation in which each element of the domain corresponds to <span class="red-highlight">exactly one</span> element of the range.
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Determine whether the following relations are functions.
+        <ul class="compact-list">
+            <li>a) $R = \{(5, -2), (3, 5), (3, 7)\}$</li>
+            <li>b) $\{(2, 4), (3, 4), (6, -4)\}$</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) Since the domain element $3$ is assigned to two different values in the range, $5$ and $7$, it is <span class="red-highlight">not a function</span></li>
+                <li>b) Each element in the domain $\{2, 3, 6\}$ is assigned no more than one value → $2$ is assigned only $4$, $3$ is assigned only $4$, and $6$ is assigned only $-4$. Therefore, it is a <span class="blue-highlight">function</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Remark:</span> Map, mapping, transformation, and correspondence are <span class="orange-highlight">synonyms</span> for the word function. If $f$ is a function and $(x, y) \in f$, we say $x$ is mapped to $y$.
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A relation $f$ from $A$ into $B$ is called a <span class="orange-highlight">function from $A$ into $B$</span>, denoted by $f: A \rightarrow B$ or $A \xrightarrow{f} B$, if and only if:
+        <ul class="compact-list">
+            <li>(i) $\text{Dom}(f) = A$</li>
+            <li>(ii) No element of $A$ is mapped by $f$ to more than one element in $B$, i.e. if $(x, y) \in f$ and $(x, z) \in f$, then $y = z$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Important Remarks:</span>
+        <ul class="compact-list">
+            <li>If $x \in A$ corresponds to $y \in B$ under function $f$, then $f(x) = y$</li>
+            <li>$y$ is called the <span class="orange-highlight">image</span> of $x$ under $f$</li>
+            <li>$x$ is called a <span class="orange-highlight">pre-image</span> of $y$ under $f$</li>
+            <li>The symbol $f(x)$ is read as "<span class="blue-highlight">$f$ of $x$</span>" but not "$f$ times $x$"</li>
+            <li>To show a relation $f$ from $A$ into $B$ is a function:
+                <ul class="compact-list">
+                    <li>First show $\text{Dom}(f) = A$</li>
+                    <li>Next show $f$ is <span class="red-highlight">well defined</span> or <span class="red-highlight">single-valued</span>, i.e. if $x = y$ in $A$, then $f(x) = f(y)$ in $B$ for all $x, y \in A$</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{1, 2, 3, 4\}$ and $B = \{1, 6, 8, 11, 15\}$. Which of the following are functions from $A$ to $B$?
+        <ul class="compact-list">
+            <li>a) $f$ defined by $f(1) = 1$, $f(2) = 6$, $f(3) = 8$, $f(4) = 8$</li>
+            <li>b) $f$ defined by $f(1) = 1$, $f(2) = 6$, $f(3) = 15$</li>
+            <li>c) $f$ defined by $f(1) = 6$, $f(2) = 6$, $f(3) = 6$, $f(4) = 6$</li>
+            <li>d) $f$ defined by $f(1) = 1$, $f(2) = 6$, $f(3) = 8$, $f(4) = 11$</li>
+            <li>e) $f$ defined by $f(1) = 1$, $f(2) = 8$, $f(3) = 11$, $f(4) = 15$</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) <span class="blue-highlight">Function</span> → to each element of $A$ corresponds exactly one element of $B$</li>
+                <li>b) <span class="red-highlight">Not a function</span> → no element of $B$ corresponds to $4 \in A$</li>
+                <li>c) <span class="blue-highlight">Function</span> → to each element of $A$ corresponds exactly one element of $B$ (images of all elements are the same)</li>
+                <li>d) <span class="red-highlight">Not a function</span> → two elements of $B$ correspond to $2$ (image of $2$ is not unique)</li>
+                <li>e) <span class="blue-highlight">Function</span> → to each element of $A$ corresponds exactly one element of $B$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Key Point:</span> As with relations, we can describe a function with an equation. For example, $y = 2x + 1$ is a function, since each $x$ will produce only one $y$.
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Example:</span> Let $f = \{(x, y) : y = x^2\}$
+            <ul class="compact-list">
+                <li>$1 \rightarrow 1$, $-1 \rightarrow 1$</li>
+                <li>$2 \rightarrow 4$, $-2 \rightarrow 4$</li>
+                <li>$3 \rightarrow 9$, $-3 \rightarrow 9$</li>
+                <li>Any real number $x$ is mapped to its square</li>
+                <li>As the square of a number is unique, $f$ maps every real number to a unique number → $f$ is a <span class="blue-highlight">function from $\mathbb{R}$ into $\mathbb{R}$</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Vocabulary:</span>
+        <ul class="compact-list">
+            <li><span class="orange-highlight">Independent variable</span> → variable representing possible values in the domain ($x$)</li>
+            <li><span class="orange-highlight">Dependent variable</span> → variable representing possible values in the range ($y$)</li>
+            <li>In ordered pair notation $(x, y)$: $x$ is the independent variable and $y$ is the dependent variable</li>
+        </ul>
+    </div>
+
+    <h3>Domain, Codomain, and Range of a Function</h3>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> For the function $f: A \rightarrow B$:
+        <ul class="compact-list">
+            <li>(i) The set $A$ is called the <span class="orange-highlight">domain</span> of $f$</li>
+            <li>(ii) The set $B$ is called the <span class="orange-highlight">codomain</span> of $f$</li>
+            <li>(iii) The set $\{f(x) : x \in A\}$ of all images of elements of $A$ is called the <span class="orange-highlight">range</span> of $f$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{1, 2, 3\}$ and $B = \{1, 2, 3, \dots, 10\}$. Let $f: A \rightarrow B$ be the correspondence which assigns to each element in $A$, its square.
+        <ul class="compact-list">
+            <li>$f(1) = 1$, $f(2) = 4$, $f(3) = 9$</li>
+            <li>$\text{Dom}(f) = \{1, 2, 3\}$</li>
+            <li>$\text{Range}(f) = \{1, 4, 9\}$</li>
+            <li>$\text{Codomain}(f) = \{1, 2, 3, \dots, 10\}$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{2, 4, 6, 7, 9\}$, $B = \mathbb{N}$. Let $f: A \rightarrow B$ be a function defined by $f(x) = 15x + 17$, $x \in A$.
+        <ul class="compact-list">
+            <li>$f(2) = 15(2) + 17 = 47$</li>
+            <li>$f(4) = 15(4) + 17 = 77$</li>
+            <li>$f(6) = 15(6) + 17 = 107$</li>
+            <li>$f(7) = 15(7) + 17 = 122$</li>
+            <li>$f(9) = 15(9) + 17 = 152$</li>
+            <li>$\text{Dom}(f) = \{2, 4, 6, 7, 9\}$</li>
+            <li>$\text{Range}(f) = \{47, 77, 107, 122, 152\}$</li>
+            <li>$\text{Codomain}(f) = \mathbb{N}$</li>
+        </ul>
+    </div>
+
+<div class="math-block">
+    <span class="blue-highlight">Example:</span> Let $f$ be the subset of $\mathbb{Q} \times \mathbb{Z}$ defined by $f = \left\{\left(\frac{p}{q}, p\right) : p, q \in \mathbb{Z}, q \neq 0\right\}$. Is $f$ a function?
+</div>
+<ul class="bullet-list">
+    <li><span class="blue-highlight">Solution:</span>
+        <ul class="compact-list">
+            <li>$\text{Dom}(f) = \mathbb{Q}$ → condition (i) is satisfied</li>
+            <li>$\left(\frac{2}{3}, 2\right) \in f$, $\left(\frac{4}{6}, 4\right) \in f$ and $\frac{2}{3} = \frac{4}{6}$ but $f\left(\frac{2}{3}\right) = 2 \neq 4 = f\left(\frac{4}{6}\right)$</li>
+            <li>Thus $f$ is <span class="red-highlight">not well defined</span></li>
+            <li>Hence, $f$ is <span class="red-highlight">not a function</span> from $\mathbb{Q}$ to $\mathbb{Z}$</li>
+        </ul>
+    </li>
+</ul>
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $f$ be the subset of $\mathbb{Z} \times \mathbb{Z}$ defined by $f = \{(mn, m + n) : m, n \in \mathbb{Z}\}$. Is $f$ a function?
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>Let $x \in \mathbb{Z}$. Then $x = x \cdot 1$ → $(x, x+1) = (x \cdot 1, x+1) \in f$</li>
+                <li>Thus $\mathbb{Z} \subseteq \text{Dom}(f)$ and $\text{Dom}(f) \subseteq \mathbb{Z}$ → $\text{Dom}(f) = \mathbb{Z}$</li>
+                <li>Now, $4 \in \mathbb{Z}$ and $4 = 4 \cdot 1 = 2 \cdot 2$</li>
+                <li>$(4 \cdot 1, 4+1)$ and $(2 \cdot 2, 2+2)$ are in $f$</li>
+                <li>$4 \cdot 1 = 2 \cdot 2$ but $f(4 \cdot 1) = 5 \neq 4 = f(2 \cdot 2)$</li>
+                <li>Thus $f$ is <span class="red-highlight">not well defined</span></li>
+                <li>Hence, $f$ is <span class="red-highlight">not a function</span> from $\mathbb{Z}$ to $\mathbb{Z}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Determine whether the following equations determine $y$ as a function of $x$. If so, find the domain.
+        <ul class="compact-list">
+            <li>a) $y = -3x + 5$</li>
+            <li>b) $y = \frac{2x}{3x - 5}$</li>
+            <li>c) $y^2 = x$</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) $y = -3x + 5$: For each $x$ there is a unique $y$ → <span class="blue-highlight">function</span></li>
+                <li>b) $y = \frac{2x}{3x - 5}$: For each $x$ there is a unique $y$ → <span class="blue-highlight">function</span>
+                    <ul class="compact-list">
+                        <li>Domain: $3x - 5 \neq 0 \rightarrow x \neq \frac{5}{3}$</li>
+                        <li>$\text{Dom}(f) = \{x : x \neq \frac{5}{3}\}$</li>
+                    </ul>
+                </li>
+                <li>c) $y^2 = x$: If $x = 9$, then $y^2 = 9 \rightarrow y = \pm 3$ → two $y$-values</li>
+                <li>Thus $y^2 = x$ is <span class="red-highlight">not a function</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Find the domain of the function $y = \sqrt{3x - x^2}$.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>For $y$ to be real, the expression under the radical must be <span class="orange-highlight">non-negative</span></li>
+                <li>$3x - x^2 \geq 0 \rightarrow x(3 - x) \geq 0$</li>
+					
+	 <div class="image-figure">
+        <img src="1.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+                <li>Sign analysis → $x(3 - x) \geq 0$ when $0 \leq x \leq 3$</li>
+                <li>$\text{Dom}(f) = \{x : 0 \leq x \leq 3\}$ or $[0, 3]$</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Real Valued Functions and Their Properties</div>
+    <div class="subhead">Understanding Real Functions and Operations on Functions</div>
+
+    <ul class="bullet-list">
+        <li>Let $f$ be a function from set $A$ to set $B$</li>
+        <li>If $B \subseteq \mathbb{R}$, then $f$ is called a <span class="blue-highlight">real valued function</span></li>
+        <li>If $A \subseteq \mathbb{R}$ and $B \subseteq \mathbb{R}$, then $f: A \rightarrow B$ is called a <span class="blue-highlight">real function</span></li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+        <ul class="compact-list">
+            <li>$f: \mathbb{R} \rightarrow \mathbb{R}$ defined by $f(x) = x^2 + 3x + 7$, $x \in \mathbb{R}$ is a real function</li>
+            <li>$f: \mathbb{R} \rightarrow \mathbb{R}$ defined as $f(x) = |x|$ is a real valued function</li>
+        </ul>
+    </div>
+
+    <h2>Operations on Functions</h2>
+    <ul class="bullet-list">
+        <li>Functions are not numbers, but they can be added, subtracted, multiplied, and divided</li>
+        <li>Example: $f(x) = \frac{x-3}{2}$, $g(x) = \sqrt{x}$
+            <ul class="compact-list">
+                <li>$(f + g)(x) = f(x) + g(x) = \frac{x-3}{2} + \sqrt{x}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> Let $f(x)$ and $g(x)$ be two functions. We define:
+        <ul class="compact-list">
+            <li>1. $(f + g)(x) = f(x) + g(x)$ → <span class="orange-highlight">Sum</span></li>
+            <li>2. $(f - g)(x) = f(x) - g(x)$ → <span class="orange-highlight">Difference</span></li>
+            <li>3. $(f \cdot g)(x) = f(x)g(x)$ → <span class="orange-highlight">Product</span></li>
+            <li>4. $(f/g)(x) = \frac{f(x)}{g(x)}$ → <span class="orange-highlight">Quotient</span> (provided $g(x) \neq 0$)</li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Domain Rule:</span> For sum, difference, and product:
+        <ul class="compact-list">
+            <li>$\text{Dom}(f + g) = \text{Dom}(f) \cap \text{Dom}(g)$</li>
+            <li>Same for $(f - g)$ and $(f \cdot g)$</li>
+            <li>For quotient: $\text{Dom}(f/g) = [\text{Dom}(f) \cap \text{Dom}(g)] \setminus \{x : g(x) = 0\}$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $f(x) = 3x^2 + 2$ and $g(x) = 5x - 4$. Find each of the following and its domain.
+        <ul class="compact-list">
+            <li>a) $(f + g)(x)$</li>
+            <li>b) $(f - g)(x)$</li>
+            <li>c) $(f \cdot g)(x)$</li>
+            <li>d) $(f/g)(x)$</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) $(f + g)(x) = (3x^2 + 2) + (5x - 4) = 3x^2 + 5x - 2$</li>
+                <li>b) $(f - g)(x) = (3x^2 + 2) - (5x - 4) = 3x^2 - 5x + 6$</li>
+                <li>c) $(f \cdot g)(x) = (3x^2 + 2)(5x - 4) = 15x^3 - 12x^2 + 10x - 8$</li>
+                <li>d) $(f/g)(x) = \frac{3x^2 + 2}{5x - 4}$</li>
+                <li>$\text{Dom}(f + g) = \text{Dom}(f - g) = \text{Dom}(fg) = \mathbb{R} \cap \mathbb{R} = \mathbb{R}$</li>
+                <li>$\text{Dom}(f/g) = \mathbb{R} \setminus \{\frac{4}{5}\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $f(x) = \sqrt[4]{x + 1}$ and $g(x) = \sqrt{9 - x^2}$, with respective domains $[-1, \infty)$ and $[-3, 3]$. Find formulas for $f + g$, $f - g$, $f \cdot g$, $f/g$, and $f^3$, and give their domains.
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Formula</th>
+                <th>Domain</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$(f + g)(x) = \sqrt[4]{x+1} + \sqrt{9 - x^2}$</td>
+                <td>$[-1, 3]$</td>
+            </tr>
+            <tr>
+                <td>$(f - g)(x) = \sqrt[4]{x+1} - \sqrt{9 - x^2}$</td>
+                <td>$[-1, 3]$</td>
+            </tr>
+            <tr>
+                <td>$(f \cdot g)(x) = \sqrt[4]{x+1} \cdot \sqrt{9 - x^2}$</td>
+                <td>$[-1, 3]$</td>
+            </tr>
+            <tr>
+                <td>$(f/g)(x) = \frac{\sqrt[4]{x+1}}{\sqrt{9 - x^2}}$</td>
+                <td>$[-1, 3)$</td>
+            </tr>
+            <tr>
+                <td>$f^3(x) = (f(x))^3 = (\sqrt[4]{x+1})^3 = (x+1)^{3/4}$</td>
+                <td>$[-1, \infty)$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout">
+        <span class="blue-highlight">Note:</span> There is yet another way of producing a new function from two given functions.
+    </div>
+
+    <h2>Composition of Functions</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> Given two functions $f(x)$ and $g(x)$, the <span class="orange-highlight">composition</span> of the two functions is denoted by $f \circ g$ and is defined by:
+        $$(f \circ g)(x) = f(g(x))$$
+        <ul class="compact-list">
+            <li>$(f \circ g)(x)$ is read as "<span class="blue-highlight">$f$ composed with $g$ of $x$</span>"</li>
+            <li>The domain of $f \circ g$ consists of those $x$'s in the domain of $g$ whose range values are in the domain of $f$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Suppose $f = \{(2, z), (3, q)\}$ and $g = \{(a, 2), (b, 3), (c, 5)\}$.
+        <ul class="compact-list">
+            <li>$(f \circ g)(a) = f(g(a)) = f(2) = z$</li>
+            <li>$(f \circ g)(b) = f(g(b)) = f(3) = q$</li>
+            <li>$(f \circ g)(c) = f(g(c)) = f(5)$ → $5 \notin \text{Dom}(f)$ so undefined</li>
+            <li>Thus $f \circ g = \{(a, z), (b, q)\}$</li>
+        </ul>
+		
+			
+	 <div class="image-figure">
+        <img src="2.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Given $f(x) = 5x^2 - 3x + 2$ and $g(x) = 4x + 3$, find:
+        <ul class="compact-list">
+            <li>a) $(f \circ g)(-2)$</li>
+            <li>b) $(g \circ f)(2)$</li>
+            <li>c) $(f \circ g)(x)$</li>
+            <li>d) $(g \circ f)(x)$</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) $(f \circ g)(-2) = f(g(-2))$
+                    <ul class="compact-list">
+                        <li>$g(-2) = 4(-2) + 3 = -5$</li>
+                        <li>$f(-5) = 5(-5)^2 - 3(-5) + 2 = 142$</li>
+                    </ul>
+                </li>
+                <li>b) $(g \circ f)(2) = g(f(2))$
+                    <ul class="compact-list">
+                        <li>$f(2) = 5(2)^2 - 3(2) + 2 = 16$</li>
+                        <li>$g(16) = 4(16) + 3 = 67$</li>
+                    </ul>
+                </li>
+                <li>c) $(f \circ g)(x) = f(g(x)) = f(4x + 3)$
+                    <ul class="compact-list">
+                        <li>$= 5(4x + 3)^2 - 3(4x + 3) + 2$</li>
+                        <li>$= 80x^2 + 108x + 38$</li>
+                    </ul>
+                </li>
+                <li>d) $(g \circ f)(x) = g(f(x)) = g(5x^2 - 3x + 2)$
+                    <ul class="compact-list">
+                        <li>$= 4(5x^2 - 3x + 2) + 3$</li>
+                        <li>$= 20x^2 - 12x + 11$</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Given $f(x) = \frac{x}{x+1}$ and $g(x) = \frac{2}{x-1}$, find:
+        <ul class="compact-list">
+            <li>a) $(f \circ g)(x)$ and its domain</li>
+            <li>b) $(g \circ f)(x)$ and its domain</li>
+        </ul>
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) $(f \circ g)(x) = f\left(\frac{2}{x-1}\right) = \frac{\frac{2}{x-1}}{\frac{2}{x-1} + 1} = \frac{2}{x+1}$
+                    <ul class="compact-list">
+                        <li>$\text{Dom}(f \circ g) = \{x : x \neq \pm 1\}$</li>
+                    </ul>
+                </li>
+                <li>b) $(g \circ f)(x) = g\left(\frac{x}{x+1}\right) = \frac{2}{\frac{x}{x+1} - 1} = -2x - 2$
+                    <ul class="compact-list">
+                        <li>$\text{Dom}(g \circ f) = \{x : x \neq -1\}$</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $f(x) = \frac{6x}{x^2 - 9}$ and $g(x) = \sqrt{3x}$. Find $(f \circ g)(12)$ and $(g \circ f)(x)$ and its domain.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$(f \circ g)(12) = f(g(12)) = f(\sqrt{36}) = f(6) = \frac{36}{36 - 9} = \frac{4}{3}$</li>
+                <li>$(f \circ g)(x) = f(\sqrt{3x}) = \frac{6\sqrt{3x}}{(\sqrt{3x})^2 - 9} = \frac{6\sqrt{3x}}{3x - 9} = \frac{2\sqrt{3x}}{x - 3}$</li>
+                <li>$\text{Dom}(f \circ g) = [0, 3) \cup (3, \infty)$</li>
+            </ul>
+        </li>
+    </ul>
+
+ 
+    <h2>Equality of Functions</h2>
+
+    <ul class="bullet-list">
+        <li>Let $f: A \rightarrow B$ and $g: A \rightarrow B$ be two functions</li>
+        <li>$f$ and $g$ are subsets of $A \times B$</li>
+        <li>Suppose $f = g$. Let $x \in A$. Then $(x, f(x)) \in f = g$ and thus $(x, f(x)) \in g$</li>
+        <li>Since $g$ is a function and $(x, f(x)), (x, g(x)) \in g$, we must have $f(x) = g(x)$</li>
+        <li>Conversely, assume $g(x) = f(x)$ for all $x \in A$</li>
+        <li>Let $(x, y) \in f$. Then $y = f(x) = g(x)$. Thus $(x, y) \in g$, which implies $f \subseteq g$</li>
+        <li>Similarly, $g \subseteq f$. It follows that $f = g$</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> Two functions are said to be <span class="orange-highlight">equal</span> if and only if the following two conditions hold:
+        <ul class="compact-list">
+            <li>i) The functions have the <span class="blue-highlight">same domain</span></li>
+            <li>ii) Their functional values are <span class="blue-highlight">equal</span> at each element of the domain</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $f: \mathbb{Z} \rightarrow \mathbb{Z}^+ \cup \{0\}$ and $g: \mathbb{Z} \rightarrow \mathbb{Z}^+ \cup \{0\}$ be defined by $f = \{(n, n^2) : n \in \mathbb{Z}\}$ and $g = \{(n, |n|^2) : n \in \mathbb{Z}\}$.
+        <ul class="compact-list">
+            <li>For all $n \in \mathbb{Z}$, $f(n) = n^2 = |n|^2 = g(n)$</li>
+            <li>Thus, <span class="blue-highlight">$f = g$</span></li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $f(x) = \frac{x^2 - 25}{x - 5}$, $x \in \mathbb{R} \setminus \{5\}$, and $g(x) = x + 5$, $x \in \mathbb{R}$.
+        <ul class="compact-list">
+            <li>$\text{Dom}(f) = \mathbb{R} \setminus \{5\}$</li>
+            <li>$\text{Dom}(g) = \mathbb{R}$</li>
+            <li>Since $\text{Dom}(f) \neq \text{Dom}(g)$, the functions <span class="red-highlight">are not equal</span></li>
+        </ul>
+    </div>
+
+    <div class="callout">
+        <span class="blue-highlight">Key Point:</span> Two functions $f: A \rightarrow B$ and $g: A \rightarrow B$ are equal if and only if $f(x) = g(x)$ for all $x \in A$. Both the <span class="orange-highlight">domain</span> and the <span class="orange-highlight">functional values</span> must match.
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Types of Functions and Inverse of a Function</div>
+    <div class="subhead">One-to-One, Onto, and One-to-One Correspondence</div>
+
+    <h2>One-to-One Functions</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A function $f: A \rightarrow B$ is called <span class="orange-highlight">one-to-one</span> (often written $1-1$) if and only if for all $x_1, x_2 \in A$:
+        $$f(x_1) = f(x_2) \implies x_1 = x_2$$
+        <ul class="compact-list">
+            <li>In words: <span class="blue-highlight">No two elements</span> of $A$ are mapped to one element of $B$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{1, 2, 3, 4, 5, 6\}$ and $B = \{7, a, b, c, d, 8, e\}$.
+        <ul class="compact-list">
+            <li>$f = \{(1, 7), (2, a), (3, b), (4, b), (5, c), (6, 8)\}$ → <span class="red-highlight">not 1-1</span> because $f(3) = f(4)$ but $3 \neq 4$</li>
+            <li>$g = \{(1, 7), (2, a), (3, b), (4, c), (5, 8), (6, d)\}$ → <span class="blue-highlight">1-1 function</span></li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{1, 2, 3, 4\}$ and $B = \{1, 4, 7, 8\}$.
+        <ul class="compact-list">
+            <li>$f: A \rightarrow B$ defined as $f(1) = 1$, $f(2) = 4$, $f(3) = 4$, $f(4) = 8$ → <span class="red-highlight">not 1-1</span></li>
+            <li>$g: A \rightarrow B$ defined as $g(1) = 4$, $g(2) = 7$, $g(3) = 1$, $g(4) = 8$ → <span class="blue-highlight">1-1 function</span></li>
+        </ul>
+    </div>
+
+    <h2>Onto Functions</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> Let $f$ be a function from a set $A$ into a set $B$. Then $f$ is called an <span class="orange-highlight">onto function</span> (or $f$ <span class="orange-highlight">maps onto $B$</span>) if every element of $B$ is image of some element in $A$:
+        $$\text{Range}(f) = B$$
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{1, 2, 3\}$ and $B = \{1, 4, 5\}$.
+        <ul class="compact-list">
+            <li>$f: A \rightarrow B$ defined as $f(1) = 1$, $f(2) = 5$, $f(3) = 1$ → <span class="red-highlight">not onto</span> because no element maps to $4$</li>
+            <li>$g: A \rightarrow B$ given by $g = \{(1, 4), (2, 5), (3, 1)\}$ → <span class="blue-highlight">onto</span> because each element of $B$ is an image</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>If $A$ is a non-empty set, the function $i_A: A \rightarrow A$ defined by $i_A(x) = x$ for all $x \in A$ is a $1-1$ function from $A$ onto $A$</li>
+        <li>$i_A$ is called the <span class="blue-highlight">identity map</span> on $A$</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Consider $f: \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $f(n) = n^2$ for all $n \in \mathbb{Z}$.
+        <ul class="compact-list">
+            <li>$f$ is a function (well-defined)</li>
+            <li>$f(1) = 1 = f(-1)$ and $1 \neq -1$ → <span class="red-highlight">not 1-1</span></li>
+            <li>For all $n \in \mathbb{Z}$, $f(n) \geq 0$ → negative integers have no preimage → <span class="red-highlight">not onto</span></li>
+            <li>Note: $f$ is onto $\{0, 1, 4, 9, \dots\}$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Consider $f: \mathbb{Z} \rightarrow \mathbb{Z}$ defined by $f(n) = 2n$ for all $n \in \mathbb{Z}$.
+        <ul class="compact-list">
+            <li>$f$ is a function</li>
+            <li>If $f(n) = f(n')$, then $2n = 2n' \rightarrow n = n'$ → <span class="blue-highlight">1-1</span></li>
+            <li>For all $n \in \mathbb{Z}$, $f(n)$ is even → odd integers have no preimage → <span class="red-highlight">not onto</span></li>
+        </ul>
+    </div>
+
+    <h2>One-to-One Correspondence</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A function $f: A \rightarrow B$ is said to be a <span class="orange-highlight">1-1 correspondence</span> if $f$ is both <span class="blue-highlight">1-1</span> and <span class="blue-highlight">onto</span>.
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A = \{0, 1, 2, 3, 4, 5\}$ and $B = \{0, 5, 10, 15, 20, 25\}$. Suppose $f: A \rightarrow B$ given by $f(x) = 5x$ for all $x \in A$.
+        <ul class="compact-list">
+            <li>Every element of $B$ has a preimage in $A$ → <span class="blue-highlight">onto</span></li>
+            <li>If $f(x) = f(y)$, then $5x = 5y \rightarrow x = y$ → <span class="blue-highlight">1-1</span></li>
+            <li>Therefore, $f$ is a <span class="blue-highlight">1-1 correspondence</span> between $A$ and $B$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $A$ be a finite set. If $f: A \rightarrow A$ is onto, then it is one-to-one.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>Let $A = \{a_1, a_2, \dots, a_n\}$</li>
+                <li>$\text{Range}(f) = \{f(a_1), f(a_2), \dots, f(a_n)\}$</li>
+                <li>Since $f$ is onto, $\text{Range}(f) = A$</li>
+                <li>$A = \{f(a_1), f(a_2), \dots, f(a_n)\}$ → the values are all distinct</li>
+                <li>Hence, $a_i \neq a_j \implies f(a_i) \neq f(a_j)$ → $f$ is $1-1$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Inverse of a Function</h2>
+
+    <ul class="bullet-list">
+        <li>Since a function is a relation, the inverse of a function $f$ is denoted by $f^{-1}$ and is defined by:
+            <ul class="compact-list">
+                <li>$f^{-1} = \{(y, x) : (x, y) \in f\}$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Example:</span> If $f = \{(2,4), (3,6), (1,7)\}$, then $f^{-1} = \{(4,2), (6,3), (7,1)\}$</li>
+        <li><span class="red-highlight">Note:</span> The inverse of a function is <span class="red-highlight">not always a function</span>
+            <ul class="compact-list">
+                <li>Example: $f = \{(2,4), (3,6), (5,4)\}$ → $f^{-1} = \{(4,2), (6,3), (4,5)\}$ which is <span class="red-highlight">not a function</span></li>
+            </ul>
+        </li>
+        <li>Only <span class="blue-highlight">one-to-one</span> functions have inverses that are also functions</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Key Point:</span> A one-to-one function is special because <span class="orange-highlight">only one-to-one functions have inverse functions</span>. If a function is not one-to-one, it does not have an inverse function.
+    </div>
+
+    <h2>Steps to Find the Inverse of a Function</h2>
+    <ul class="bullet-list">
+        <li>If a function is one-to-one, to find the inverse:
+            <ul class="compact-list">
+                <li>1. Interchange $x$ and $y$ in the equation $y = f(x)$</li>
+                <li>2. Solve the resulting equation for $y$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Domain and Range:</span>
+            <ul class="compact-list">
+                <li>$\text{Dom}(f^{-1}) = \text{Range}(f)$</li>
+                <li>$\text{Range}(f^{-1}) = \text{Dom}(f)$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Given $y = f(x) = x^3$. Find $f^{-1}$ and its domain.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$y = x^3$ → Interchange $x$ and $y$: $x = y^3$</li>
+                <li>Take cube root of both sides: $\sqrt[3]{x} = y$</li>
+                <li>Thus, $f^{-1}(x) = \sqrt[3]{x}$</li>
+                <li>$\text{Dom}(f^{-1}) = \mathbb{R}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $y = f(x) = \frac{x}{x+2}$. Find $f^{-1}(x)$.
+    </div>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>$y = \frac{x}{x+2}$ → Interchange $x$ and $y$: $x = \frac{y}{y+2}$</li>
+                <li>Solve for $y$: $x(y+2) = y \rightarrow xy + 2x = y$</li>
+                <li>$2x = y - xy \rightarrow 2x = y(1-x)$</li>
+                <li>$y = \frac{2x}{1-x}$</li>
+                <li>Thus, $f^{-1}(x) = \frac{2x}{1-x}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Important Remark:</span>
+        <ul class="compact-list">
+            <li>$f^{-1}(x)$ is <span class="red-highlight">not</span> the reciprocal of $f(x)$</li>
+            <li>$f^{-1}(x) \neq \frac{1}{f(x)}$</li>
+            <li>To write the reciprocal using a negative exponent: $\frac{1}{f(x)} = [f(x)]^{-1}$</li>
+        </ul>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }
+    });
+</script>
+</body>
+</html>
