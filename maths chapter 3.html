@@ -1471,6 +1471,1645 @@ Sciences
         </ul>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Polynomials, zeros of polynomials, rational functions and their graphs</div>
+    <div class="subhead">Definition, Properties, Zeros, and Theorems of Polynomial and Rational Functions</div>
+
+<ul class="bullet-list">
+        <li>The functions described in this section frequently occur as mathematical models of real-life situations</li>
+        <li>Example: Demand function $p = 80 - x^2$ gives price per item in terms of items sold</li>
+        <li>Revenue function: $R = xp = x(80 - x^2) = 80x - x^3$</li>
+    </ul>
+    <div class="slide-title">Polynomial Functions</div>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A <span class="orange-highlight">polynomial function</span> is a function of the form:
+        $$y = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0, \quad a_n \neq 0$$
+        <ul class="compact-list">
+            <li>Each $a_i$ is a <span class="blue-highlight">real number</span></li>
+            <li>$n$ is a <span class="orange-highlight">non-negative integer</span></li>
+            <li>$a_n$ is called the <span class="orange-highlight">leading coefficient</span></li>
+            <li>Such a polynomial is said to be of <span class="orange-highlight">degree $n$</span></li>
+        </ul>
+    </div>
+
+    <h3>Remark</h3>
+    <ul class="bullet-list">
+        <li>The <span class="blue-highlight">domain</span> of a polynomial function is always the set of real numbers $\mathbb{R}$</li>
+        <li>Types of polynomials:
+            <ul class="compact-list">
+                <li>Degree 1 → <span class="blue-highlight">Linear function</span></li>
+                <li>Degree 2 → <span class="blue-highlight">Quadratic function</span></li>
+                <li>Degree 3 → <span class="blue-highlight">Cubic function</span>: $p(x) = a_3 x^3 + a_2 x^2 + a_1 x + a_0$, $a_3 \neq 0$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+        <ul class="compact-list">
+            <li>$p(x) = 2x^2 + 1$ is a <span class="orange-highlight">polynomial</span></li>
+            <li>$q(x) = \sqrt{3} x^4 + 2x - \pi$ is a <span class="orange-highlight">polynomial</span></li>
+            <li>$f(x) = 2x^3$ is a <span class="orange-highlight">polynomial</span></li>
+        </ul>
+    </div>
+
+    <h2>Properties of Polynomial Functions</h2>
+    <ul class="bullet-list">
+        <li>1. The graph of a polynomial is a <span class="blue-highlight">smooth unbroken curve</span>
+            <ul class="compact-list">
+                <li>Smooth → no <span class="orange-highlight">sharp corners</span> as turning points</li>
+            </ul>
+        </li>
+        <li>2. If $p$ is a polynomial of degree $n$, then it has <span class="orange-highlight">at most $n$ zeros</span>
+            <ul class="compact-list">
+                <li>A quadratic polynomial has at most <span class="blue-highlight">2 zeros</span></li>
+            </ul>
+        </li>
+        <li>3. The graph of a polynomial function of degree $n$ can have <span class="orange-highlight">at most $n-1$ turning points</span>
+            <ul class="compact-list">
+                <li>Graph of degree 5 can have at most <span class="blue-highlight">4 turning points</span></li>
+            </ul>
+        </li>
+        <li>5. The graph of a polynomial always exhibits the characteristic that As $|x|$ gets very large, <span class="red-highlight">$|y|$ gets very large</span></li>
+    </ul>
+
+    <h2>Zeros of a Polynomial</h2>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Zeros</span> provide valuable information for sketching graphs</li>
+        <li>Can be found by <span class="orange-highlight">factorizing</span> the polynomial</li>
+        <li>No general method for factorizing polynomials of degree greater than 2</li>
+        <li>Need methods to find zeros of <span class="red-highlight">higher degree polynomials</span></li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Division Algorithm</span>
+        <ul class="compact-list">
+            <li>Let $p(x)$ and $d(x)$ be polynomials with $d(x) \neq 0$</li>
+            <li>Degree of $d(x)$ ≤ degree of $p(x)$</li>
+            <li>Then there exist polynomials $q(x)$ and $R(x)$ such that:
+            $$p(x) = d(x)q(x) + R(x)$$</li>
+            <li>$p(x)$ → <span class="blue-highlight">dividend</span></li>
+            <li>$d(x)$ → <span class="blue-highlight">divisor</span></li>
+            <li>$q(x)$ → <span class="orange-highlight">quotient</span></li>
+            <li>$R(x)$ → <span class="red-highlight">remainder</span></li>
+            Either $R(x) = 0$ or degree of $R(x)$ < degree of $d(x)$
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+		
+			 <div class="image-figure">
+        <img src="3.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>With the aid of the <span class="blue-highlight">division algorithm</span>, we can derive two important theorems</li>
+        <li>When the divisor $d(x)$ is <span class="orange-highlight">linear</span> (of the form $x - r$):
+            $$p(x) = (x - r)q(x) + R$$
+            <ul class="compact-list">
+                <li>Since divisor is first degree, the <span class="red-highlight">remainder $R$</span> must be a <span class="orange-highlight">constant</span></li>
+                <li>Substitute $x = r$: $p(r) = (r - r)q(r) + R = 0 \cdot q(r) + R = R$</li>
+                <li>Therefore, <span class="blue-highlight">$p(r) = R$</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Remainder Theorem</span>
+        <ul class="compact-list">
+            <li>When a polynomial $p(x)$ of degree at least 1 is divided by $x - r$, the <span class="red-highlight">remainder</span> is <span class="orange-highlight">$p(r)$</span></li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> The remainder when $P(x) = x^3 - x^2 + 3x - 1$ is divided by $x - 2$ is:
+        $$P(2) = 2^3 - 2^2 + 3(2) - 1 = 8 - 4 + 6 - 1 = 9$$
+    </div>
+
+    <ul class="bullet-list">
+        <li>As a consequence of the remainder theorem:
+            <ul class="compact-list">
+                <li>If $x - r$ is a <span class="blue-highlight">factor</span> of $p(x)$, then the remainder must be <span class="orange-highlight">0</span></li>
+                <li>Conversely, if the remainder is <span class="orange-highlight">0</span>, then $x - r$ is a <span class="blue-highlight">factor</span> of $p(x)$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Factor Theorem</span>
+        <ul class="compact-list">
+            <li>$x - r$ is a <span class="orange-highlight">factor</span> of $p(x)$ if and only if <span class="blue-highlight">$p(r) = 0$</span></li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>The <span class="blue-highlight">location theorem</span> allows us to verify that a zero exists somewhere within an interval</li>
+        <li>Can also be used to <span class="orange-highlight">zoom in closer</span> on a value</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Location Theorem</span>
+        <ul class="compact-list">
+            <li>Let $f$ be a polynomial function and $a, b$ be real numbers such that $a < b$</li>
+            <li>If <span class="red-highlight">$f(a)f(b) < 0$</span>, then there is at least one <span class="orange-highlight">zero</span> of $f$ between $a$ and $b$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>The Factor and Remainder theorems establish the intimate relationship between <span class="blue-highlight">factors</span> and <span class="orange-highlight">zeros</span></li>
+        <li>A polynomial of degree $n$ can have <span class="orange-highlight">at most $n$ zeros</span></li>
+        <li>Does every polynomial have a zero? Depends on the <span class="blue-highlight">number system</span>
+            <ul class="compact-list">
+                <li>$p(x) = x^2 + 1$ has <span class="red-highlight">no real zeros</span></li>
+                <li>But it has <span class="blue-highlight">two complex zeros</span> ($i$ and $-i$)</li>
+            </ul>
+        </li>
+        <li>Carl Friedrich Gauss (1777-1855) proved that within the complex number system, every polynomial of degree ≥ 1 has at least one zero</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Fundamental Theorem of Algebra</span>
+        <ul class="compact-list">
+            <li>If $p(x)$ is a polynomial of degree $n > 0$ whose coefficients are complex numbers</li>
+            <li>Then $p(x)$ has <span class="orange-highlight">at least one zero</span> in the complex number system</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Since all real numbers are complex numbers, a polynomial with real coefficients also satisfies the Fundamental Theorem of Algebra</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Linear Factorization Theorem</span>
+        <ul class="compact-list">
+            <li>If $p(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$, where $n \geq 1$ and $a_n \neq 0$</li>
+            <li>Then $p(x) = a_n(x - r_1)(x - r_2)\cdots(x - r_n)$</li>
+            <li>The $r_i$ are <span class="orange-highlight">complex numbers</span> (possibly real and not necessarily distinct)</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>From the Linear Factorization Theorem, every polynomial of degree $n \geq 1$ has <span class="blue-highlight">exactly $n$ zeros</span> in the complex number system</li>
+        <li>A root of multiplicity $k$ is counted <span class="orange-highlight">$k$ times</span></li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Express each polynomial in the form described by the Linear Factorization Theorem. List each zero and its multiplicity.
+        <ul class="compact-list">
+            <li>a) $p(x) = x^3 - 6x^2 - 16x$</li>
+            <li>b) $q(x) = 3x^2 - 10x + 8$</li>
+            <li>c) $f(x) = 2x^4 + 8x^3 + 10x^2$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Solution:</span>
+        <ul class="compact-list">
+            <li>a) We may factorize $p(x)$ as follows:
+                $$p(x) = x^3 - 6x^2 - 16x$$
+                $$= x(x^2 - 6x - 16)$$
+                $$= x(x - 8)(x + 2)$$
+                $$= x(x - 8)(x - (-2))$$
+                <ul class="compact-list">
+                    <li>Zeros: <span class="orange-highlight">$0, 8, -2$</span> each of <span class="blue-highlight">multiplicity one</span></li>
+                </ul>
+            </li>
+            <li>b) We may factorize $q(x)$ as follows:
+                $$q(x) = 3x^2 - 10x + 8$$
+                $$= (3x - 4)(x - 2)$$
+                $$= 3\left(x - \frac{4}{3}\right)(x - 2)$$
+                <ul class="compact-list">
+                    <li>Zeros: <span class="orange-highlight">$\frac{4}{3}, 2$</span> each of <span class="blue-highlight">multiplicity one</span></li>
+                </ul>
+            </li>
+            <li>c) We may factorize $f(x)$ as follows:
+                $$f(x) = 2x^4 + 8x^3 + 10x^2$$
+                $$= 2x^2(x^2 + 4x + 5)$$
+                $$= 2x^2(x - (-2 + i))(x - (-2 - i))$$
+                <ul class="compact-list">
+                    <li>Zeros: <span class="orange-highlight">$0$</span> with <span class="blue-highlight">multiplicity two</span>, <span class="orange-highlight">$-2 + i$</span> and <span class="orange-highlight">$-2 - i$</span> each with <span class="blue-highlight">multiplicity one</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+        <ul class="compact-list">
+            <li>1. Find a polynomial $p(x)$ with exactly the following zeros and multiplicity:
+            <table>
+                <thead>
+                    <tr>
+                        <th>Zeros</th>
+                        <th>Multiplicity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$-1$</td>
+                        <td>$3$</td>
+                    </tr>
+                    <tr>
+                        <td>$2$</td>
+                        <td>$4$</td>
+                    </tr>
+                    <tr>
+                        <td>$5$</td>
+                        <td>$2$</td>
+                    </tr>
+                </tbody>
+            </table>
+            </li>
+            <li>Are there any other polynomials that give the same roots and multiplicity?</li>
+            <li>2. Find a polynomial $f(x)$ having the zeros described in part (1) such that $f(1) = 32$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Solution:</span>
+        <ul class="compact-list">
+            <li>1. Based on the Factor Theorem, we may write the polynomial as:
+                $$p(x) = (x - (-1))^3(x - 2)^4(x - 5)^2$$
+                $$= (x + 1)^3(x - 2)^4(x - 5)^2$$
+                <ul class="compact-list">
+                    <li>Any polynomial of the form <span class="orange-highlight">$kp(x)$</span>, where $k$ is a non-zero constant, will give the same roots and multiplicities</li>
+                </ul>
+            </li>
+            <li>2. Based on part (1), we know that:
+                $$f(x) = k(x + 1)^3(x - 2)^4(x - 5)^2$$
+                <ul class="compact-list">
+                    <li>Since we want $f(1) = 32$, we have:
+                        $$f(1) = k(1 + 1)^3(1 - 2)^4(1 - 5)^2$$
+                        $$32 = k(8)(1)(16)$$
+                        $$k = \frac{1}{4}$$</li>
+                    <li>Thus:
+                        $$f(x) = \frac{1}{4}(x + 1)^3(x - 2)^4(x - 5)^2$$</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Complex roots always appear in <span class="blue-highlight">conjugate pairs</span> for polynomials with real coefficients
+            <ul class="compact-list">
+                <li>Example: Roots of $x^2 - 2x + 5 = 0$ are $1 + 2i$ and $1 - 2i$</li>
+                <li>This property extends to all polynomial equations with <span class="orange-highlight">real coefficients</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Conjugate Roots Theorem</span>
+        <ul class="compact-list">
+            <li>Let $p(x)$ be a polynomial with <span class="orange-highlight">real coefficients</span></li>
+            <li>If complex number $a + bi$ (where $a$ and $b$ are real numbers) is a zero of $p(x)$</li>
+            <li>Then so is its conjugate <span class="blue-highlight">$a - bi$</span></li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Let $r(x) = x^4 + 2x^3 - 9x^2 + 26x - 20$. Given that $1 - \sqrt{3}i$ is a zero, find the other zeros of $r(x)$.
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>According to the Conjugate Roots Theorem, if $1 - \sqrt{3}i$ is a zero, then its conjugate, <span class="orange-highlight">$1 + \sqrt{3}i$</span> must also be a zero</li>
+                <li>Therefore, $x - (1 - \sqrt{3}i)$ and $x - (1 + \sqrt{3}i)$ are both factors of $r(x)$</li>
+                <li>Their product must be a factor:
+                $$[x - (1 - \sqrt{3}i)][x - (1 + \sqrt{3}i)] = x^2 - 2x + 4$$</li>
+                <li>Dividing $r(x)$ by $x^2 - 2x + 4$, we obtain:
+                $$r(x) = (x^2 - 2x + 4)(x^2 + 4x - 5) = (x^2 - 2x + 4)(x + 5)(x - 1)$$</li>
+                <li>Thus, the zeros of $r(x)$ are:
+                <span class="blue-highlight">$1 - \sqrt{3}i$</span>, <span class="blue-highlight">$1 + \sqrt{3}i$</span>, <span class="orange-highlight">$-5$</span> and <span class="orange-highlight">$1$</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li>The theorems discussed so far are called <span class="blue-highlight">existence theorems</span>
+            <ul class="compact-list">
+                <li>They ensure the existence of zeros and linear factors of polynomials</li>
+                <li>They do not tell us how to find the zeros or the linear factors</li>
+            </ul>
+        </li>
+        <li>For quadratic functions $p(x) = Ax^2 + Bx + C$, we use the <span class="orange-highlight">quadratic formula</span>:
+        $$x = \frac{-B \pm \sqrt{B^2 - 4AC}}{2A}$$</li>
+        <li>If we happen to know a root $r$, we can use long division to divide $p(x)$ by $x - r$</li>
+        <li>This gives a quotient polynomial of <span class="blue-highlight">lower degree</span></li>
+        <li>If we can get the quotient down to a quadratic, we can determine all roots</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Rational Root Theorem</span>
+        <ul class="compact-list">
+            <li>Suppose $f(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$, where $n \geq 1$, $a_n \neq 0$</li>
+            <li>$f(x)$ is an $n$-th degree polynomial with <span class="orange-highlight">integer coefficients</span></li>
+            <li>If $\frac{p}{q}$ is a rational root of $f(x) = 0$, where $p$ and $q$ have no common factor other than $\pm 1$</li>
+            <li>Then <span class="blue-highlight">$p$</span> is a factor of $a_0$ and <span class="orange-highlight">$q$</span> is a factor of $a_n$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>To understand why this theorem is true, suppose $\frac{3}{2}$ is a root of $a_3x^3 + a_2x^2 + a_1x + a_0 = 0$:
+            <ul class="compact-list">
+                <li>Then $a_3(\frac{3}{2})^3 + a_2(\frac{3}{2})^2 + a_1(\frac{3}{2}) + a_0 = 0$</li>
+                <li>Which implies: $\frac{27a_3}{8} + \frac{9a_2}{4} + \frac{3a_1}{2} + a_0 = 0$</li>
+                <li>Multiplying both sides by 8:
+                $$27a_3 + 18a_2 + 12a_1 + 8a_0 = 0$$</li>
+                <li>From this equation, $a_0$ must be divisible by $3$ and $a_3$ must be divisible by $2$</li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Find all the zeros of the function $p(x) = 2x^3 + 3x^2 - 23x - 12$.
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>According to the Rational Root Theorem, if $\frac{p}{q}$ is a rational root of the given equation, then $p$ must be a factor of $-12$ and $q$ must be a factor of $2$</li>
+                <li>Possible values of $p$: $\pm 1, \pm 2, \pm 3, \pm 4, \pm 6, \pm 12$</li>
+                <li>Possible values of $q$: $\pm 1, \pm 2$</li>
+                <li>Possible rational roots: $\frac{p}{q}$: $\pm 1, \pm \frac{1}{2}, \pm 2, \pm 3, \pm \frac{3}{2}, \pm 4, \pm 6, \pm 12$</li>
+                <li>We may check these possible roots by substituting the value in $p(x)$</li>
+                <li>$p(1) = -30$ and $p(-1) = 12$</li>
+                <li>Since $p(1)$ is negative and $p(-1)$ is positive, by the Intermediate Value Theorem, $p(x)$ has a zero between $-1$ and $1$</li>
+                <li>Since $P(-\frac{1}{2}) = 0$, then $(x + \frac{1}{2})$ is a factor of $p(x)$</li>
+                <li>Using long division, we obtain:
+    $$p(x) = 2x^3 + 3x^2 - 23x - 12$$
+    $$= (x + \frac{1}{2})(2x^2 + 2x - 24)$$
+    $$= 2(x + \frac{1}{2})(x + 4)(x - 3)$$</li>              <li>Therefore, the zeros of $p(x)$ are: <span class="orange-highlight">$-\frac{1}{2}$</span>, <span class="orange-highlight">$-4$</span> and <span class="orange-highlight">$3$</span></li>
+            </ul>
+        </li>
+    </ul>
+
+       <div class="slide-title">Rational Functions and Their Graphs</div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A <span class="orange-highlight">rational function</span> is a function of the form:
+        $$f(x) = \frac{n(x)}{d(x)}$$
+        where both $n(x)$ and $d(x)$ are polynomials and $d(x) \neq 0$
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> The following are examples of rational functions:
+        <ul class="compact-list">
+            <li>$f(x) = \frac{3}{x + 5}$</li>
+            <li>$f(x) = \frac{x - 1}{x^2 - 4}$</li>
+            <li>$f(x) = \frac{x^5 + 2x^3 - x + 1}{x + 5x}$</li>
+        </ul>
+        These are rational functions because they are ratios of two polynomials.
+    </div>
+
+    <ul class="bullet-list">
+        <li>The domain of the rational function $f(x) = \frac{n(x)}{d(x)}$ is:
+        $$\text{Dom}(f) = \{x : d(x) \neq 0\}$$
+        <ul class="compact-list">
+            <li>This means all real numbers except those that make the denominator zero</li>
+        </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Find the domain and zeros of the function:
+        $$f(x) = \frac{3x - 5}{x^2 - x - 12}$$
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>The values of $x$ for which $x^2 - x - 12 = 0$ are excluded from the domain of $f$</li>
+                <li>Since $x^2 - x - 12 = (x - 4)(x + 3)$, we have $x = 4$ and $x = -3$ as excluded values</li>
+                <li>Therefore, $\text{Dom}(f) = \{x : x \neq -3, 4\}$</li>
+                <li>To find the zeros of $f(x)$, we solve the equation:
+                    $$\frac{n(x)}{d(x)} = 0 \iff n(x) = 0 \text{ and } d(x) \neq 0$$</li>
+                <li>Therefore, to find the zeros of $f(x)$, we solve $3x - 5 = 0$</li>
+                <li>Giving $x = \frac{5}{3}$</li>
+                <li>Since $\frac{5}{3}$ does not make the denominator zero, it is the <span class="orange-highlight">only zero</span> of $f(x)$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Notations and Terminology for Limits</h2>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Right-hand approach:</span> $x \rightarrow a^+$ (read: "$x$ approaches $a$ from the right")
+            <ul class="compact-list">
+                <li>This means $x$ takes values near $a$ but greater than $a$</li>
+                <li>For instance, $x \rightarrow 1^+$ means $x$ can be $1.001, 1.0001, 1.00001, 1.000001$, etc.</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Left-hand approach:</span> $x \rightarrow a^-$ (read: "$x$ approaches $a$ from the left")
+            <ul class="compact-list">
+                <li>This means $x$ takes values near $a$ but less than $a$</li>
+                <li>For instance, $x \rightarrow 1^-$ means $x$ can be $0.99, 0.999, 0.9999, 0.99999$, etc.</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Infinity:</span> $x \rightarrow \infty$ (read: "$x$ approaches infinity")
+            <ul class="compact-list">
+                <li>This means $x$ increases without bound, getting indefinitely larger</li>
+                <li>For instance, $x$ can be $10^6, 10^{10}, 10^{12}$, etc.</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Negative infinity:</span> $x \rightarrow -\infty$ (read: "$x$ approaches negative infinity")
+            <ul class="compact-list">
+                <li>This means $x$ is negative and decreases without bound</li>
+                <li>For instance, $x$ can be $-10^6, -10^{10}, -10^{12}$, etc.</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Function approach:</span> $f(x) \rightarrow b$ (read: "$f(x)$ approaches $b$")
+            <ul class="compact-list">
+                <li>This means function values become arbitrarily close to $b$ but not exactly equal</li>
+                <li>For instance, if $f(x) = \frac{1}{x}$, then $f(x) \rightarrow 0$ as $x \rightarrow \infty$</li>
+                <li>This means $\frac{1}{x}$ is approximately $0$ when $x$ is arbitrarily large</li>
+            </ul>
+        </li>
+        <li>The same meanings apply for function values: $f(x) \rightarrow \infty$ or $f(x) \rightarrow -\infty$</li>
+    </ul>
+ <div class="image-figure">
+        <img src="4.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+<div class="image-caption">Graphical illustration of the idea of $x \rightarrow a^+$, $f(x) \rightarrow \infty$, etc.</div>
+        <div class="image-placeholder-note" style="display:none;">[three_force_vectors.png]</div>
+    </div>
+	
+    <h2>Steps to Sketch Rational Functions</h2>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Step 1:</span> Identify the <span class="orange-highlight">domain</span> and simplify the function
+            <ul class="compact-list">
+                <li>Find all values where $d(x) = 0$ and exclude them from the domain</li>
+                <li>Simplify the rational expression if possible by canceling common factors</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Step 2:</span> Find the <span class="orange-highlight">intercepts</span> whenever possible
+            <ul class="compact-list">
+                <li><span class="blue-highlight">$y$-intercept:</span> Point where graph intersects the $y$-axis
+                    <ul class="compact-list">
+                        <li>At this point, $x = 0$</li>
+                        <li>Thus, $y = f(0)$, or $(0, f(0))$ is the $y$-intercept if $0 \in \text{Dom}(f)$</li>
+                    </ul>
+                </li>
+                <li><span class="blue-highlight">$x$-intercept:</span> Point where graph intersects the $x$-axis
+                    <ul class="compact-list">
+                        <li>At this point, $y = 0$</li>
+                        <li>Thus, $x = a$ or $(a, 0)$ is the $x$-intercept if $f(a) = 0$</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Step 3:</span> Determine the <span class="orange-highlight">asymptotes</span> of the graph
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Vertical Asymptote (VA):</span> The vertical line $x = a$ is a vertical asymptote of $f(x)$ if:
+                    <ul class="compact-list">
+                        <li>i) $a \notin \text{Dom}(f)$, i.e., $f$ is not defined at $x = a$</li>
+                        <li>ii) $f(x) \rightarrow \infty$ or $f(x) \rightarrow -\infty$ when $x \rightarrow a^+$ or $x \rightarrow a^-$</li>
+                        <li>In this case, the graph is almost vertically rising upward (if $f(x) \rightarrow \infty$) or sinking downward (if $f(x) \rightarrow -\infty$) along the vertical line $x = a$ when $x$ approaches $a$ either from the right or from the left</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Consider $f(x) = \frac{1}{(x - a)^n}$, where $a \geq 0$ and $n$ is a positive integer.
+        <ul class="compact-list">
+            <li>Obviously $a \notin \text{Dom}(f)$</li>
+            <li>Next, we investigate the trend of the values of $f(x)$ near $a$</li>
+            <li>To do this, we consider two cases: when $n$ is even or odd</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Case 1: $n$ is even</span>
+            <ul class="compact-list">
+                <li>In this case, $(x - a)^n > 0$ for all $x \in \mathbb{R}\setminus\{a\}$</li>
+                <li>Since $(x - a)^n \rightarrow 0$ as $x \rightarrow a^+$ or $x \rightarrow a^-$</li>
+                <li>Hence, $f(x) = \frac{1}{(x - a)^n} \rightarrow \infty$ as $x \rightarrow a^+$ or $x \rightarrow a^-$</li>
+                <li>Therefore, $x = a$ is a <span class="orange-highlight">vertical asymptote (VA)</span> of $f(x)$</li>
+                <li>Moreover, $y = \frac{1}{a^n}$ or $(0, \frac{1}{a^n})$ is its $y$-intercept since $f(0) = \frac{1}{a^n}$</li>
+                <li>However, it has no $x$-intercept since $f(x) > 0$ for all $x$ in its domain (See, Fig. A).</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Case 2: $n$ is odd</span>
+            <ul class="compact-list">
+                <li>In this case, $(x - a)^n > 0$ for all $x > a$ and $\frac{1}{(x - a)^n} \rightarrow \infty$ when $x \rightarrow a^+$</li>
+                <li>Thus, $x = a$ is its <span class="orange-highlight">vertical asymptote (VA)</span></li>
+                <li>However, $\frac{1}{(x - a)^n} \rightarrow -\infty$ when $x \rightarrow a^-$ since $(x - a)^n < 0$ for $x < a$</li>
+                <li>Moreover, $y = -\frac{1}{a^n}$ or $(0, -\frac{1}{a^n})$ is its $y$-intercept since $f(0) = -\frac{1}{a^n}$</li>
+                <li>However, it has no $x$-intercept also in this case(See, Fig. B)</li>
+            </ul>
+        </li>
+        <li>Note that in both cases, $f(x) = \frac{1}{(x - a)^n} \rightarrow 0$ as $x \rightarrow \infty$ or $x \rightarrow -\infty$</li>
+    </ul>
+	 <div class="image-figure">
+        <img src="5.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    <div class="math-block">
+        <span class="blue-highlight">Remark:</span> Let $f(x) = \frac{n(x)}{d(x)}$ be a rational function. Then:
+        <ul class="compact-list">
+            <li>1. If $d(a) = 0$ and $n(a) \neq 0$, then $x = a$ is a <span class="orange-highlight">vertical asymptote</span> of $f$</li>
+            <li>2. If $d(a) = 0 = n(a)$, then $x = a$ may or may not be a VA of $f$
+                <ul class="compact-list">
+                    <li>In this case, simplify $f(x)$ and look for VA of the simplest form of $f$</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Horizontal Asymptote</h2>
+
+    <ul class="bullet-list">
+        <li>A horizontal line $y = b$ is called a <span class="blue-highlight">horizontal asymptote (HA)</span> of $f(x)$ if the value of the function becomes closer and closer to $b$</li>
+        <li>That is, $f(x) \rightarrow b$ as $x \rightarrow \infty$ or as $x \rightarrow -\infty$</li>
+        <li>The graph of $f$ becomes almost a horizontal line along with (or near) the line $y = b$ as $x \rightarrow \infty$ and as $x \rightarrow -\infty$</li>
+        <li>From the above example, the HA of $f(x) = \frac{1}{(x - a)^n}$ is $y = 0$ (the $x$-axis), for any positive integer $n$</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Remark:</span> A rational function $f(x) = \frac{n(x)}{d(x)}$ has a HA only when $\text{degree}(n(x)) \leq \text{degree}(d(x))$.
+        <ul class="compact-list">
+            <li>i) If $\text{degree}(n(x)) < \text{degree}(d(x))$, then $y = 0$ (the $x$-axis) is the <span class="orange-highlight">HA</span> of $f$</li>
+            <li>ii) If $\text{degree}(n(x)) = \text{degree}(d(x)) = n$, i.e.,
+                $$f(x) = \frac{a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0}{b_n x^n + b_{n-1} x^{n-1} + \cdots + b_1 x + b_0}$$
+                then $y = \frac{a_n}{b_n}$ is the <span class="orange-highlight">HA</span> of $f$</li>
+        </ul>
+    </div>
+
+    <h2>Oblique Asymptote</h2>
+
+    <ul class="bullet-list">
+        <li>The oblique line $y = ax + b$, $a \neq 0$, is called an <span class="blue-highlight">oblique asymptote (OA)</span> of $f$ if the value of the function, $f(x)$, becomes closer and closer to $ax + b$</li>
+        <li>That is, $f(x)$ becomes approximately $ax + b$ as either $x \rightarrow \infty$ or $x \rightarrow -\infty$</li>
+        <li>The graph of $f$ becomes almost a straight line along with (or near) the oblique line $y = ax + b$ as $x \rightarrow \infty$ and as $x \rightarrow -\infty$</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Note:</span> A rational function $f(x) = \frac{n(x)}{d(x)}$ has an OA only when $\text{degree}(n(x)) = \text{degree}(d(x)) + 1$.
+        <ul class="compact-list">
+            <li>In this case, using long division, if the quotient of $n(x) \div d(x)$ is $ax + b$</li>
+            <li>Then $y = ax + b$ is the <span class="orange-highlight">oblique asymptote</span> of $f$</li>
+        </ul>
+    </div>
+
+   
+
+    <h2 >Graphing Rational Functions</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Sketch the graphs of:
+        <ul class="compact-list">
+            <li>(a) $f(x) = \frac{x+2}{x-1}$</li>
+            <li>(b) $g(x) = \frac{x^2 + 3x + 2}{x^2 - 1}$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (a):</span>
+            <ul class="compact-list">
+                <li>Since $x-1=0$ at $x=1$, $\text{Dom}(f) = \mathbb{R}\setminus\{1\}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Intercepts</h3>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">$y$-intercept:</span>
+            <ul class="compact-list">
+                <li>$x=0 \Rightarrow y = f(0) = -2$</li>
+                <li>Hence, $(0, -2)$ is the $y$-intercept</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">$x$-intercept:</span>
+            <ul class="compact-list">
+                <li>$y=0 \Rightarrow x+2=0 \Rightarrow x=-2$</li>
+                <li>Hence, $(-2, 0)$ is the $x$-intercept</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Asymptotes</h3>
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Vertical Asymptote (VA):</span>
+            <ul class="compact-list">
+                <li>Since $x-1=0$ at $x=1$ and $x+2 \neq 0$ at $x=1$, $x=1$ is the VA of $f$</li>
+                <li>If $x \rightarrow 1^+$, then $x+2 \rightarrow 3$ but the denominator $x-1$ is almost $0$ (but positive)</li>
+                <li>Consequently, $f(x) \rightarrow \infty$ as $x \rightarrow 1^+$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Horizontal Asymptote (HA):</span>
+            <ul class="compact-list">
+                <li>Divide $x+2$ by $x-1$: the quotient is $1$ and remainder is $3$</li>
+                <li>Thus, $f(x) = \frac{x+2}{x-1} = 1 + \frac{3}{x-1}$</li>
+                <li>If $x \rightarrow \infty$ (or $x \rightarrow -\infty$), then $\frac{3}{x-1} \rightarrow 0$</li>
+                <li>So that $f(x) \rightarrow 1$</li>
+                <li>Hence, $y=1$ is the <span class="orange-highlight">HA</span> of $f$</li>
+            </ul>
+        </li>
+        <li>Using these information, you can sketch the graph of $f$ as displayed below Fig. A</li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (b):</span>
+            <ul class="compact-list">
+                <li>Both the denominator and numerator are $0$ at $x=1$</li>
+                <li>So, first factorize and simplify them:
+                    $$x^2 + 3x + 2 = (x+2)(x+1)$$
+                    $$x^2 - 1 = (x-1)(x+1)$$</li>
+                <li>Therefore,
+                    $$g(x) = \frac{x^2 + 3x + 2}{x^2 - 1} = \frac{(x+2)(x+1)}{(x-1)(x+1)} = \frac{x+2}{x-1}$$</li>
+                <li>So, $\text{Dom}(g) = \mathbb{R}\setminus\{1, -1\}$</li>
+                <li>This implies that only $x=1$ is the VA</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Important Note:</span>
+        <ul class="compact-list">
+            <li>The graph of $g(x) = \frac{x+2}{x-1}$, $x \neq -1$</li>
+            <li>Is exactly the same as that of $f(x) = \frac{x+2}{x-1}$</li>
+            <li>Except that $g(x)$ is <span class="red-highlight">not defined at $x=-1$</span></li>
+            <li>Therefore, the graph of $g$ and its VA are the same as that of $f$</li>
+            <li>Except that there should be a <span class="orange-highlight">"hole"</span> at the point corresponding to $x=-1$ on the graph of $g$ Fig.(B) </li>
+        </ul>
+    </div>
+	 <div class="image-figure">
+        <img src="6.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+
+    <h3>Summary of Steps for Graphing Rational Functions</h3>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Step 1:</span> Find the <span class="orange-highlight">domain</span> by setting $d(x) \neq 0$</li>
+        <li><span class="blue-highlight">Step 2:</span> Find the <span class="orange-highlight">intercepts</span>:
+            <ul class="compact-list">
+                <li>$y$-intercept: $(0, f(0))$ if $0 \in \text{Dom}(f)$</li>
+                <li>$x$-intercepts: solve $n(x) = 0$ with $d(x) \neq 0$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Step 3:</span> Find the <span class="orange-highlight">asymptotes</span>:
+            <ul class="compact-list">
+                <li><span class="blue-highlight">VA:</span> $x = a$ where $d(a) = 0$ and $n(a) \neq 0$</li>
+                <li><span class="blue-highlight">HA:</span> Compare degrees of numerator and denominator</li>
+                <li><span class="blue-highlight">OA:</span> When $\deg(n) = \deg(d) + 1$, divide to find the oblique asymptote</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Step 4:</span> Look for <span class="orange-highlight">holes</span>:
+            <ul class="compact-list">
+                <li>If $d(a) = 0 = n(a)$, factor and cancel common factors</li>
+                <li>The canceled factor creates a hole at $x = a$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Step 5:</span> Sketch the graph using all the information gathered</li>
+    </ul>
+
+   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Definition and basic properties of logarithmic, exponential, trigonometric 
+and hyperbolic functions and their graphs</div>
+
+    <div class="subhead">Exponents, Radicals, Exponential, Logarithmic, Trigonometric, and Hyperbolic Functions</div>
+<h2>  Exponents and Radicals</h2>
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> For a natural number $n$ and a real number $x$, the power $x^n$, read "the $n$-th power of $x$" or "$x$ raised to $n$", is defined as follows:
+        $$x^n = \underbrace{x \cdot x \cdot x \cdots x}_{n \text{ factors}}$$
+        <ul class="compact-list">
+            <li>In $x^n$, $x$ is called the <span class="orange-highlight">base</span> and $n$ is called the <span class="orange-highlight">exponent</span></li>
+            <li>For example: $2^5 = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 32$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Based on the definition of $x^n$, $n$ must be a <span class="blue-highlight">natural number</span></li>
+        <li>It does not make sense for $n$ to be negative or zero</li>
+        <li>However, we can extend the definition of exponents to include $0$ and negative exponents</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition: (Zero and Negative Exponents)</span>
+        <ul class="compact-list">
+            <li><span class="orange-highlight">Zero Exponent:</span> $x^0 = 1$ where $x \neq 0$</li>
+            <li><span class="orange-highlight">Negative Exponent:</span> $x^{-n} = \frac{1}{x^n}$ where $x \neq 0$</li>
+            <li>Note: $0^0$ is <span class="red-highlight">undefined</span></li>
+            <li>As a result: $\frac{1}{x^{-n}} = x^n$</li>
+        </ul>
+    </div>
+
+<h2>Rules for Integer Exponents</h2>
+
+<div class="math-block">
+    <ul class="compact-list">
+        <li>1. $x^n \cdot x^m = x^{n+m}$</li>
+        <li>2. $(x^n)^m = x^{nm}$</li>
+        <li>3. $\left(\frac{x}{y}\right)^n = \frac{x^n}{y^n} \quad (y \neq 0)$</li>
+        <li>4. $(xy)^n = x^n y^n$</li>
+        <li>5. $\frac{x^n}{x^m} = x^{n-m}$</li>
+    </ul>
+</div>
+
+    <ul class="bullet-list">
+        <li>Next we extend the definition of exponents even further to include <span class="blue-highlight">rational number exponents</span></li>
+        <li>To do this, we assume that the rules for integer exponents also apply to rational exponents</li>
+        <li>Then we use the rules to show us how to define a rational exponent</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> How do we define $a^{1/2}$? Consider $9^{1/2}$.
+        <ul class="compact-list">
+            <li>If we apply rule 2 and square $9^{1/2}$, we get $(9^{1/2})^2 = 9^{1/2 \cdot 2} = 9$</li>
+            <li>Thus, $9^{1/2}$ is a number that, when squared, yields $9$</li>
+            <li>There are two possible answers: $3$ and $-3$, since squaring either number yields $9$</li>
+            <li>To avoid ambiguity, we define $a^{1/2}$ as the <span class="orange-highlight">non-negative</span> quantity that, when squared, yields $a$</li>
+            <li>Thus, $9^{1/2} = 3$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>We will arrive at the definition of $a^{1/3}$ in the same way as we did for $a^{1/2}$</li>
+        <li>For example, if we cube $8^{1/3}$, we get $(8^{1/3})^3 = 8^{1/3 \cdot 3} = 8$</li>
+        <li>Thus, $8^{1/3}$ is the number that, when cubed, yields $8$</li>
+        <li>Since $2^3 = 8$, we have $8^{1/3} = 2$</li>
+        <li>Similarly, $(-27)^{1/3} = -3$</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition: (Rational Exponent $a^{1/n}$)</span>
+        <ul class="compact-list">
+            <li>If $n$ is an <span class="orange-highlight">odd</span> positive integer, then $a^{1/n} = b$ if and only if $b^n = a$</li>
+            <li>If $n$ is an <span class="orange-highlight">even</span> positive integer and $a \geq 0$, then $a^{1/n} = |b|$ if and only if $b^n = a$</li>
+            <li>We call $a^{1/n}$ the <span class="blue-highlight">principal $n$-th root</span> of $a$</li>
+            <li>Hence, $a^{1/n}$ is the real number (nonnegative when $n$ is even) that, when raised to the $n$-th power, yields $a$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Examples:</span>
+        <ul class="compact-list">
+            <li>$16^{1/2} = 4$ since $4^2 = 16$</li>
+            <li>$(-125)^{1/3} = -5$ since $(-5)^3 = -125$</li>
+            <li>$\left(\frac{1}{81}\right)^{1/4} = \frac{1}{3}$ since $\left(\frac{1}{3}\right)^4 = \frac{1}{81}$</li>
+            <li>$27^{1/3} = 3$ since $3^3 = 27$</li>
+            <li>$(-16)^{1/4}$ is <span class="red-highlight">not a real number</span></li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Thus far, we have defined $a^{1/n}$, where $n$ is a natural number</li>
+        <li>With the help of the second rule for exponents, we can define the expression $a^{m/n}$</li>
+        <li>Where $m$ and $n$ are natural numbers and $\frac{m}{n}$ is reduced to lowest terms</li>
+    </ul>
+
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition: (Rational Exponent $a^{m/n}$)</span>
+        <ul class="compact-list">
+            <li>If $a^{1/n}$ is a real number, then $a^{m/n} = (a^{1/n})^m$</li>
+            <li>This means the $n$-th root of $a$ raised to the $m$-th power</li>
+            <li>We can also define negative rational exponents:
+            $$a^{-m/n} = \frac{1}{a^{m/n}}, \quad a \neq 0$$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Evaluate the following:
+        <ul class="compact-list">
+            <li>a) $27^{2/3}$</li>
+            <li>b) $36^{-1/2}$</li>
+            <li>c) $(-32)^{-3/5}$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) $27^{2/3} = (27^{1/3})^2 = 3^2 = 9$</li>
+                <li>b) $36^{-1/2} = \frac{1}{\sqrt{36}} = \frac{1}{6}$</li>
+                <li>c) $(-32)^{-3/5} = \frac{1}{(-32)^{3/5}} = \frac{1}{[(-32)^{1/5}]^3} = \frac{1}{(-2)^3} = -\frac{1}{8}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li>Radical notation is an alternative way of writing an expression with rational exponents</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition: ($n$-th root of $a$)</span>
+        <ul class="compact-list">
+            <li>$\sqrt[n]{a} = a^{1/n}$, where $n$ is a positive integer</li>
+            <li>The number $\sqrt[n]{a}$ is also called the <span class="orange-highlight">principal $n$-th root</span> of $a$</li>
+            <li>If the $n$-th root of $a$ exists, we have:
+                <ul class="compact-list">
+                    <li>$\sqrt[n]{a^n} = |a|$, if $n$ is <span class="blue-highlight">even</span></li>
+                    <li>$\sqrt[n]{a^n} = a$, if $n$ is <span class="orange-highlight">odd</span></li>
+                </ul>
+            </li>
+            <li>For example: $\sqrt[3]{5^3} = 5$ and $\sqrt[4]{(-3)^4} = 3$</li>
+        </ul>
+    </div>
+
+    <h2>Exponential Functions</h2>
+
+    <ul class="bullet-list">
+        <li>Previously we examined functions of the form $f(x) = x^n$, where $n$ is a constant</li>
+        <li>How is this different from $f(x) = n^x$?</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> A function of the form $y = f(x) = b^x$, where $b > 0$ and $b \neq 1$, is called an <span class="orange-highlight">exponential function</span>.
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> The functions $f(x) = 2^x$, $g(x) = 3^x$ and $h(x) = \left(\frac{1}{2}\right)^x$ are examples of exponential functions.
+    </div>
+
+    <ul class="bullet-list">
+        <li>As usual, the first question raised when we encounter a new function is its <span class="blue-highlight">domain</span></li>
+        <li>Since rational exponents are well defined, any rational number will be in the domain of an exponential function</li>
+        <li>For example, let $f(x) = 3^x$. Then as $x$ takes on the rational values $x = 4, -2, \frac{1}{2}$ and $\frac{4}{3}$, we have:
+            <ul class="compact-list">
+                <li>$f(4) = 3^4 = 3 \cdot 3 \cdot 3 \cdot 3 = 81$</li>
+                <li>$f(-2) = 3^{-2} = \frac{1}{3^2} = \frac{1}{9}$</li>
+                <li>$f\left(\frac{1}{2}\right) = 3^{1/2} = \sqrt{3}$</li>
+                <li>$f\left(\frac{4}{5}\right) = 3^{4/5} = \sqrt[5]{3^4} = \sqrt[5]{81}$</li>
+            </ul>
+        </li>
+        <li>Note that even though we do not know the exact values of $\sqrt{3}$ and $\sqrt[3]{81}$, we do know exactly what they mean</li>
+        <li>However, what about $f(x)$ for <span class="orange-highlight">irrational values</span> of $x$?</li>
+        <li>For instance, $f(\sqrt{2}) = 3^{\sqrt{2}} = ?$</li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li>We have not defined the meaning of irrational exponents</li>
+        <li>A precise formal definition of $b^x$ where $x$ is irrational requires the ideas of calculus</li>
+        <li>However, we can get an idea of what $3^{\sqrt{2}}$ should be by using successive <span class="blue-highlight">rational approximations</span> to $\sqrt{2}$</li>
+        <li>For example, we have $1.414 < \sqrt{2} < 1.415$</li>
+        <li>Thus, it would seem reasonable to expect that $3^{1.414} < 3^{\sqrt{2}} < 3^{1.415}$</li>
+        <li>Since $1.414$ and $1.415$ are rational numbers, $3^{1.414}$ and $3^{1.415}$ are well defined</li>
+        <li>Using a calculator, we get $4.7276950 < 3^{\sqrt{2}} < 4.7328918$</li>
+        <li>If we use better approximations to $\sqrt{2}$, we get $3^{1.4142} < 3^{\sqrt{2}} < 3^{1.4143}$</li>
+        <li>Using a calculator again, we get $4.7287339 < 3^{\sqrt{2}} < 4.7292535$</li>
+        <li>Computing $3^{\sqrt{2}}$ directly on a calculator gives $3^{\sqrt{2}} \approx 4.7288044$</li>
+        <li>This numerical evidence suggests that as $x$ approaches $\sqrt{2}$, the values of $3^x$ approach a unique real number that we designate by $3^{\sqrt{2}}$</li>
+        <li>We will accept without proof that the domain of the exponential function is the set of <span class="orange-highlight">all real numbers</span></li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li>The exponential function $y = b^x$, where $b > 0$ and $b \neq 1$, is defined for <span class="blue-highlight">all real values</span> of $x$</li>
+        <li>All the rules for rational exponents hold for real number exponents as well</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Sketch the graph of the function $y = 2^x$ and identify its domain and range.
+        <ul class="compact-list">
+            <li>To aid in our analysis, we set up a short table of values:
+            <table>
+                <thead>
+                    <tr>
+                        <th>$x$</th>
+                        <th>$y$</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$-3$</td>
+                        <td>$2^{-3} = \frac{1}{8}$</td>
+                    </tr>
+                    <tr>
+                        <td>$-2$</td>
+                        <td>$2^{-2} = \frac{1}{4}$</td>
+                    </tr>
+                    <tr>
+                        <td>$-1$</td>
+                        <td>$2^{-1} = \frac{1}{2}$</td>
+                    </tr>
+                    <tr>
+                        <td>$0$</td>
+                        <td>$2^0 = 1$</td>
+                    </tr>
+                    <tr>
+                        <td>$1$</td>
+                        <td>$2^1 = 2$</td>
+                    </tr>
+                    <tr>
+                        <td>$2$</td>
+                        <td>$2^2 = 4$</td>
+                    </tr>
+                    <tr>
+                        <td>$3$</td>
+                        <td>$2^3 = 8$</td>
+                    </tr>
+                </tbody>
+            </table>
+            </li>
+        </ul>
+		
+		  	 <div class="image-figure">
+        <img src="7.png" alt=" " onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+    </div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>With these points in hand, we draw a smooth curve through the points</li>
+        <li><span class="blue-highlight">Observations:</span>
+            <ul class="compact-list">
+                <li>Domain of $y = 2^x$ is $\mathbb{R}$</li>
+                <li>The graph has <span class="orange-highlight">no $x$-intercepts</span></li>
+                <li>As $x \rightarrow +\infty$, the $y$-values are increasing very rapidly</li>
+                <li>As $x \rightarrow -\infty$, the $y$-values are getting closer and closer to $0$</li>
+                <li>Thus, the $x$-axis ($y=0$) is a <span class="blue-highlight">horizontal asymptote</span></li>
+                <li>The $y$-intercept is $1$</li>
+                <li>The range of $y = 2^x$ is the set of <span class="orange-highlight">positive real numbers</span> $(0, \infty)$</li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Sketch the graph of $y = f(x) = \left(\frac{1}{2}\right)^x$.
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>It would be instructive to compute a table of values as we did in example 1 above (you are urged to do so)</li>
+                <li>However, we will take a different approach</li>
+                <li>We note that:
+                $$y = f(x) = \left(\frac{1}{2}\right)^x = \frac{1}{2^x} = 2^{-x}$$</li>
+                <li>If $f(x) = 2^{x}$, then $f(-x) = 2^{-x}$</li>
+                <li>Thus by the graphing principle for $f(-x)$, we can obtain the graph of $y = 2^{-x}$ by <span class="orange-highlight">reflecting</span> the graph of $y = 2^x$ about the <span class="blue-highlight">$y$-axis</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="8.png" alt="Graph of exponential function y = 2^x and its reflection y = 2^{-x}" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = 2^x (increasing) and y = 2^{-x} (decreasing) with horizontal asymptote y = 0</div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>Here again the <span class="blue-highlight">$x$-axis</span> is a horizontal asymptote</li>
+        <li>There is <span class="orange-highlight">no $x$-intercept</span></li>
+        <li>$1$ is the <span class="blue-highlight">$y$-intercept</span></li>
+        <li>The range is the set of <span class="orange-highlight">positive real numbers</span></li>
+        <li>However, the graph is now <span class="red-highlight">decreasing</span> rather than increasing</li>
+    </ul>
+
+    <div class="math-block">
+    <span class="blue-highlight">Summary: The Exponential Function $y = f(x) = b^x$</span>
+    <ul class="compact-list">
+        <li><span class="blue-highlight">1. Domain:</span> The domain of the exponential function is the set of <span class="orange-highlight">real numbers</span> $\mathbb{R}$</li>
+        <li><span class="blue-highlight">2. Range:</span> The range of the exponential function is the set of <span class="orange-highlight">positive real numbers</span> $(0, \infty)$</li>
+        <li><span class="blue-highlight">3. Growth/Decay:</span> The graph of $y = b^x$ exhibits:
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Exponential growth</span> if $b > 1$</li>
+                <li><span class="red-highlight">Exponential decay</span> if $0 < b < 1$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">4. $y$-intercept:</span> The $y$-intercept is <span class="orange-highlight">$1$</span> (at $(0, 1)$)</li>
+        <li><span class="blue-highlight">5. Horizontal asymptote:</span> The <span class="orange-highlight">$x$-axis</span> ($y = 0$) is a horizontal asymptote</li>
+        <li><span class="blue-highlight">6. One-to-one:</span> The exponential function is <span class="orange-highlight">one-to-one</span>
+            <ul class="compact-list">
+                <li>Algebraically: if $b^x = b^y$, then $x = y$</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+   
+
+ 
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Sketch the graph of each of the following. Find the domain, range, intercepts, and asymptotes.
+        <ul class="compact-list">
+            <li>a) $y = 3^x + 1$</li>
+            <li>b) $y = 3^{x+1}$</li>
+            <li>c) $y = -9^{-x} + 3$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (a):</span>
+            <ul class="compact-list">
+                <li>To get the graph of $y = 3^x + 1$, we start with the graph of $y = 3^x$, which is the basic <span class="orange-highlight">exponential growth</span> graph</li>
+                <li>Shift it <span class="blue-highlight">up 1 unit</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="9.png" alt="Graph of y = 3^x + 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = 3^x + 1 (basic exponential growth shifted up 1 unit)</div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>From the graph we see that:
+            <ul class="compact-list">
+                <li>$\text{Dom}(f) = \mathbb{R}$</li>
+                <li>$\text{Range}(f) = (1, \infty)$</li>
+                <li>The $y$-intercept is <span class="orange-highlight">$2$</span> (at $(0, 2)$)</li>
+                <li>The line $y = 1$ is a <span class="blue-highlight">horizontal asymptote</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (b):</span>
+            <ul class="compact-list">
+                <li>To get the graph of $y = 3^{x+1}$, we start with the graph of $y = 3^x$</li>
+                <li>Shift it <span class="blue-highlight">1 unit to the left</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="10.png" alt="Graph of y = 3^{x+1}" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = 3^{x+1} (basic exponential growth shifted 1 unit left)</div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>From the graph we see that:
+            <ul class="compact-list">
+                <li>$\text{Dom}(f) = \mathbb{R}$</li>
+                <li>$\text{Range}(f) = (0, \infty)$</li>
+                <li>The $y$-intercept is <span class="orange-highlight">$3$</span> (at $(0, 3)$)</li>
+                <li>The line $y = 0$ is a <span class="blue-highlight">horizontal asymptote</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (c):</span>
+            <ul class="compact-list">
+                <li>To get the graph of $y = -9^{-x} + 3$, we start with the basic <span class="orange-highlight">exponential decay</span> $y = 9^{-x}$</li>
+                <li>Then <span class="red-highlight">reflect</span> it with respect to the $x$-axis, which gives the graph of $y = -9^{-x}$</li>
+                <li>Finally, <span class="blue-highlight">shift</span> this graph up 3 units to get the required graph of $y = -9^{-x} + 3$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="11.png" alt="Graph of y = -9^{-x} + 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = -9^{-x} + 3 (reflected and shifted up 3 units)</div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>From the graph of $y = -9^{-x} + 3$, we can see that:
+            <ul class="compact-list">
+                <li>$\text{Dom}(h) = \mathbb{R}$</li>
+                <li>$\text{Range}(h) = (-\infty, 3)$</li>
+                <li>The line $y = 3$ is a <span class="blue-highlight">horizontal asymptote</span></li>
+                <li>$2$ is the <span class="orange-highlight">$y$-intercept</span> (at $(0, 2)$)</li>
+                <li>$x = -\frac{1}{2}$ is the <span class="orange-highlight">$x$-intercept</span> (at $(-\frac{1}{2}, 0)$)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Remark:</span>
+        <ul class="compact-list">
+            <li>When the base $b$ of the exponential function $f(x) = b^x$ equals the number <span class="orange-highlight">$e$</span>, where $e = 2.7182\cdots$</li>
+            <li>We call the exponential function the <span class="blue-highlight">natural exponential function</span></li>
+            <li>This is written as $f(x) = e^x$</li>
+        </ul>
+    </div>
+
+   
+
+    <div class="slide-title">Logarithmic Functions</div>
+
+    <ul class="bullet-list">
+        <li>In the previous subsection we noted that the exponential function $f(x) = b^x$ (where $b > 0$ and $b \neq 1$) is <span class="blue-highlight">one-to-one</span></li>
+        <li>Thus, the exponential function has an <span class="orange-highlight">inverse function</span></li>
+        <li>What is the inverse of $f(x) = b^x$?</li>
+    </ul>
+
+    <h3>Finding the Inverse of Exponential Functions</h3>
+
+    <ul class="bullet-list">
+        <li>To find the inverse of $f(x) = b^x$, let's review the process for finding an inverse function</li>
+        <li>Compare the process for the polynomial function $y = x^3$ and the exponential function $y = 3^x$</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>To find the inverse of $y = x^3$</th>
+                <th>To find the inverse of $y = 3^x$</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$y = x^3$</td>
+                <td>$y = 3^x$</td>
+            </tr>
+            <tr>
+                <td>Interchange $x$ and $y$</td>
+                <td>Interchange $x$ and $y$</td>
+            </tr>
+            <tr>
+                <td>$x = y^3$</td>
+                <td>$x = 3^y$</td>
+            </tr>
+            <tr>
+                <td><span class="blue-highlight">Solve for $y$</span></td>
+                <td><span class="red-highlight">Solve for $y$</span></td>
+            </tr>
+            <tr>
+                <td>$y = \sqrt[3]{x}$</td>
+                <td>$y = ??$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="bullet-list">
+        <li>There is <span class="red-highlight">no algebraic procedure</span> we can use to solve $x = 3^y$ for $y$</li>
+        <li>By introducing radical notations we could express the inverse of $y = x^3$ explicitly in the form $y = \sqrt[3]{x}$</li>
+        <li>In words, $y^3 = x$ and $y = \sqrt[3]{x}$ both mean exactly the same thing: <span class="orange-highlight">$y$ is the number whose cube is $x$</span></li>
+        <li>Similarly, if we want to express $x = 3^y$ explicitly as a function of $x$, we need to invent a <span class="blue-highlight">special notation</span> for this</li>
+        <li>The key idea is to take the equation $x = 3^y$ and express it <span class="orange-highlight">verbally</span></li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Verbal Expression:</span>
+        <ul class="compact-list">
+            <li>$x = 3^y$ means: <span class="orange-highlight">$y$ is the exponent to which $3$ must be raised to yield $x$</span></li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>We introduce the following notation, which expresses this idea in a much more <span class="blue-highlight">compact form</span></li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition:</span> For $b > 0$ and $b \neq 1$, we write $y = \log_b x$ to mean <span class="orange-highlight">$y$ is the exponent to which $b$ must be raised to yield $x$</span>
+        <ul class="compact-list">
+            <li>In other words:
+            $$x = b^y \iff y = \log_b x$$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>We read $y = \log_b x$ as "<span class="blue-highlight">$y$ equals the logarithm of $x$ to the base $b$</span>"</li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Remember:</span>
+        <ul class="compact-list">
+            <li>$y = \log_b x$ is an <span class="orange-highlight">alternative way</span> of writing $x = b^y$</li>
+            <li>When an expression is written in the form $x = b^y$, it is said to be in <span class="blue-highlight">exponential form</span></li>
+            <li>When an expression is written in the form $y = \log_b x$, it is said to be in <span class="orange-highlight">logarithmic form</span></li>
+        </ul>
+    </div>
+
+    <h3>Equivalence of Exponential and Logarithmic Forms</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Exponential Form</th>
+                <th>Logarithmic Form</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$4^2 = 16$</td>
+                <td>$\log_4 16 = 2$</td>
+            </tr>
+            <tr>
+                <td>$2^4 = 16$</td>
+                <td>$\log_2 16 = 4$</td>
+            </tr>
+            <tr>
+                <td>$5^{-3} = \frac{1}{125}$</td>
+                <td>$\log_5 \frac{1}{125} = -3$</td>
+            </tr>
+            <tr>
+                <td>$6^{\frac{1}{2}} = \sqrt{6}$</td>
+                <td>$\log_6 \sqrt{6} = \frac{1}{2}$</td>
+            </tr>
+            <tr>
+                <td>$7^0 = 1$</td>
+                <td>$\log_7 1 = 0$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="math-block">
+        <span class="blue-highlight">Key Points:</span>
+        <ul class="compact-list">
+            <li>The logarithmic function $y = \log_b x$ is the <span class="orange-highlight">inverse</span> of the exponential function $y = b^x$</li>
+            <li>$\log_b x$ asks: "<span class="blue-highlight">To what exponent must $b$ be raised to get $x$?</span>"</li>
+            <li>The base $b$ must satisfy: $b > 0$ and $b \neq 1$</li>
+            <li>The argument $x$ must be <span class="red-highlight">positive</span> ($x > 0$)</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+        <ul class="compact-list">
+            <li>1. Write each of the following in exponential form.
+                <ul class="compact-list">
+                    <li>a) $\log_3 \frac{1}{9} = -2$</li>
+                    <li>b) $\log_{16} 2 = \frac{1}{4}$</li>
+                </ul>
+            </li>
+            <li>2. Write each of the following in logarithmic form.
+                <ul class="compact-list">
+                    <li>a) $10^{-3} = 0.001$</li>
+                    <li>b) $27^{\frac{2}{3}} = 9$</li>
+                </ul>
+            </li>
+            <li>3. Evaluate each of the following.
+                <ul class="compact-list">
+                    <li>a) $\log_3 81$</li>
+                    <li>b) $\log_8 \frac{1}{64}$</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for 1:</span>
+            <ul class="compact-list">
+                <li>a) $\log_3 \frac{1}{9} = -2$ means $3^{-2} = \frac{1}{9}$</li>
+                <li>b) $\log_{16} 2 = \frac{1}{4}$ means $16^{\frac{1}{4}} = 2$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for 2:</span>
+            <ul class="compact-list">
+                <li>a) $10^{-3} = 0.001$ means $\log_{10} 0.001 = -3$</li>
+                <li>b) $27^{\frac{2}{3}} = 9$ means $\log_{27} 9 = \frac{2}{3}$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for 3:</span>
+            <ul class="compact-list">
+                <li>a) To evaluate $\log_3 81$, we let $t = \log_3 81$, and then rewrite the equation in exponential form</li>
+                <li>$3^t = 81$</li>
+                <li>Express both sides in terms of the same base: $3^t = 3^4$</li>
+                <li>Since the exponential function is one-to-one: $t = 4$</li>
+                <li>Therefore, $\log_3 81 = 4$</li>
+                <li>b) We apply the same procedure as in part (a)</li>
+                <li>Let $t = \log_8 \frac{1}{64}$</li>
+                <li>Rewrite in exponential form: $8^t = \frac{1}{64}$</li>
+                <li>Express both sides in terms of the same base: $8^t = 8^{-2}$</li>
+                <li>Since the exponential function is one-to-one: $t = -2$</li>
+                <li>Therefore, $\log_8 \frac{1}{64} = -2$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li>As was pointed out at the beginning of this subsection, logarithm notation was invented to express the <span class="blue-highlight">inverse</span> of the exponential function</li>
+        <li>Thus, $\log_b x$ is a function of $x$</li>
+        <li>We usually write $f(x) = \log_b x$ rather than writing $f(x) = \log_b (x)$</li>
+        <li>We use parenthesis only when needed to clarify the input to the log function</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+        <ul class="compact-list">
+            <li>If $f(x) = \log_5 (4 - x)$, then $f(-1) = \log_5 (4 - (-1)) = \log_5 5 = 1$</li>
+            <li>Whereas if $f(x) = 4 - \log_5 x$, then $f(-1) = 4 - \log_5 (-1)$, which is <span class="red-highlight">undefined</span></li>
+        </ul>
+    </div>
+
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Given $f(x) = \log_5 x$, find:
+        <ul class="compact-list">
+            <li>a) $f(25)$</li>
+            <li>b) $f\left(\frac{1}{25}\right)$</li>
+            <li>c) $f(0)$</li>
+            <li>d) $f(-125)$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>a) $f(25) = \log_5 25 = 2$ (since $5^2 = 25$)</li>
+                <li>b) $f\left(\frac{1}{25}\right) = \log_5 \frac{1}{25} = -2$ (since $5^{-2} = \frac{1}{25}$)</li>
+                <li>c) $f(0) = \log_5 0$ is <span class="red-highlight">not defined</span> (what power of 5 will yield 0?)</li>
+                <li>We say that $0$ is <span class="orange-highlight">not in the domain</span> of $f$</li>
+                <li>d) $f(-125) = \log_5 (-125)$ is <span class="red-highlight">not defined</span> (what power of 5 will yield -125?)</li>
+                <li>We say that $-125$ is <span class="orange-highlight">not in the domain</span> of $f$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="bullet-list">
+        <li>Acknowledging that the logarithmic and exponential functions are <span class="blue-highlight">inverses</span>, we can derive a great deal of information about the logarithmic function and its graph from the exponential function and its graph</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Sketch the graph of the following functions. Find the domain and range of each.
+        <ul class="compact-list">
+            <li>a) $y = \log_3 x$</li>
+            <li>b) $y = \log_{\frac{1}{2}} x$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (a):</span>
+            <ul class="compact-list">
+                <li>Since $y = \log_3 x$ is the inverse of $y = 3^x$</li>
+                <li>We can obtain the graph of $y = \log_3 x$ by <span class="orange-highlight">reflecting</span> the graph of $y = 3^x$ about the line $y = x$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="12.png" alt="Graph of y = log_3 x" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = log_3 x (reflection of y = 3^x about the line y = x)</div>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (b):</span>
+            <ul class="compact-list">
+                <li>To get the graph of $y = \log_{\frac{1}{2}} x$</li>
+                <li>We reflect the graph of $y = \left(\frac{1}{2}\right)^x$ about the line $y = x$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="13.png" alt="Graph of y = log_{1/2} x" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = log_{1/2} x (reflection of y = (1/2)^x about the line y = x)</div>
+    </div>
+<div class="math-block">
+    <span class="blue-highlight">Summary: The Logarithmic Function $y = \log_b x$</span>
+    <ul class="compact-list">
+        <li><span class="blue-highlight">1. Domain:</span> The domain is the set of <span class="orange-highlight">positive real numbers</span> $(0, \infty)$</li>
+        <li><span class="blue-highlight">2. Range:</span> The range is the set of <span class="orange-highlight">real numbers</span> $\mathbb{R}$</li>
+        <li><span class="blue-highlight">3. Growth/Decay:</span> The graph exhibits:
+            <ul class="compact-list">
+                <li><span class="blue-highlight">Logarithmic growth</span> if $b > 1$</li>
+                <li><span class="red-highlight">Logarithmic decay</span> if $0 < b < 1$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">4. $x$-intercept:</span> The $x$-intercept is <span class="orange-highlight">$1$</span> (at $(1, 0)$)</li>
+        <li><span class="blue-highlight">5. No $y$-intercept:</span> There is <span class="red-highlight">no $y$-intercept</span> because $x = 0$ is not in the domain</li>
+        <li><span class="blue-highlight">6. Vertical asymptote:</span> The <span class="orange-highlight">$y$-axis</span> ($x = 0$) is a vertical asymptote</li>
+    </ul>
+</div>
+
+    
+
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Sketch the graph of $f(x) = 1 + \log_3(x - 2)$. Find the domain, range, asymptote and intercepts.
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution:</span>
+            <ul class="compact-list">
+                <li>We can obtain the graph of $y = 1 + \log_3(x - 2)$ by applying the graphing principle to shift the basic logarithmic growth graph <span class="blue-highlight">2 units to the right</span> and <span class="orange-highlight">1 unit up</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="image-figure">
+        <img src="14.png" alt="Graph of y = 1 + log_3(x - 2)" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <div class="image-placeholder-note" style="display: none;">Graph: y = 1 + log_3(x - 2) (shifted 2 units right and 1 unit up)</div>
+    </div>
+
+    <ul class="bullet-list">
+        <li>We have:
+            <ul class="compact-list">
+                <li>$\text{Dom}(f) = \{x : x > 2\}$ or $(2, \infty)$</li>
+                <li>$\text{Range}(f) = \mathbb{R}$</li>
+                <li>The graph has the line $x = 2$ as a <span class="orange-highlight">vertical asymptote</span></li>
+                <li>To find the intercept, we set $y = 0$ and solve for $x$</li>
+                <li>$0 = 1 + \log_3(x - 2)$</li>
+                <li>$\log_3(x - 2) = -1$</li>
+                <li>$x - 2 = 3^{-1} = \frac{1}{3}$</li>
+                <li>$x = \frac{7}{3}$</li>
+                <li>Thus, the $x$-intercept is <span class="blue-highlight">$\frac{7}{3}$</span></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span> Find the inverse function for:
+        <ul class="compact-list">
+            <li>a) $y = f(x) = 3^x + 4$</li>
+            <li>b) $y = g(x) = \log_3(x - 2)$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for (a):</span>
+            <ul class="compact-list">
+                <li>$y = 3^x + 4$</li>
+                <li>Interchange $x$ and $y$: $x = 3^y + 4$</li>
+                <li>Solve explicitly for $y$: $x - 4 = 3^y$</li>
+                <li>Write in logarithmic form: $y = \log_3(x - 4)$</li>
+                <li>Thus, $f^{-1}(x) = \log_3(x - 4)$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Solution for (b):</span>
+            <ul class="compact-list">
+                <li>$y = \log_3(x - 2)$</li>
+                <li>Interchange $x$ and $y$: $x = \log_3(y - 2)$</li>
+                <li>Write in exponential form: $3^x = y - 2$</li>
+                <li>Solve explicitly for $y$: $y = 3^x + 2$</li>
+                <li>Thus, $g^{-1}(x) = 3^x + 2$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>Properties of Logarithms</h2>
+
+    <ul class="bullet-list">
+        <li>Assume that $b, u$ and $v$ are positive and $b \neq 1$</li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Formula</th>
+                <th>In Words</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1. Product Property</td>
+                <td>$\log_b(uv) = \log_b u + \log_b v$</td>
+                <td>Log of a product = sum of logs of factors</td>
+            </tr>
+            <tr>
+                <td>2. Quotient Property</td>
+                <td>$\log_b\left(\frac{u}{v}\right) = \log_b u - \log_b v$</td>
+                <td>Log of a quotient = log of numerator minus log of denominator</td>
+            </tr>
+            <tr>
+                <td>3. Power Property</td>
+                <td>$\log_b(u^r) = r \log_b u$</td>
+                <td>Log of a power = exponent times the log</td>
+            </tr>
+            <tr>
+                <td>4. Inverse Property 1</td>
+                <td>$\log_b(b^x) = x$</td>
+                <td>Log base $b$ of $b$ raised to $x$ is $x$</td>
+            </tr>
+            <tr>
+                <td>5. Inverse Property 2</td>
+                <td>$b^{\log_b x} = x$</td>
+                <td>$b$ raised to log base $b$ of $x$ is $x$</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="math-block">
+    <span class="blue-highlight">Example:</span>
+    <ul class="compact-list">
+        <li>1. Express in terms of simpler logarithms.
+            <ul class="compact-list">
+                <li>a) $\log_b(x^3 y)$</li>
+                <li>b) $\log_b(x^3 + y)$</li>
+                <li>c) $\log_b\left(\frac{\sqrt{xy}}{z^3}\right)$</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<ul class="bullet-list">
+    <li><span class="blue-highlight">Solution:</span>
+        <ul class="compact-list">
+            <li>a) $\log_b(x^3 y) = \log_b x^3 + \log_b y = 3\log_b x + \log_b y$</li>
+            <li>b) Examining the properties of logarithms, we can see that they deal with log of a product, quotient and power</li>
+            <li>Thus, $\log_b(x^3 + y)$ which is the log of a sum <span class="red-highlight">cannot be simplified</span> using log properties</li>
+            <li>c) We have:
+                $$\log_b\left(\frac{\sqrt{xy}}{z^3}\right) = \log_b\sqrt{xy} - \log_b(z^3)$$
+                $$= \log_b(xy)^{\frac{1}{2}} - 3\log_b z$$
+                $$= \frac{1}{2}(\log_b x + \log_b y) - 3\log_b z$$</li>
+        </ul>
+    </li>
+    <li>2. Show that $\log_b \frac{1}{2} = -\log_b 2$
+        <ul class="compact-list">
+            <li>We have $\log_b \frac{1}{2} = \log_b 1 - \log_b 2 = 0 - \log_b 2 = -\log_b 2$</li>
+        </ul>
+    </li>
+</ul>
+
+<div class="callout">
+    <span class="blue-highlight">Note:</span>
+    <ul class="compact-list">
+        <li>The logarithmic function was introduced without stressing the particular base chosen</li>
+        <li>However, there are two bases of special importance in science and mathematics</li>
+        <li>Namely, $b = 10$ and $b = e$</li>
+        <li>$\log_{10} x$ is called the <span class="orange-highlight">common logarithm</span></li>
+        <li>$\log_e x$ is called the <span class="orange-highlight">natural logarithm</span>, often written as $\ln x$</li>
+    </ul>
+</div>
+
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition: (Common Logarithm)</span>
+        <ul class="compact-list">
+            <li>$f(x) = \log_{10} x$ is called the <span class="orange-highlight">common logarithm function</span></li>
+            <li>We write $\log_{10} x = \log x$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li>The inverse of the natural exponential function is called the <span class="blue-highlight">natural logarithmic function</span></li>
+        <li>It has its own special notation</li>
+    </ul>
+
+    <div class="math-block">
+        <span class="blue-highlight">Definition: (Natural Logarithm)</span>
+        <ul class="compact-list">
+            <li>$f(x) = \log_e x$ is called the <span class="orange-highlight">natural logarithmic function</span></li>
+            <li>We write $\log_e x = \ln x$</li>
+        </ul>
+    </div>
+
+    <div class="math-block">
+        <span class="blue-highlight">Example:</span>
+        <ul class="compact-list">
+            <li>1. Evaluate $\log 1000$</li>
+            <li>2. Find the inverse function of $f(x) = e^x + 1$</li>
+        </ul>
+    </div>
+
+    <ul class="bullet-list">
+        <li><span class="blue-highlight">Solution for 1:</span>
+            <ul class="compact-list">
+                <li>Let $a = \log 1000$</li>
+                <li>Then, $a = \log_{10} 1000 = \log_{10} (10^3)$</li>
+                <li>$a = 3$</li>
+                <li>Therefore, $\log 1000 = 3$</li>
+            </ul>
+        </li>
+        <li><span class="blue-highlight">Solution for 2:</span>
+            <ul class="compact-list">
+                <li>Let $y = e^x + 1$</li>
+                <li>Interchange $x$ and $y$: $x = e^y + 1$</li>
+                <li>Solve for $y$: $x - 1 = e^y$</li>
+                <li>Rewrite in logarithmic form: $y = \ln(x - 1)$</li>
+                <li>Thus, $f^{-1}(x) = \ln(x - 1)$</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="callout">
+        <span class="blue-highlight">Key Points:</span>
+        <ul class="compact-list">
+            <li>$\log x$ (without a base) means $\log_{10} x$ (common logarithm)</li>
+            <li>$\ln x$ means $\log_e x$ (natural logarithm)</li>
+            <li>The natural logarithmic function is the <span class="orange-highlight">inverse</span> of the natural exponential function $e^x$</li>
+            <li>$\ln(e^x) = x$ for all real $x$</li>
+            <li>$e^{\ln x} = x$ for $x > 0$</li>
+        </ul>
+    </div>
+</div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         if (typeof renderMathInElement !== 'undefined') {
