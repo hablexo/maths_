@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>  </title>
+    <!-- KaTeX CSS + JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false},{left: '\\(', right: '\\)', display: false},{left: '\\[', right: '\\]', display: true}], throwOnError: false});"></script>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a1f1a;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            position: relative;
+            max-width: 1100px;
+            width: 100%;
+            background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.5);
+            padding: 32px 38px 50px 38px;
+            margin-bottom: 40px;
+            border: 1px solid #2a5a4a;
+            color: #ffffff;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .slide:last-child {
+            margin-bottom: 0;
+        }
+
+        .slide::before {
+            content: "QELEME EXAMS";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-25deg);
+            font-family: 'Segoe UI', 'Georgia', serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: rgba(91, 192, 168, 0.12);
+            pointer-events: none;
+            z-index: 10000;
+            white-space: nowrap;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: none;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide * {
+            z-index: auto !important;
+        }
+
+        .slide :not(.slide::before) {
+            z-index: auto;
+        }
+
+        .slide > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide .col, .slide .math-block, .slide .callout, .slide .image-figure, .slide .two-columns {
+            position: relative;
+            z-index: 1;
+        }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.6rem;
+            color: rgba(155, 199, 187, 0.55);
+            font-family: monospace;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .slide-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #f5d742;
+            margin-bottom: 10px;
+            border-left: 5px solid #5bc0a8;
+            padding-left: 20px;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #f5d742;
+            margin-bottom: 22px;
+            padding-left: 26px;
+            border-bottom: 1px solid #2a5a4a;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #f5d742;
+            margin: 18px 0 12px 0;
+            border-left: 3px solid #5bc0a8;
+            padding-left: 14px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f5e29e;
+            margin: 10px 0 6px 0;
+        }
+
+        p, li, .bullet-list li, .compact-list li, .callout, .math-block, .image-caption, .col p, .col li, td, th {
+            color: #ffffff;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .math-block .katex, .math-block .katex * {
+            color: #ffffff;
+        }
+
+        .highlight {
+            background: #1a4036;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: inline-block;
+            color: #ffffff;
+        }
+
+        .blue-highlight {
+            color: #6bc8ff !important;
+            font-weight: 600;
+        }
+
+        .red-highlight {
+            color: #ff8a7a !important;
+            font-weight: 600;
+        }
+
+        .orange-highlight {
+            color: #ffb347 !important;
+            font-weight: 600;
+        }
+
+        strong.blue-highlight, b.blue-highlight {
+            color: #6bc8ff !important;
+        }
+        strong.red-highlight, b.red-highlight {
+            color: #ff8a7a !important;
+        }
+
+        .bullet-list {
+            list-style: none;
+            margin: 8px 0 14px 0;
+            padding-left: 0;
+        }
+        .bullet-list li {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+        }
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5bc0a8;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .compact-list {
+            list-style: none;
+            margin: 6px 0 10px 0;
+            padding-left: 0;
+        }
+        .compact-list li {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .compact-list li::before {
+            content: "◦";
+            position: absolute;
+            left: 0;
+            color: #7acfb8;
+            font-size: 0.95rem;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin: 14px 0;
+        }
+        .col {
+            background: #0f2c23;
+            border-radius: 20px;
+            padding: 16px 18px;
+            border: 1px solid #2a5a4a;
+        }
+        .col .bullet-list li::before {
+            color: #5bc0a8;
+        }
+
+        .math-block {
+            background: #0a241d;
+            padding: 14px 18px;
+            border-radius: 18px;
+            margin: 14px 0;
+            border-left: 5px solid #5bc0a8;
+            overflow-x: auto;
+            font-size: 1rem;
+        }
+        .math-block .katex {
+            font-size: 1.05em;
+        }
+
+        .callout {
+            background: #0e2a22;
+            border-left: 5px solid #5bc0a8;
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin: 14px 0;
+            font-size: 1rem;
+        }
+
+        .image-figure {
+            margin: 16px 0;
+            text-align: center;
+        }
+        .image-figure img {
+            max-width: 75%;
+            height: auto;
+            max-height: 210px;
+            border-radius: 12px;
+            border: 1px solid #3a7a64;
+            background: #0a241d;
+            object-fit: contain;
+        }
+        .image-caption {
+            font-size: 0.75rem;
+            color: #9bc7bb;
+            margin-top: 5px;
+        }
+        .image-placeholder-note {
+            background: #0a241d;
+            border-radius: 12px;
+            padding: 10px 16px;
+            text-align: center;
+            margin: 12px 0;
+            border: 1px dashed #5bc0a8;
+            color: #9bc7bb;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #0f2c23;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            margin: 16px 0;
+        }
+        th, td {
+            border: 1px solid #2a5a4a;
+            padding: 8px 10px;
+            text-align: center;
+            color: #ffffff;
+        }
+        th {
+            background: #1a4036;
+            color: #f5d742;
+        }
+
+        .inline-arrow {
+            font-weight: 500;
+            color: #8bcbae;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 750px) {
+            .slide { padding: 24px 22px 50px 22px; }
+            .two-columns { grid-template-columns: 1fr; gap: 16px; }
+            .slide-title { font-size: 1.9rem; }
+            .image-figure img { max-width: 85%; max-height: 180px; }
+            .slide::before { font-size: 2rem; letter-spacing: 4px; opacity: 0.6; }
+            .slide-footer { font-size: 0.55rem; bottom: 8px; }
+            p, li, .bullet-list li { font-size: 1rem; }
+        }
+
+        /* PRINT STYLES - each slide stays on ONE page (no cutting) */
+       /* PRINT STYLES - each slide stays on ONE page (no cutting) */
+@media print {
+    @page {
+        margin: 0;
+        size: auto;
+    }
+    
+    html, body {
+        background: #0a231c;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: #0a231c;
+        padding: 0;
+    }
+    
+    .slide {
+        position: relative;
+        background: linear-gradient(145deg, #0e2a22 0%, #0a231c 100%);
+        border: none;  /* ← REMOVED BORDER FOR PRINT */
+        box-shadow: none;
+        margin: 0;
+        margin-bottom: 0;
+        padding: 0.35in 0.4in 0.55in 0.4in;
+        border-radius: 0;
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        overflow: visible;
+        isolation: isolate;
+    }
+    
+    .slide:last-child {
+        page-break-after: auto;
+    }
+    
+   .slide::before {
+        content: "QELEME EXAMS";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-25deg);
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgba(91, 192, 168, 0.08);  /* ← Changed from 0.25 to 0.08 (much lighter) */
+        white-space: nowrap;
+        letter-spacing: 6px;
+        z-index: 10000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .slide-footer {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        font-size: 0.55rem;
+        color: rgba(155, 199, 187, 0.6);
+        text-align: center;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        z-index: 1;
+    }
+    
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .image-figure img {
+        max-height: 180px;
+        max-width: 65%;
+    }
+    
+    .slide > * {
+        z-index: 1;
+        position: relative;
+    }
+
+    /* Prevent headings from being left alone at the bottom of a page */
+    h1, h2, h3, h4, .slide-title, .subhead {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-after: avoid;
+    }
+
+    /* Keep headings with at least 3 lines of following content */
+    h2, h3, .slide-title {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Prevent callouts, tables, and columns from breaking */
+    .callout, .math-block, table, .two-columns, .col {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Ensure list items stay together when possible */
+    li {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* For long lists, allow breaks but keep minimum 3 items together */
+    ul, .bullet-list, .compact-list {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+        .katex { color: #ffffff; }
+        .katex .mord, .katex .mbin, .katex .mrel { color: #f0f9f5; }
+    </style>
+</head>
+<body>
+<!-- Cover Page -->
+<div class="slide" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(135deg, #0a2a1f 0%, #071a12 100%); padding: 60px 40px;">
+    <div class="slide-footer" style="position: absolute; bottom: 20px; left: 0; right: 0;">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <!-- Logo Image -->
+    <div style="width: 120px; height: 120px; margin-bottom: 30px;">
+        <img src="Qeleme_Exams.png" alt="Qeleme Exams Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; box-shadow: 0 20px 35px -8px rgba(0,0,0,0.4), 0 0 0 4px rgba(91,192,168,0.2);">
+    </div>
+    
+    <!-- App Name -->
+    <div style="margin-bottom: 20px;">
+        <span style="font-size: 1.2rem; font-weight: 500; color: #5bc0a8; letter-spacing: 4px; text-transform: uppercase;">Qeleme Exams</span>
+    </div>
+    
+    <!-- Badge -->
+    <div style="background: rgba(245, 215, 66, 0.15); padding: 6px 20px; border-radius: 30px; margin-bottom: 15px; border: 1px solid rgba(245, 215, 66, 0.3);">
+        <span style="font-size: 0.7rem; color: #f5d742; letter-spacing: 2px; text-transform: uppercase;">Addis Ababa University</span>
+    </div>
+    
+    <!-- Main Title -->
+    <h1 style="font-size: 2.6rem; font-weight: 800; color: #f5d742; margin: 10px 0 5px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); letter-spacing: -0.5px;">
+        QUANTITATIVE REASONING
+    </h1>
+    
+    <div style="width: 80px; height: 3px; background: #5bc0a8; margin: 15px auto;"></div>
+    
+    <h2 style="font-size: 1.8rem; font-weight: 600; color: #ffffff; margin: 5px 0 20px 0; border-left: none; padding-left: 0;">
+        Problems on Ages
+    </h2>
+    
+    <div style="background: rgba(91,192,168,0.15); padding: 10px 28px; border-radius: 50px; margin-bottom: 30px; border: 1px solid rgba(91,192,168,0.3);">
+        <span style="font-size: 1rem; color: #9bc7bb; letter-spacing: 1px;">UAT Preparation Study Note</span>
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <span style="font-size: 0.85rem; color: #9bc7bb;">Instructor: <strong style="color: #f5d742;">Mr. Dagim</strong></span>
+    </div>
+    
+    <!-- Buttons Section -->
+    <div style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center;">
+          <a href="https://play.google.com/store/apps/details?id=com.qeleme.exams" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #5bc0a8, #3a8a76); color: #ffffff; text-decoration: none; padding: 10px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(91,192,168,0.3); border: none; cursor: pointer;">
+        <span style="font-size: 1.1rem;">📱</span>
+        Download App
+    </a>
+        <a href="https://t.me/keleme_2013" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #0088cc, #005f8a); color: #ffffff; text-decoration: none; padding: 10px 24px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,136,204,0.3); border: none; cursor: pointer;">
+            <!-- Telegram Icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            Join on Telegram
+        </a>
+    </div>
+    
+    <!-- Prepared by line -->
+    <div style="margin-top: 10px; padding-top: 25px; border-top: 1px solid rgba(91,192,168,0.3); width: 80%;">
+        <p style="font-size: 0.85rem; color: #9bc7bb; margin: 5px 0;">
+            <strong style="color: #f5d742;">Prepared by Qeleme Exams - Learn. Practice. Win</strong>
+        </p>
+        <p style="font-size: 0.75rem; color: #6a9e8e; margin-top: 8px;">
+            Comprehensive UAT Exam Preparation Resource
+        </p>
+    </div>
+    
+    <!-- Decorative dots -->
+    <div style="position: absolute; bottom: 80px; left: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+    <div style="position: absolute; top: 80px; right: 20px; opacity: 0.3;">
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+        <div style="width: 6px; height: 6px; background: #5bc0a8; border-radius: 50%; margin: 4px 0;"></div>
+    </div>
+</div>
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Problems on Ages</div>
+    <div class="subhead">UAT Exam Preparation | Quantitative Reasoning</div>
+
+    <!-- Introduction Section -->
+    <div style="background: #0f2c23; border-radius: 18px; padding: 16px 20px; margin-bottom: 16px; border-left: 4px solid #f5d742;">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px;">
+            <span style="background: #f5d742; color: #0a1f1a; font-weight: 700; padding: 2px 14px; border-radius: 30px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;">Hot Topic</span>
+            <span style="color: #9bc7bb; font-size: 0.85rem;">Appears in <span style="color: #ff8a7a; font-weight: 600;">every</span> last year UAT exam</span>
+        </div>
+        <p style="margin-top: 8px; font-size: 0.95rem; color: #ffffff; line-height: 1.5;">
+            Problems on Ages questions involve <span class="blue-highlight">past</span>, <span class="orange-highlight">present</span>, and <span class="red-highlight">future</span> time periods. 
+            Once you understand how ages change over time → these questions become <span class="blue-highlight">very easy to solve</span>.
+        </p>
+    </div>
+
+
+
+    <!-- What Are Age Problems? -->
+    <h2 style="margin-top: 4px; margin-bottom: 8px;">What Are Age Problems?</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+        <div style="background: #0f2c23; border-radius: 14px; padding: 14px 16px; border: 1px solid #2a5a4a;">
+            <p style="font-size: 0.9rem; color: #ffffff; margin: 0 0 10px 0; line-height: 1.5;">
+                Age problems ask you to determine the age of one or more people using clues about:
+            </p>
+            <ul class="bullet-list" style="margin: 0; font-size: 0.9rem;">
+                <li><span class="blue-highlight">Present age</span> → current age of a person</li>
+                <li><span class="orange-highlight">Past age</span> → age at some earlier time</li>
+                <li><span class="red-highlight">Future age</span> → age at some later time</li>
+                <li><span class="blue-highlight">Age difference</span> → gap between two people's ages</li>
+                <li><span class="orange-highlight">Ratio of ages</span> → proportional relationship between ages</li>
+                <li><span class="red-highlight">Sum of ages</span> → total when ages are added together</li>
+            </ul>
+            <p style="font-size: 0.9rem; color: #ffffff; margin: 10px 0 0 0; line-height: 1.5;">
+                Translate given clues into <span class="blue-highlight">equations</span> and solve for unknown ages.
+            </p>
+        </div>
+        <div style="background: #0f2c23; border-radius: 14px; padding: 16px 18px; border: 1px solid #2a5a4a; display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-size: 0.75rem; color: #9bc7bb; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin-bottom: 10px;">Key Formulas</div>
+            
+            <div style="background: #0a241d; border-radius: 10px; padding: 10px 14px; border-left: 4px solid #5bc0a8; margin-bottom: 8px;">
+                <div style="font-size: 0.8rem; color: #9bc7bb;">Present age → Future age</div>
+                <div style="font-size: 1.05rem; color: #ffffff; font-weight: 500; padding: 4px 0;">
+                    $y = x + n$
+                </div>
+                <div style="font-size: 0.7rem; color: #6a9e8e;">
+                    where $x$ = present age, $n$ = years later, and $y$ = future age
+                </div>
+            </div>
+
+            <div style="background: #0a241d; border-radius: 10px; padding: 10px 14px; border-left: 4px solid #f5d742; margin-bottom: 8px;">
+                <div style="font-size: 0.8rem; color: #9bc7bb;">Present age → Past age</div>
+                <div style="font-size: 1.05rem; color: #ffffff; font-weight: 500; padding: 4px 0;">
+                    $z = x - m$
+                </div>
+                <div style="font-size: 0.7rem; color: #6a9e8e;">
+                    where $x$ = present age, $m$ = years ago, and $z$ = past age
+                </div>
+            </div>
+
+            <div style="background: #0a241d; border-radius: 10px; padding: 10px 14px; border-left: 4px solid #ff8a7a;">
+                <div style="font-size: 0.8rem; color: #9bc7bb;">Age difference (constant)</div>
+                <div style="font-size: 1.05rem; color: #ffffff; font-weight: 500; padding: 4px 0;">
+                    $A - B = A' - B'$
+                </div>
+                <div style="font-size: 0.7rem; color: #6a9e8e;">
+                    where $A, B$ = present ages, $A', B'$ = future ages
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	
+	
+	    <!-- The Secret - 3 Steps -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+        <div style="background: #0f2c23; border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid #2a5a4a; border-top: 3px solid #5bc0a8;">
+            <div style="font-size: 0.65rem; color: #5bc0a8; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Step 1</div>
+            <div style="font-weight: 700; color: #f5d742; font-size: 1rem; margin: 4px 0;">Understand</div>
+            <div style="font-size: 0.8rem; color: #ffffff; line-height: 1.4;">Relationship between people's ages</div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid #2a5a4a; border-top: 3px solid #f5d742;">
+            <div style="font-size: 0.65rem; color: #f5d742; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Step 2</div>
+            <div style="font-weight: 700; color: #f5d742; font-size: 1rem; margin: 4px 0;">Convert</div>
+            <div style="font-size: 0.8rem; color: #ffffff; line-height: 1.4;">Statements → mathematical equations</div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 14px; padding: 14px 12px; text-align: center; border: 1px solid #2a5a4a; border-top: 3px solid #ff8a7a;">
+            <div style="font-size: 0.65rem; color: #ff8a7a; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Step 3</div>
+            <div style="font-weight: 700; color: #f5d742; font-size: 1rem; margin: 4px 0;">Solve</div>
+            <div style="font-size: 0.8rem; color: #ffffff; line-height: 1.4;">Equations carefully</div>
+        </div>
+    </div>
+
+    <!-- Core Concept -->
+    <h2 style="margin-top: 4px; margin-bottom: 8px;">Core Concept</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 6px;">
+        <div style="background: #0f2c23; border-radius: 14px; padding: 14px 16px; border: 1px solid #2a5a4a;">
+            <ul class="bullet-list" style="margin: 0;">
+                <li>People grow older at the <span class="blue-highlight">same rate</span></li>
+                <li>Every year → everyone becomes <span class="orange-highlight">1 year older</span></li>
+                <li>The <span class="red-highlight">difference</span> between two people's ages <span class="blue-highlight">never changes</span></li>
+            </ul>
+            
+            <div style="margin-top: 12px; background: #0a241d; border-radius: 12px; padding: 12px 16px; border-left: 4px solid #5bc0a8;">
+                <div style="font-size: 0.8rem; color: #9bc7bb; font-weight: 600; margin-bottom: 6px;">Key Rule</div>
+                <div style="font-size: 1rem; color: #ffffff; font-weight: 500; padding: 4px 0;">
+                    $A_{\text{present}} - B_{\text{present}} = A_{\text{future}} - B_{\text{future}}$
+                </div>
+                <div style="font-size: 0.75rem; color: #9bc7bb; margin-top: 4px;">
+                    where $A_{\text{present}}$ = present age of person A, $B_{\text{present}}$ = present age of person B
+                </div>
+                <div style="font-size: 0.75rem; color: #6a9e8e; margin-top: 2px;">
+                    The age difference remains constant over time
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: #0f2c23; border-radius: 14px; padding: 14px 16px; border: 1px solid #2a5a4a;">
+            <div style="font-size: 0.8rem; color: #f5d742; font-weight: 600; margin-bottom: 8px;">Example</div>
+            
+            <div style="background: #0a241d; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px;">
+                <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #1a4036;">
+                    <span style="color: #ffffff;">A is <span class="blue-highlight">20</span> years old</span>
+                    <span style="color: #ffffff;">B is <span class="orange-highlight">15</span> years old</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #1a4036;">
+                    <span style="color: #9bc7bb;">Current difference:</span>
+                    <span style="color: #ffffff;">$20 - 15 = 5$</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #1a4036;">
+                    <span style="color: #9bc7bb;">After 10 years:</span>
+                    <span style="color: #ffffff;">A = <span class="blue-highlight">30</span>, B = <span class="orange-highlight">25</span></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 3px 0;">
+                    <span style="color: #9bc7bb;">New difference:</span>
+                    <span style="color: #ffffff;">$30 - 25 = 5$</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 8px; background: #1a4036; border-radius: 8px; padding: 6px 12px; text-align: center;">
+                <span style="color: #5bc0a8; font-weight: 600; font-size: 0.85rem;">The age difference remains constant</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Needed -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 10px;">
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 12px; text-align: center; border: 1px solid #2a5a4a;">
+            <div style="font-size: 0.6rem; color: #5bc0a8; text-transform: uppercase; letter-spacing: 0.5px;">Skill</div>
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.85rem;">Form Equations</div>
+            <div style="font-size: 0.7rem; color: #9bc7bb;">Translate words → math</div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 12px; text-align: center; border: 1px solid #2a5a4a;">
+            <div style="font-size: 0.6rem; color: #f5d742; text-transform: uppercase; letter-spacing: 0.5px;">Skill</div>
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.85rem;">Logical Reasoning</div>
+            <div style="font-size: 0.7rem; color: #9bc7bb;">Analyze relationships</div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 12px; text-align: center; border: 1px solid #2a5a4a;">
+            <div style="font-size: 0.6rem; color: #ff8a7a; text-transform: uppercase; letter-spacing: 0.5px;">Skill</div>
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.85rem;">Time Relationships</div>
+            <div style="font-size: 0.7rem; color: #9bc7bb;">Past, present, future</div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 12px; text-align: center; border: 1px solid #2a5a4a;">
+            <div style="font-size: 0.6rem; color: #ffb347; text-transform: uppercase; letter-spacing: 0.5px;">Skill</div>
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.85rem;">Basic Algebra</div>
+            <div style="font-size: 0.7rem; color: #9bc7bb;">Solve linear equations</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 12px; background: #0f2c23; border-radius: 14px; padding: 10px 18px; border: 1px solid #2a5a4a; text-align: center;">
+        <span style="color: #5bc0a8; font-weight: 600; font-size: 0.9rem;">Don't worry!</span>
+        <span style="color: #ffffff; font-size: 0.9rem;"> You only need </span>
+        <span style="color: #f5d742; font-weight: 600; font-size: 0.9rem;">simple algebra</span>
+        <span style="color: #ffffff; font-size: 0.9rem;"> for most UAT questions</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Problems on Ages</div>
+    <div class="subhead">Important Terminology and Concepts</div>
+
+    <!-- Introduction -->
+    <div style="background: #0f2c23; border-radius: 14px; padding: 12px 16px; margin-bottom: 14px; border-left: 4px solid #f5d742;">
+        <p style="font-size: 0.95rem; color: #ffffff; margin: 0; line-height: 1.5;">
+            Understanding these terms makes solving questions <span class="blue-highlight">much easier</span>.
+        </p>
+    </div>
+
+    <!-- 1. Present Age -->
+    <h2 style="margin-top: 2px; margin-bottom: 6px; font-size: 1.2rem;">1. Present Age</h2>
+    <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; margin-bottom: 10px; border: 1px solid #2a5a4a;">
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 0;">
+            The <span class="blue-highlight">current</span> age of a person.
+        </p>
+        <div style="margin-top: 6px; background: #0a241d; border-radius: 8px; padding: 8px 14px; border-left: 3px solid #5bc0a8;">
+            <span style="color: #9bc7bb; font-size: 0.8rem;">Example</span>
+            <p style="font-size: 0.9rem; color: #ffffff; margin: 4px 0 0 0;">
+                If Abel is 18 years old today → <span class="blue-highlight">Present age = 18 years</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- 2. Future Age & 3. Past Age (Combined) -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px;">
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a;">
+            <h2 style="font-size: 1rem; margin: 0 0 4px 0; border-left: none; padding-left: 0;">2. Age After n Years</h2>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 0 0 6px 0;">
+                Age after $n$ years = Present age + $n$
+            </p>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; border-left: 3px solid #5bc0a8;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Example</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0;">
+                    Current age = 20, after 6 years = $20 + 6 = 26$
+                </p>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a;">
+            <h2 style="font-size: 1rem; margin: 0 0 4px 0; border-left: none; padding-left: 0;">3. Age Before n Years</h2>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 0 0 6px 0;">
+                Age before $n$ years = Present age − $n$
+            </p>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; border-left: 3px solid #f5d742;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Example</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0;">
+                    Current age = 25, 7 years ago = $25 - 7 = 18$
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Age Ratio -->
+    <h2 style="margin-top: 2px; margin-bottom: 6px; font-size: 1.2rem;">4. Age Ratio</h2>
+    <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; margin-bottom: 10px; border: 1px solid #2a5a4a;">
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 0 0 6px 0;">
+            A ratio compares the ages of two or more people.
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; border-left: 3px solid #ffb347;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Example</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0;">
+                    A = 24, B = 30 → $24 : 30 = 4 : 5$
+                </p>
+            </div>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; border-left: 3px solid #6bc8ff;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Converting Ratios</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0;">
+                    Ratio = 3 : 5 → A = $3x$, B = $5x$
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Constant Age Difference -->
+    <h2 style="margin-top: 2px; margin-bottom: 6px; font-size: 1.2rem;">5. Constant Age Difference</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 10px;">
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a;">
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 0 0 6px 0;">
+                The difference between two people's ages <span class="red-highlight">never changes</span>.
+            </p>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; text-align: center; border-left: 3px solid #ff8a7a;">
+                <div style="font-size: 1rem; color: #ffffff;">$A - B = A' - B'$</div>
+                <div style="font-size: 0.65rem; color: #6a9e8e;">difference remains constant</div>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a;">
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Example</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0; line-height: 1.5;">
+                    A = 40, B = 30 → $40 - 30 = 10$<br>
+                    After 15 years: 55 − 45 = 10
+                </p>
+            </div>
+            <div style="margin-top: 4px; background: #1a4036; border-radius: 4px; padding: 3px 10px; text-align: center;">
+                <span style="color: #5bc0a8; font-weight: 600; font-size: 0.75rem;">The difference stays the same forever</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Linear Equations & 7. Sum of Ages -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 6px;">
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a;">
+            <h2 style="font-size: 1rem; margin: 0 0 4px 0; border-left: none; padding-left: 0;">6. Linear Equations</h2>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; border-left: 3px solid #6bc8ff;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Example</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0; line-height: 1.5;">
+                    Abel is 4 years older than Biruk.<br>
+                    Let Biruk = $x$ → Abel = $x + 4$
+                </p>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a;">
+            <h2 style="font-size: 1rem; margin: 0 0 4px 0; border-left: none; padding-left: 0;">7. Sum of Ages</h2>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; border-left: 3px solid #ff8a7a;">
+                <span style="color: #9bc7bb; font-size: 0.7rem;">Example</span>
+                <p style="font-size: 0.85rem; color: #ffffff; margin: 2px 0 0 0; line-height: 1.5;">
+                    Sum of A and B = 40<br>
+                    If A = $x$ → B = $40 - x$
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Box -->
+    <div style="margin-top: 8px; background: #1a4036; border-radius: 12px; padding: 10px 16px; border: 1px solid #2a5a4a; text-align: center;">
+        <span style="color: #5bc0a8; font-weight: 600; font-size: 0.85rem;">Key Takeaway:</span>
+        <span style="color: #ffffff; font-size: 0.85rem;"> Almost every age problem becomes </span>
+        <span style="color: #f5d742; font-weight: 600; font-size: 0.85rem;">one or two simple equations</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Problems on Ages</div>
+    <div class="subhead">Types of Problems and Important Formulas</div>
+
+    <!-- Types of Age Problems -->
+    <h2 style="margin-top: 2px; margin-bottom: 8px;">Types of Age Problems</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #5bc0a8;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Type 1: Direct Age Questions</div>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 4px 0 0 0;">Find someone's present, past, or future age.</p>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #f5d742;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Type 2: Comparative Age Questions</div>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 4px 0 0 0;">Compare ages of two people (e.g., A is 6 years older than B, A is twice as old as B).</p>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #ffb347;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Type 3: Ratio Problems</div>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 4px 0 0 0;">Ages given in ratios (e.g., present ratio = 4:5, after 5 years = 5:6).</p>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #ff8a7a;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Type 4: Age Puzzle Questions</div>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 4px 0 0 0;">Involve several people and multiple time conditions.</p>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #6bc8ff; grid-column: 1 / -1;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Type 5: Mixed Problems</div>
+            <p style="font-size: 0.85rem; color: #ffffff; margin: 4px 0 0 0;">Age concepts combined with averages, percentages, or arithmetic.</p>
+        </div>
+    </div>
+
+
+
+    <!-- Important Formulas on Problems on Ages -->
+    <h2 style="margin-top: 2px; margin-bottom: 8px;">Important Formulas on Problems on Ages</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #5bc0a8;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Formula 1</div>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; margin-top: 4px;">
+                <div style="font-size: 1rem; color: #ffffff;">$n \times x$</div>
+                <div style="font-size: 0.8rem; color: #9bc7bb; margin-top: 2px;">If current age is $x$, then $n$ times the age is $nx$.</div>
+                <div style="font-size: 0.75rem; color: #6a9e8e; margin-top: 4px; background: #0a1f1a; border-radius: 4px; padding: 4px 10px;">
+                    Example: Age = 8, 3 times = $3 \times 8 = 24$ years
+                </div>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #f5d742;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Formula 2</div>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; margin-top: 4px;">
+                <div style="font-size: 1rem; color: #ffffff;">$x + n$</div>
+                <div style="font-size: 0.8rem; color: #9bc7bb; margin-top: 2px;">Age $n$ years later/hence = $x + n$.</div>
+                <div style="font-size: 0.75rem; color: #6a9e8e; margin-top: 4px; background: #0a1f1a; border-radius: 4px; padding: 4px 10px;">
+                    Example: Age = 15, after 7 years = $15 + 7 = 22$ years
+                </div>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #ffb347;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Formula 3</div>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; margin-top: 4px;">
+                <div style="font-size: 1rem; color: #ffffff;">$x - n$</div>
+                <div style="font-size: 0.8rem; color: #9bc7bb; margin-top: 2px;">Age $n$ years ago = $x - n$.</div>
+                <div style="font-size: 0.75rem; color: #6a9e8e; margin-top: 4px; background: #0a1f1a; border-radius: 4px; padding: 4px 10px;">
+                    Example: Age = 30, 12 years ago = $30 - 12 = 18$ years
+                </div>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #ff8a7a;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Formula 4</div>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; margin-top: 4px;">
+                <div style="font-size: 1rem; color: #ffffff;">$a : b = ax : bx$</div>
+                <div style="font-size: 0.8rem; color: #9bc7bb; margin-top: 2px;">Ages in ratio $a : b$ will be $ax$ and $bx$.</div>
+                <div style="font-size: 0.75rem; color: #6a9e8e; margin-top: 4px; background: #0a1f1a; border-radius: 4px; padding: 4px 10px;">
+                    Example: Ratio 3:5 → ages = $3x$ and $5x$ years
+                </div>
+            </div>
+        </div>
+        <div style="background: #0f2c23; border-radius: 12px; padding: 10px 14px; border: 1px solid #2a5a4a; border-left: 4px solid #6bc8ff; grid-column: 1 / -1;">
+            <div style="font-weight: 600; color: #f5d742; font-size: 0.9rem;">Formula 5</div>
+            <div style="background: #0a241d; border-radius: 6px; padding: 6px 12px; margin-top: 4px;">
+                <div style="font-size: 1rem; color: #ffffff;">$\frac{x}{n}$</div>
+                <div style="font-size: 0.8rem; color: #9bc7bb; margin-top: 2px;">$\frac{1}{n}$ of the age = $\frac{x}{n}$.</div>
+                <div style="font-size: 0.75rem; color: #6a9e8e; margin-top: 4px; background: #0a1f1a; border-radius: 4px; padding: 4px 10px;">
+                    Example: Age = 24, $\frac{1}{3}$ of age = $\frac{24}{3} = 8$ years
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="slide">
+    <div class="slide-footer">© All Rights Reserved | Qeleme Exams App</div>
+    
+    <div class="slide-title">Solved Exams</div>
+    <div class="subhead"></div>
+
+    <!-- ALL QUESTIONS SECTION -->
+    <h2 style="margin-top: 2px; margin-bottom: 8px; font-size: 1.2rem; color: #f5d742; border-left: 3px solid #f5d742; padding-left: 12px;">Questions</h2>
+
+    <!-- Question 1 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #5bc0a8;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #5bc0a8; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q1</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            Father is aged three times more than his son Dawit. After 8 years, he would be two and a half times of Dawit's age. After further 8 years, how many times would he be of Dawit's age?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">2 times</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">$2\frac{1}{2}$ times</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">$2\frac{3}{4}$ times</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">3 times</span></div>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #f5d742;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #f5d742; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q2</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            The sum of ages of 5 children born at the intervals of 3 years each is 50 years. What is the age of the youngest child?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">4 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">8 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">10 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">None of these</span></div>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #ffb347;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #ffb347; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q3</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            A father said to his son, "I was as old as you are at the present at the time of your birth". If the father's age is 38 years now, the son's age five years back was:
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">14 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">19 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">33 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">38 years</span></div>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #ff8a7a;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #ff8a7a; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q4</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            A is two years older than B who is twice as old as C. If the total of the ages of A, B and C be 27, then how old is B?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">7</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">8</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">9</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">10</span></div>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #6bc8ff;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #6bc8ff; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q5</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            Present ages of Abel and Hana are in the ratio of 5 : 4 respectively. Three years hence, the ratio of their ages will become 11 : 9 respectively. What is Hana's present age in years?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">24</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">27</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">40</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">Cannot be determined</span></div>
+        </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #5bc0a8;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #5bc0a8; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q6</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            A man is 24 years older than his son. In two years, his age will be twice the age of his son. The present age of his son is:
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">14 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">18 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">20 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">22 years</span></div>
+        </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #f5d742;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #f5d742; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q7</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            Six years ago, the ratio of the ages of Selam and Hana was 6 : 5. Four years hence, the ratio of their ages will be 11 : 10. What is Hana's age at present?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">16 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">18 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">Cannot be determined</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">None of these</span></div>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #ffb347;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #ffb347; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q8</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            The sum of the present ages of a father and his son is 60 years. Six years ago, father's age was five times the age of the son. After 6 years, son's age will be:
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">12 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">14 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">18 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">20 years</span></div>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; border: 1px solid #2a5a4a; border-left: 4px solid #ff8a7a;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #ff8a7a; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q9</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            At present, the ratio between the ages of Dawit and Selam is 4 : 3. After 6 years, Dawit's age will be 26 years. What is the age of Selam at present?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">12 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">15 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">19 and half</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">21 years</span></div>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div style="background: #0f2c23; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; border: 1px solid #2a5a4a; border-left: 4px solid #6bc8ff;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+            <span style="background: #6bc8ff; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.65rem; text-transform: uppercase;">Q10</span>
+        </div>
+        <p style="font-size: 0.9rem; color: #ffffff; margin: 2px 0 6px 0; line-height: 1.5;">
+            Dawit is younger than Selam by 7 years. If their ages are in the respective ratio of 7 : 9, how old is Dawit?
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 16px; background: #0a1f1a; border-radius: 4px; padding: 4px 12px;">
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">A.</span><span style="color: #ffffff; font-size: 0.85rem;">16 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">B.</span><span style="color: #ffffff; font-size: 0.85rem;">18 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">C.</span><span style="color: #ffffff; font-size: 0.85rem;">28 years</span></div>
+            <div style="display: flex; align-items: center; gap: 6px; padding: 2px 0;"><span style="color: #5bc0a8; font-weight: 600; font-size: 0.8rem; min-width: 16px;">D.</span><span style="color: #ffffff; font-size: 0.85rem;">24.5 years</span></div>
+        </div>
+    </div>
+
+    <!-- ALL SOLUTIONS SECTION -->
+    <h2 style="margin-top: 4px; margin-bottom: 10px; font-size: 1.2rem; color: #f5d742; border-left: 3px solid #5bc0a8; padding-left: 12px;">Solutions</h2>
+
+    <!-- Solution 1 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #5bc0a8;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #5bc0a8; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S1</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: A. 2 times</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let Dawit's present age = $x$<br><br>
+        Father's present age = $x + 3x = 4x$<br><br>
+        After 8 years:<br>
+        $4x + 8 = \frac{5}{2}(x + 8)$<br><br>
+        $2(4x + 8) = 5(x + 8)$<br><br>
+        $8x + 16 = 5x + 40$<br><br>
+        $3x = 24$<br><br>
+        $x = 8$<br><br>
+        After further 8 years (16 years from now):<br>
+        Father's age = $4(8) + 16 = 48$<br><br>
+        Dawit's age = $8 + 16 = 24$<br><br>
+        Required ratio = $\frac{48}{24} = 2$
+    </div>
+
+    <!-- Solution 2 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #f5d742;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #f5d742; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S2</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: A. 4 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let the ages of children be:<br>
+        $x, x+3, x+6, x+9, x+12$<br><br>
+        Sum of ages = 50<br><br>
+        $x + (x+3) + (x+6) + (x+9) + (x+12) = 50$<br><br>
+        $5x + 30 = 50$<br><br>
+        $5x = 20$<br><br>
+        $x = 4$<br><br>
+        Age of the youngest child = 4 years
+    </div>
+
+    <!-- Solution 3 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #ffb347;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #ffb347; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S3</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: A. 14 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let the son's present age = $x$<br><br>
+        At the time of son's birth, father's age = $38 - x$<br><br>
+        According to the statement:<br>
+        $38 - x = x$<br><br>
+        $2x = 38$<br><br>
+        $x = 19$<br><br>
+        Son's age 5 years back = $19 - 5 = 14$ years
+    </div>
+
+    <!-- Solution 4 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #ff8a7a;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #ff8a7a; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S4</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: D. 10 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let C's age = $x$<br><br>
+        B's age = $2x$<br><br>
+        A's age = $2x + 2$<br><br>
+        Sum of ages = 27<br><br>
+        $(2x + 2) + 2x + x = 27$<br><br>
+        $5x + 2 = 27$<br><br>
+        $5x = 25$<br><br>
+        $x = 5$<br><br>
+        B's age = $2(5) = 10$ years
+    </div>
+
+    <!-- Solution 5 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #6bc8ff;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #6bc8ff; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S5</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: A. 24 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let Abel's present age = $5x$<br>
+        Hana's present age = $4x$<br><br>
+        After 3 years:<br>
+        $\frac{5x+3}{4x+3} = \frac{11}{9}$<br><br>
+        $9(5x+3) = 11(4x+3)$<br><br>
+        $45x + 27 = 44x + 33$<br><br>
+        $x = 6$<br><br>
+        Hana's present age = $4(6) = 24$ years
+    </div>
+
+    <!-- Solution 6 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #5bc0a8;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #5bc0a8; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S6</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: D. 22 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let son's present age = $x$<br><br>
+        Man's present age = $x + 24$<br><br>
+        After 2 years:<br>
+        $(x+24) + 2 = 2(x+2)$<br><br>
+        $x + 26 = 2x + 4$<br><br>
+        $x = 22$ years
+    </div>
+
+    <!-- Solution 7 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #f5d742;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #f5d742; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S7</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: A. 16 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let ages of Selam and Hana 6 years ago be $6x$ and $5x$<br><br>
+        Present ages:<br>
+        Selam = $6x + 6$<br>
+        Hana = $5x + 6$<br><br>
+        Four years hence:<br>
+        $\frac{6x+10}{5x+10} = \frac{11}{10}$<br><br>
+        $10(6x+10) = 11(5x+10)$<br><br>
+        $60x + 100 = 55x + 110$<br><br>
+        $5x = 10$<br><br>
+        $x = 2$<br><br>
+        Hana's present age = $5(2) + 6 = 16$ years
+    </div>
+
+    <!-- Solution 8 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #ffb347;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #ffb347; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S8</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: D. 20 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let son's present age = $x$<br>
+        Father's present age = $60 - x$<br><br>
+        Six years ago:<br>
+        $(60-x) - 6 = 5(x-6)$<br><br>
+        $54 - x = 5x - 30$<br><br>
+        $6x = 84$<br><br>
+        $x = 14$<br><br>
+        Son's age after 6 years = $14 + 6 = 20$ years
+    </div>
+
+    <!-- Solution 9 -->
+    <div class="math-block" style="margin-bottom: 8px; border-left: 4px solid #ff8a7a;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #ff8a7a; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S9</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: B. 15 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let Dawit's present age = $4x$<br>
+        Selam's present age = $3x$<br><br>
+        After 6 years:<br>
+        $4x + 6 = 26$<br><br>
+        $4x = 20$<br><br>
+        $x = 5$<br><br>
+        Selam's present age = $3(5) = 15$ years
+    </div>
+
+    <!-- Solution 10 -->
+    <div class="math-block" style="margin-bottom: 6px; border-left: 4px solid #6bc8ff;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="background: #6bc8ff; color: #0a1f1a; font-weight: 700; padding: 0px 12px; border-radius: 30px; font-size: 0.6rem; text-transform: uppercase;">S10</span>
+            <span style="color: #f5d742; font-size: 0.8rem; font-weight: 600;">Answer: D. 24.5 years</span>
+        </div>
+        <strong>Solution:</strong><br><br>
+        Let Selam's age = $x$<br>
+        Dawit's age = $x - 7$<br><br>
+        According to the ratio:<br>
+        $\frac{x-7}{x} = \frac{7}{9}$<br><br>
+        $9(x-7) = 7x$<br><br>
+        $9x - 63 = 7x$<br><br>
+        $2x = 63$<br><br>
+        $x = 31.5$<br><br>
+        Dawit's age = $31.5 - 7 = 24.5$ years
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                throwOnError: false
+            });
+        }
+    });
+</script>
+</body>
+</html>
